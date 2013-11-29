@@ -4,6 +4,7 @@ import flash.display.Sprite;
 import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
+import flash.system.Capabilities;
 
 [SWF(frameRate="60")]
 public class Main extends Sprite {
@@ -15,8 +16,6 @@ public class Main extends Sprite {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
 
-        // Preloading
-
         // Initialisation of the app
         init();
 
@@ -24,8 +23,16 @@ public class Main extends Sprite {
         stage.addEventListener(Event.RESIZE, resizeHandler);
 
         // Retina recognition & adaption
+            // iPhone with retina
+            if(Capabilities.screenDPI == 264){
 
-        // Full screen handling
+            }
+
+            // iPhone without retina
+            if(Capabilities.screenResolutionY == 1024){
+
+            }
+
     }
 
     public function init():void{
