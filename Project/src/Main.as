@@ -15,11 +15,17 @@ public class Main extends Sprite {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
 
+        // Preloading
+
         // Initialisation of the app
         init();
 
         // Resizehandler, case the user rotates his iPhone
         stage.addEventListener(Event.RESIZE, resizeHandler);
+
+        // Retina recognition & adaption
+
+        // Full screen handling
     }
 
     public function init():void{
