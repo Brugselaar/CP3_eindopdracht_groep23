@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="Project">
     <configurations>
-      <configuration name="Project" target-platform="Mobile" pure-as="true" main-class="Project" output-file="Project.swf" output-folder="$MODULE_DIR$/out/production/Project">
+      <configuration name="Project" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Project.swf" output-folder="$MODULE_DIR$/out/production/Project">
         <dependencies target-player="11.1">
           <sdk name="flex_sdk_4.6" />
         </dependencies>
