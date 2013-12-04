@@ -10,9 +10,6 @@ import flash.system.Capabilities;
 
 import starling.core.Starling;
 
-
-// TEST OF ARNO KAN COMMITTEN
-
 [SWF(frameRate="60")]
 public class Main extends Sprite {
 
@@ -24,7 +21,6 @@ public class Main extends Sprite {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
 
-        //ietske
         // Initialisation of the app
         init();
 
