@@ -24,6 +24,7 @@ public class Main extends Sprite {
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
 
+        //ietske
         // Initialisation of the app
         init();
 
