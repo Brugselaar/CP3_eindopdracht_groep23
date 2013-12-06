@@ -10,7 +10,7 @@ package be.devine.stars.text {
 			
 		}
 		
-		//Methods - Functies
+		//Methods - Functies    d
 				
 	}
 }
