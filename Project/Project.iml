@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="Project">
+  <component name="FlexBuildConfigurationManager" active="Unnamed">
     <configurations>
-      <configuration name="Project" target-platform="Mobile" pure-as="true" main-class="Main" output-file="Project.swf" output-folder="$MODULE_DIR$/out/production/Project">
-        <dependencies target-player="11.1">
+      <configuration target-platform="Mobile" pure-as="true" output-file=".swf">
+        <dependencies>
           <sdk name="flex_sdk_4.6" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
-        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Main-app.xml" package-file-name="Project" />
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/Main-app.xml" package-file-name="Project" />
+        <packaging-android enabled="true" package-file-name="Unnamed" />
+        <packaging-ios enabled="true" package-file-name="Unnamed" />
       </configuration>
     </configurations>
     <compiler-options />
