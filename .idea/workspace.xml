@@ -5,7 +5,7 @@
     <ignored path="CP3_eindopdracht_groep23.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Main.as" changelist="de878d05-f96e-40ca-a880-a55d2f4ca477" time="1386165225325" ignored="false" />
-    <file path="/fragment.js2" changelist="de878d05-f96e-40ca-a880-a55d2f4ca477" time="1386251910720" ignored="false" />
+    <file path="/fragment.js2" changelist="de878d05-f96e-40ca-a880-a55d2f4ca477" time="1386282217185" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,19 +66,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Conversion.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Conversion.as">
+      <file leaf-file-name="Appmodel.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Appmodel.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="8" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
+            <state line="8" column="13" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.as" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/src/Main.as">
+      <file leaf-file-name="ConversionInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ConversionInfo.as">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="30" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ConversionItem.as" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ConversionItem.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="34" selection-start="301" selection-end="301" vertical-scroll-proportion="0.14117648">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HistoryInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/HistoryInfo.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="21" selection-start="261" selection-end="324" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HistoryItem.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/HistoryItem.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="34" selection-start="261" selection-end="296" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileInfo.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ProfileInfo.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="62" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileItem.as" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ProfileItem.as">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="0" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -93,10 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main-app.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Main-app.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project/Main-app.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9058295">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -122,6 +167,14 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Project/src/Main.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Conversion.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Appmodel.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/HistoryItem.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/HistoryInfo.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ProfileItem.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ProfileInfo.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ConversionInfo.as" />
+        <option value="$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ConversionItem.as" />
       </list>
     </option>
   </component>
@@ -192,6 +245,64 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CP3_eindopdracht_groep23" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="starling" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CP3_eindopdracht_groep23" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CP3_eindopdracht_groep23" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -213,6 +324,12 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="be.devine.cp3.conversion.view.data" />
+      <recent name="be.devine.cp3.conversion.view" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -345,7 +462,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32957748" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -355,7 +472,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964131" sideWeight="0.67042255" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -427,55 +544,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Conversion.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/src/Main.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="29" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/Project.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Conversion.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="8" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/src/Main.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="83" selection-start="865" selection-end="865" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Conversion.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/src/Main.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="252" selection-end="252" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Project/Project.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -493,7 +561,9 @@
     <entry file="file://$PROJECT_DIR$/Project/src/Main.as">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="10" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="e#11#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -504,23 +574,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Conversion.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="8" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Project/Project.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="7" selection-start="341" selection-end="342" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/src/Main.as">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="30" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -534,7 +590,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/Main-app.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9058295">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/Main.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="36" selection-start="831" selection-end="832" vertical-scroll-proportion="-1.8846154">
+          <folding>
+            <element signature="e#11#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Conversion.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="8" selection-start="336" selection-end="336" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/Appmodel.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="13" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ProfileItem.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ProfileInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="62" selection-start="323" selection-end="323" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/HistoryInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="21" selection-start="261" selection-end="324" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ConversionInfo.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="337" selection-end="337" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/HistoryItem.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="34" selection-start="261" selection-end="296" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/src/be/devine/cp3/conversion/view/data/ConversionItem.as">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="34" selection-start="301" selection-end="301" vertical-scroll-proportion="0.14117648">
           <folding />
         </state>
       </provider>
