@@ -1,4 +1,4 @@
-package be.devine.stars.text {
+package be.devine.cp3.utils.text {
 	import flash.text.TextFormat;
 	
 	public class Textformats {
