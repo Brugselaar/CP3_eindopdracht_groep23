@@ -5,13 +5,11 @@ package be.devine.cp3.utils.text {
 	
 	
 	public class TextfieldUtil {
-		// Properties - Variabelen
-		
-		// Constructor - Uitvoeren
+
 		public function TextfieldUtil() {
+
 		}
-		
-		//Methods - Functies
+
 		public static function createTextField( tf:TextFormat, text:String ):TextField {
 			var textField:TextField = new TextField();
 			textField.autoSize = TextFieldAutoSize.LEFT;

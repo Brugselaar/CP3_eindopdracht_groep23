@@ -3,14 +3,11 @@ package be.devine.cp3.utils.text {
 	
 	
 	public class FontUtil {
-		// Properties - Variabelen
-		
-		// Constructor - Uitvoeren
+
 		public function FontUtil() {
 			
 		}
-		
-		//Methods - Functies
+
 		public static function showEmbeddedFonts():void {
 			trace("[FontUtil] Start with looping through embedded fonts");
 			trace("[FontUtil] Found " + Font.enumerateFonts().length + " embedded fonts...");
