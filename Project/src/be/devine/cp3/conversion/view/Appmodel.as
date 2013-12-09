@@ -7,7 +7,10 @@
  */
 package be.devine.cp3.conversion.view {
 public class Appmodel {
+    public var formuleItems:Array = [];
+    public var historyItems:Array = [];
     public function Appmodel() {
+
     }
 }
 }
