@@ -1,6 +1,8 @@
 package {
 
-import be.devine.cp3.conversion.view.Conversion;
+import be.devine.cp3.conversion.view.Appmodel;
+import be.devine.cp3.conversion.view.services.FormuleService;
+import be.devine.cp3.conversion.view.view.Conversion;
 
 import flash.display.Sprite;
 import flash.display.StageAlign;
@@ -13,6 +15,7 @@ import starling.core.Starling;
 [SWF(frameRate="60")]
 public class Main extends Sprite {
 
+    private var _appModel:Appmodel;
     private var _starling:Starling;
 
     // Building the app
@@ -45,6 +48,7 @@ public class Main extends Sprite {
 
         // Initialise Starling
         _starling.start();
+
     }
 
     public function resizeHandler(event:Event):void{
