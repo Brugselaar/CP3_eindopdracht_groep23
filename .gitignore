@@ -1,6 +1,7 @@
 Project/.idea
-Project/Project.iml
+Project/*.iml
+Project/out/
+Project/.DS_Store
 .DS_Store
 .idea
 *.iml
-out/
