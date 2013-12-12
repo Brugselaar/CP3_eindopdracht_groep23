@@ -5,15 +5,13 @@
  * Time: 14:13
  * To change this template use File | Settings | File Templates.
  */
-package be.devine.cp3.conversion.view.services {
-import be.devine.cp3.conversion.view.Appmodel;
-
+package be.devine.cp3.services {
+import flash.display.Sprite;
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 
-public class FormuleService {
-    private var _appModel:Appmodel;
+public class FormuleService extends Sprite{
     private var _f:File;
 
     public function FormuleService() {
