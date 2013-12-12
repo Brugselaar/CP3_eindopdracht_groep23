@@ -2,8 +2,7 @@ package be.devine.cp3.utils.text {
 	import flash.text.TextField;
 	import flash.text.TextFieldAutoSize;
 	import flash.text.TextFormat;
-	
-	
+
 	public class TextfieldUtil {
 
 		public function TextfieldUtil() {

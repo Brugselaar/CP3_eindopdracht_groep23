@@ -1,5 +1,4 @@
 package {
-
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.view.Conversion;
 

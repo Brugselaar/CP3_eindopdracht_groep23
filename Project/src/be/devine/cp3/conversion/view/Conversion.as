@@ -8,7 +8,7 @@
 package be.devine.cp3.conversion.view {
 
 
-import be.devine.cp3.services.FormuleService;
+import be.devine.cp3.conversion.services.FormuleService;
 
 import starling.display.Sprite;
 
