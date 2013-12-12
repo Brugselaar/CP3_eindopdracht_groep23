@@ -52,6 +52,7 @@ public class FormuleService extends Sprite{
 
     public function writeMenuJSON(file:File):void{
         trace("[FormuleService] JSON File Path: " + file.nativePath);
+
         if(!file.exists) {
             var writeStream:FileStream = new FileStream();
 

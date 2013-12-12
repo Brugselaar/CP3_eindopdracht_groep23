@@ -26,6 +26,7 @@ public class ChoiceButton extends Sprite{
     private var _menuVO:MenuVO;
 
     public function ChoiceButton(menuVO:MenuVO) {
+        trace("[ChoiceButton] instance.");
 
         this._menuVO = menuVO;
 

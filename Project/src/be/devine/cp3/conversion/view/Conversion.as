@@ -7,13 +7,14 @@
  */
 package be.devine.cp3.conversion.view {
 
-
 import be.devine.cp3.conversion.services.FormuleService;
 import flash.filesystem.File;
+
 import starling.display.Sprite;
 
-public class Conversion extends Sprite{
+public class Conversion extends starling.display.Sprite{
     private var _service:FormuleService;
+    private var _menuView:MenuView;
 
     public function Conversion() {
         trace("[Conversion] started.");
@@ -25,6 +26,9 @@ public class Conversion extends Sprite{
 
         var selectedProfile:File = File.applicationStorageDirectory.resolvePath("FTC_selectedProfile.json");
         _service.changeSelectedProfile(selectedProfile, 1);
+
+        _menuView = new MenuView();
+        addChild(_menuView);
     }
 }
 }

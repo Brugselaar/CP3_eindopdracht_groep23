@@ -13,6 +13,7 @@ public class MenuVO {
     public var textColor:uint;
 
     public function MenuVO() {
+        trace("[MenuVO] instance.");
     }
 }
 }

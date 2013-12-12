@@ -6,10 +6,18 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.model {
-public class Appmodel {
+import be.devine.cp3.conversion.view.MenuView;
+
+public class Appmodel{
     public var formuleItems:Array = [];
     public var historyItems:Array = [];
+
     public function Appmodel() {
+        trace("[AppModel] started.");
+    }
+
+    // close app
+    public function destroy():void{
 
     }
 }

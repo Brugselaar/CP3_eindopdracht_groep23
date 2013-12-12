@@ -10,7 +10,7 @@ import flash.system.Capabilities;
 
 import starling.core.Starling;
 
-[SWF(frameRate="60")]
+[SWF(frameRate="60", backgroundColor="0xf9cb14")]
 public class Main extends Sprite {
 
     private var _appModel:Appmodel;
@@ -46,7 +46,6 @@ public class Main extends Sprite {
 
         // Initialise Starling
         _starling.start();
-
     }
 
     public function resizeHandler(event:Event):void{
