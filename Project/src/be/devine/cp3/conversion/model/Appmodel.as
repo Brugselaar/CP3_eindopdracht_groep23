@@ -5,7 +5,7 @@
  * Time: 23:22
  * To change this template use File | Settings | File Templates.
  */
-package be.devine.cp3.conversion.view {
+package be.devine.cp3.conversion.model {
 public class Appmodel {
     public var formuleItems:Array = [];
     public var historyItems:Array = [];

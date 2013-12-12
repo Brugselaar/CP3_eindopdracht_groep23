@@ -5,7 +5,7 @@
  * Time: 21:09
  * To change this template use File | Settings | File Templates.
  */
-package be.devine.cp3.conversion.view.view {
+package be.devine.cp3.conversion.view {
 
 
 import be.devine.cp3.services.FormuleService;
