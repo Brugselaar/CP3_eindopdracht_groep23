@@ -1,7 +1,6 @@
 package {
 
 import be.devine.cp3.conversion.view.Appmodel;
-import be.devine.cp3.conversion.view.services.FormuleService;
 import be.devine.cp3.conversion.view.view.Conversion;
 
 import flash.display.Sprite;
