@@ -9,15 +9,22 @@ package be.devine.cp3.conversion.view {
 
 
 import be.devine.cp3.conversion.services.FormuleService;
-
+import flash.filesystem.File;
 import starling.display.Sprite;
 
 public class Conversion extends Sprite{
+    private var _service:FormuleService;
 
     public function Conversion() {
+        trace("[Conversion] started.");
 
-        var service:FormuleService = new FormuleService();
-        trace("[Conversion] App started.");
+        _service = new FormuleService();
+
+        var menu:File = File.applicationStorageDirectory.resolvePath("FTC_menu.json");
+        _service.writeMenuJSON(menu);
+
+        var selectedProfile:File = File.applicationStorageDirectory.resolvePath("FTC_selectedProfile.json");
+        _service.changeSelectedProfile(selectedProfile, 1);
     }
 }
 }

@@ -12,42 +12,93 @@ import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 
 public class FormuleService extends Sprite{
-    private var _f:File;
 
     public function FormuleService() {
-
-        this.parseJson();
+        trace("[FormuleService] started.");
     }
 
-    private function parseJson():void{
-        _f = File.applicationStorageDirectory.resolvePath("test.json");
-        trace("[Formules] JSON File Path: " + _f.nativePath);
-        if(!_f.exists) {
+    public function writeProfileJSON(file, id:uint, name:String, consumption:uint, selected:Boolean):void{
+        trace("[FormuleService] JSON File Path: " + file.nativePath);
+        if(!file.exists) {
             var writeStream:FileStream = new FileStream();
 
-            writeStream.open(_f, FileMode.WRITE);
+            writeStream.open(file, FileMode.WRITE);
             var dataToWrite:Array = [
                 {
-                    id: 1,
-                    name: "Price to Fuel",
-                    factoren: [["Super 98", 1.2], ["Diesel", 1.1]]
-                },
-                {
-                    id: 2,
-                    name: "Miles to Kilometer",
-                    factoren: [["kilometer", 1.60934]]
+                    id: id,
+                    name: name,
+                    consumption: consumption
                 }
             ];
 
             writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
             writeStream.close();
         }
+    }
+
+    // global function, works for all JSON
+    public function readJSON(file:File):void{
         var readStream:FileStream = new FileStream();
-        readStream.open(_f, FileMode.READ);
+        readStream.open(file, FileMode.READ);
         var dataString:String = readStream.readUTFBytes(readStream.bytesAvailable);
         readStream.close();
         var parsedData:Array = JSON.parse(dataString) as Array;
         trace(parsedData);
+    }
+
+    // ------------ WARNING!
+    // SETTINGS & MENU - These have NOT to be flexible
+    // Leave it as it is! (unless it needs fixing)
+
+    public function writeMenuJSON(file:File):void{
+        trace("[FormuleService] JSON File Path: " + file.nativePath);
+        if(!file.exists) {
+            var writeStream:FileStream = new FileStream();
+
+            writeStream.open(file, FileMode.WRITE);
+            var dataToWrite:Array = [
+                {
+                    id: 1,
+                    title: "Conversions",
+                    backgroundColor: 0x000000,
+                    textColor: 0xf9cb14
+                },
+                {
+                    id: 2,
+                    title: "History",
+                    backgroundColor: 0x000000,
+                    textColor: 0xf9cb14
+                },
+                {
+                    id: 3,
+                    title: "Profiles",
+                    backgroundColor: 0x000000,
+                    textColor: 0xf9cb14
+                }
+            ];
+
+            writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
+            writeStream.close();
+        }
+    }
+
+    // Here we save the current profile, when we keep it in the profiles JSON file then we have to edit two arrays
+    // each time the user changes profile, this way it's way easier for us and a faster alternative for the app.
+    public function changeSelectedProfile(file:File, id:uint):void{
+        trace("[FormuleService] JSON File Path: " + file.nativePath);
+        if(!file.exists) {
+            var writeStream:FileStream = new FileStream();
+
+            writeStream.open(file, FileMode.WRITE);
+            var dataToWrite:Array = [
+                {
+                    id: id
+                }
+            ];
+
+            writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
+            writeStream.close();
+        }
     }
 }
 }
