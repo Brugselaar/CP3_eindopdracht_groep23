@@ -42,14 +42,10 @@ public class JSONService extends Sprite{
     }
 
     // Function has to be altered to ADD a profileArray instead of just replacing the whole file
-<<<<<<< HEAD
-    public function writeProfileJSON(file, id:uint, name:String, consumption:uint):void{
-=======
     public function writeProfileJSON(file:File, name:String, consumption:uint=1/15):void{
         var dataToWrite:Array = [{id: 1, name: name, consumption: consumption}];
 
 
->>>>>>> 1e8cb60bc49ac815929bee761aa9c4a94bf4aa1e
         trace("[FormuleService] JSON File Path: " + file.nativePath);
         if(!file.exists) {
             var writeStream:FileStream = new FileStream();
@@ -58,10 +54,6 @@ public class JSONService extends Sprite{
 
             writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
             writeStream.close();
-<<<<<<< HEAD
-        }else{
-
-=======
         } else {
             var writeStream:FileStream = new FileStream();
             writeStream.open(file, FileMode.UPDATE);
@@ -70,7 +62,6 @@ public class JSONService extends Sprite{
             oldData.push(dataToWrite[0]);
             writeStream.writeUTFBytes(JSON.stringify(oldData));
             writeStream.close();
->>>>>>> 1e8cb60bc49ac815929bee761aa9c4a94bf4aa1e
         }
         trace(readJSON(file));
     }
