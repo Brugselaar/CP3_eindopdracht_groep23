@@ -21,10 +21,8 @@ public class Main extends Sprite {
     // Building the app
     public function Main() {
         trace("[Main] started.");
-        trace("[Main]" + stage.stageWidth);
-        trace("[Main]" + stage.stageHeight);
 
-        // scaling and alignment of app
+        // Scaling and alignment of app
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
 
@@ -36,20 +34,17 @@ public class Main extends Sprite {
 
         // Retina recognition & adaption
             // iPhone with retina
-            if(Capabilities.screenDPI == 264){
+            if(Capabilities.screenResolutionX == 640 || Capabilities.screenResolutionY == 960){
                 trace("[Main] retina.");
                 Utils.device = Utils.RETINA;
                 Utils.multiplicationFactor = 2;
             }
 
             // iPhone without retina
-            if(Capabilities.screenResolutionY == 1024){
+            if(Capabilities.screenResolutionY == 320){
                 trace("[Main] non-retina.");
                 Utils.device = Utils.NONRETINA;
             }
-        trace("[Main] after the rest.");
-        trace("[Main]" + stage.stageWidth);
-        trace("[Main]" + stage.stageHeight);
     }
 
     public function init():void{
@@ -75,12 +70,6 @@ public class Main extends Sprite {
             var p:Conversion = Starling.current.stage.getChildAt(0) as Conversion;
             p.resize(stage.stageWidth, stage.stageHeight);
         }
-        trace("[Main] resizeHandler no starling.");
-        trace("[Main]" + stage.stageWidth);
-        trace("[Main]" + stage.stageHeight);
-        trace("[Main] resizeHandler.");
-        trace("[Main]" + _starling.stage.stageWidth);
-        trace("[Main]" + _starling.stage.stageHeight);
     }
 }
 }
