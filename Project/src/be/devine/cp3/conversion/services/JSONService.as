@@ -92,29 +92,51 @@ public class JSONService extends Sprite{
 
                 },
                 {
-                    //GAAT NIET OMDAT HET VAN GEBRUIK AFHANGT
                     id: 2,
+                    title: "Price to Super 95",
+                    formula: 1/1.610,
+                    reverseTitle: "Fuel to price",
+                    reverseFormula: 1.610
+
+                },
+                {
+                    id: 3,
+                    title: "Price to Super 98",
+                    formula: 1/1.668,
+                    reverseTitle: "Fuel to price",
+                    reverseFormula: 1.668
+                },
+                {
+                    id: 4,
+                    title: "Price to LPG",
+                    formula: 1/0.726,
+                    reverseTitle: "Fuel to price",
+                    reverseFormula: 0.726
+                },
+                {
+                    //GAAT NIET OMDAT HET VAN GEBRUIK AFHANGT
+                    id: 5,
                     title: "Distance to fuel",
                     formula: 1/2,
                     reverseTitle: "Fuel to distance",
                     reverseFormula: 2/1
                 },
                 {
-                    id: 3,
+                    id: 6,
                     title: "Oil for Two-stroke fuel",
                     formula: 2/100,
                     reverseTitle: "Oil in Two-stroke fuel",
                     reverseFormula: 100/2
                 },
                 {
-                    id: 4,
+                    id: 7,
                     title: "Kilometers to miles",
                     formula: 1/1.60934,
                     reverseTitle: "Miles to kilometers",
                     reverseFormula: 1.60934
                 },
                 {
-                    id: 5,
+                    id: 8,
                     title: "Liters to gallons",
                     formula: 1/3.78541,
                     reverseTitle: "Gallons to liters",
