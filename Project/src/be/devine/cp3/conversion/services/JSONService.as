@@ -94,10 +94,10 @@ public class JSONService extends Sprite{
             var dataToWrite:Array = [
                 {
                     id: 1,
-                    title: "Price to fuel",
-                    formula: [{id:1, name:'Diesel', formula: 1/1.465}, {id:2, name:"Super 95", formula: 1/1.610}, {id:3, name:"Super 98", formula: 1/1.665}, {id:4, name:"LPG", formula: 1/0.726}],
+                    title: "Price to Diesel",
+                    formula: 1/1.465,
                     reverseTitle: "Fuel to price",
-                    reverseFormula: [{id:1, name:'Diesel', formula: 1.465}, {id:2, name:"Super 95", formula: 1.610}, {id:3, name:"Super 98", formula: 1.665}, {id:4, name:"LPG", formula: 0.726}]
+                    reverseFormula: 1.465
 
                 },
                 {
