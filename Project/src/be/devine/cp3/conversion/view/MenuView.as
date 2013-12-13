@@ -6,22 +6,37 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.view {
-import flash.display.Shape;
+import be.devine.cp3.conversion.utils.Utils;
 
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+
+import starling.display.Image;
 import starling.display.Sprite;
 
 public class MenuView extends starling.display.Sprite{
-    private var _logo:starling.display.Sprite;
+    private var _logoBitMapData:BitmapData;
+    private var _logo:Image;
 
     public function MenuView() {
         trace("[MenuView] started.");
 
-        _logo = new Sprite();
-        _logo.graphics.beginFill(0x000000);
-        _logo.graphics.drawCircle(0,0,175);
-        _logo.graphics.endFill();
-        addChild(_logo);
+        drawLogo();
+    }
 
+    private function drawLogo():void{
+        // Make Flash asset in SWC
+        var logo:Logo = new Logo();
+
+        // Make Bitmapdata
+        _logoBitMapData = new BitmapData(logo.width*Utils.multiplicationFactor, logo.height*Utils.multiplicationFactor, true, 0xFF0000);
+        _logoBitMapData.draw(logo);
+
+        _logo = Image.fromBitmap(new Bitmap(_logoBitMapData));
+        _logoBitMapData.dispose();
+        _logo.x = 0;
+        _logo.y = 0;
+        addChild(_logo);
     }
 }
 }

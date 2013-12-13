@@ -8,6 +8,10 @@
 package be.devine.cp3.conversion.utils {
 
 public class Utils {
+    public static const RETINA:String = "iPhone 5";
+    public static const NONRETINA:String = "old iPhone";
+
     public static var multiplicationFactor:uint = 1;
+    public static var device:String;
 }
 }

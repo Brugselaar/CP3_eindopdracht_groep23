@@ -1,5 +1,6 @@
 package {
 import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.utils.Utils;
 import be.devine.cp3.conversion.view.Conversion;
 
 import flash.display.Sprite;
@@ -11,6 +12,8 @@ import flash.system.Capabilities;
 import starling.core.Starling;
 
 [SWF(frameRate="60", backgroundColor="0xf9cb14")]
+// height is 960 for iphone 4
+// older iphones are 320x480
 public class Main extends Sprite {
 
     private var _appModel:Appmodel;
@@ -18,6 +21,8 @@ public class Main extends Sprite {
 
     // Building the app
     public function Main() {
+        trace("[Main] started.");
+
         // scaling and alignment of app
         stage.align = StageAlign.TOP_LEFT;
         stage.scaleMode = StageScaleMode.NO_SCALE;
@@ -31,12 +36,15 @@ public class Main extends Sprite {
         // Retina recognition & adaption
             // iPhone with retina
             if(Capabilities.screenDPI == 264){
-
+                trace("[Main] retina.");
+                Utils.device = Utils.RETINA;
+                Utils.multiplicationFactor = 2;
             }
 
             // iPhone without retina
             if(Capabilities.screenResolutionY == 1024){
-
+                trace("[Main] non-retina.");
+                Utils.device = Utils.NONRETINA;
             }
     }
 
