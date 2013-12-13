@@ -17,33 +17,62 @@ public class JSONService extends Sprite{
         trace("[FormuleService] started.");
     }
 
-    // Function has to be altered to ADD a profileArray instead of just replacing the whole file
-    public function writeProfileJSON(file, id:uint, name:String, consumption:uint, selected:Boolean):void{
+    public function writeHistoryJSON(file:File, conversion:String, input: Number, result:Number):void{
+        var dataToWrite:Array = [{id: 1, conversion: conversion, input: input, result: result}];
+
+
         trace("[FormuleService] JSON File Path: " + file.nativePath);
         if(!file.exists) {
             var writeStream:FileStream = new FileStream();
 
             writeStream.open(file, FileMode.WRITE);
-            var dataToWrite:Array = [
-                {
-                    id: id,
-                    name: name,
-                    consumption: consumption
-                }
-            ];
 
             writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
             writeStream.close();
+        } else {
+            var writeStream:FileStream = new FileStream();
+            writeStream.open(file, FileMode.UPDATE);
+            var oldData:Array = readJSON(file);
+            dataToWrite[0].id = oldData.length+1;
+            oldData.push(dataToWrite[0]);
+            writeStream.writeUTFBytes(JSON.stringify(oldData));
+            writeStream.close();
         }
+        trace(readJSON(file));
     }
 
-    public function readJSON(file:File):void{
+    // Function has to be altered to ADD a profileArray instead of just replacing the whole file
+    public function writeProfileJSON(file:File, name:String, consumption:uint=1/15):void{
+        var dataToWrite:Array = [{id: 1, name: name, consumption: consumption}];
+
+
+        trace("[FormuleService] JSON File Path: " + file.nativePath);
+        if(!file.exists) {
+            var writeStream:FileStream = new FileStream();
+
+            writeStream.open(file, FileMode.WRITE);
+
+            writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
+            writeStream.close();
+        } else {
+            var writeStream:FileStream = new FileStream();
+            writeStream.open(file, FileMode.UPDATE);
+            var oldData:Array = readJSON(file);
+            dataToWrite[0].id = oldData.length+1;
+            oldData.push(dataToWrite[0]);
+            writeStream.writeUTFBytes(JSON.stringify(oldData));
+            writeStream.close();
+        }
+        trace(readJSON(file));
+    }
+
+    public function readJSON(file:File):Array{
         var readStream:FileStream = new FileStream();
         readStream.open(file, FileMode.READ);
         var dataString:String = readStream.readUTFBytes(readStream.bytesAvailable);
         readStream.close();
         var parsedData:Array = JSON.parse(dataString) as Array;
-        trace(parsedData);
+        return parsedData;
     }
 
     public function writeConversionJSON(file:File):void{
@@ -57,11 +86,13 @@ public class JSONService extends Sprite{
                 {
                     id: 1,
                     title: "Price to fuel",
-                    formula: 1/2,
+                    formula: [{id:1, name:'Diesel', formula: 1/1.465}, {id:2, name:"Super 95", formula: 1/1.610}, {id:3, name:"Super 98", formula: 1/1.665}, {id:4, name:"LPG", formula: 1/0.726}],
                     reverseTitle: "Fuel to price",
-                    reverseFormula: 2/1
+                    reverseFormula: [{id:1, name:'Diesel', formula: 1.465}, {id:2, name:"Super 95", formula: 1.610}, {id:3, name:"Super 98", formula: 1.665}, {id:4, name:"LPG", formula: 0.726}]
+
                 },
                 {
+                    //GAAT NIET OMDAT HET VAN GEBRUIK AFHANGT
                     id: 2,
                     title: "Distance to fuel",
                     formula: 1/2,
@@ -71,24 +102,24 @@ public class JSONService extends Sprite{
                 {
                     id: 3,
                     title: "Oil for Two-stroke fuel",
-                    formula: 1/2,
+                    formula: 2/100,
                     reverseTitle: "Oil in Two-stroke fuel",
-                    reverseFormula: 2/1
+                    reverseFormula: 100/2
                 },
                 {
                     id: 4,
                     title: "Kilometers to miles",
-                    formula: 1/2,
+                    formula: 1/1.60934,
                     reverseTitle: "Miles to kilometers",
-                    reverseFormula: 2/1
+                    reverseFormula: 1.60934
                 },
                 {
                     id: 5,
                     title: "Liters to gallons",
-                    formula: 1/2,
+                    formula: 1/3.78541,
                     reverseTitle: "Gallons to liters",
-                    reverseFormula: 2/1
-                },
+                    reverseFormula: 3.78541
+                }
             ];
 
             writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
