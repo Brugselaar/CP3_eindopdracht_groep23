@@ -41,8 +41,9 @@ public class ChoiceButton extends Sprite{
         _textColor = textColor;
         _background = new Quad(Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor, _backgroundColor);
         _background.x = Utils.screenWidth/2 - _background.width/2;
-        _textField = new starling.text.TextField(Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor, _title, "Liberator", 40*Utils.divideFactor, _textColor);
+        _textField = new starling.text.TextField(Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor, _title, "Liberator", 44*Utils.divideFactor, _textColor);
         _textField.autoScale = true;
+        _textField.y = 20*Utils.divideFactor;
         _textField.vAlign = VAlign.CENTER;
         _textField.hAlign = HAlign.LEFT;
         _textField.x = 40*Utils.divideFactor;
