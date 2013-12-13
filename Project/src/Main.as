@@ -12,10 +12,9 @@ import flash.system.Capabilities;
 
 import starling.core.Starling;
 
-[SWF(frameRate="60", backgroundColor="0xf9cb14", width="640", height="960")]
+[SWF(frameRate="30", backgroundColor="0xf9cb14")]
 public class Main extends Sprite {
 
-    private var _appModel:Appmodel;
     private var _starling:Starling;
 
     // Building the app
@@ -34,16 +33,19 @@ public class Main extends Sprite {
 
         // Retina recognition & adaption
             // iPhone with retina
-            if(Capabilities.screenResolutionX == 640 || Capabilities.screenResolutionY == 960){
+            //Capabilities.screenResolutionX == 640 || Capabilities.screenResolutionY == 960
+            if(stage.stageWidth == 640){
                 trace("[Main] retina.");
                 Utils.device = Utils.RETINA;
-                Utils.multiplicationFactor = 2;
+                Utils.divideFactor = 1;
             }
 
             // iPhone without retina
-            if(Capabilities.screenResolutionY == 320){
+            //Capabilities.screenResolutionY == 320 || 
+            if(stage.stageWidth == 320){
                 trace("[Main] non-retina.");
                 Utils.device = Utils.NONRETINA;
+                Utils.divideFactor = 0.5;
             }
     }
 
@@ -64,6 +66,9 @@ public class Main extends Sprite {
         // Configure starling stage
         _starling.stage.stageWidth = stage.stageWidth;
         _starling.stage.stageHeight = stage.stageHeight;
+
+        Utils.screenHeight = stage.stageHeight;
+        Utils.screenWidth = stage.stageWidth;
 
         // Resize root class
         if(Starling.current.stage.numChildren !== 0){

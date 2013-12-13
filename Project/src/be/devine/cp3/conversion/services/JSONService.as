@@ -18,7 +18,7 @@ public class JSONService extends Sprite{
     }
 
     // Function has to be altered to ADD a profileArray instead of just replacing the whole file
-    public function writeProfileJSON(file, id:uint, name:String, consumption:uint, selected:Boolean):void{
+    public function writeProfileJSON(file, id:uint, name:String, consumption:uint):void{
         trace("[FormuleService] JSON File Path: " + file.nativePath);
         if(!file.exists) {
             var writeStream:FileStream = new FileStream();
@@ -34,6 +34,8 @@ public class JSONService extends Sprite{
 
             writeStream.writeUTFBytes(JSON.stringify(dataToWrite));
             writeStream.close();
+        }else{
+
         }
     }
 

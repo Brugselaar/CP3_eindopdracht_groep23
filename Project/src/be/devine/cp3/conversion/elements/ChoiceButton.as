@@ -31,15 +31,16 @@ public class ChoiceButton extends Sprite{
         _title = title;
         _backgroundColor = backgroundColor;
         _textColor = textColor;
-        _background = new Quad(440*Utils.multiplicationFactor, 70*Utils.multiplicationFactor, _backgroundColor);
-        _textField = new starling.text.TextField(440*Utils.multiplicationFactor, 70*Utils.multiplicationFactor, _title, "Liberator", 24*Utils.multiplicationFactor, _textColor);
+        _background = new Quad(Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor, _backgroundColor);
+        _background.x = Utils.screenWidth/2 - _background.width/2;
+        _textField = new starling.text.TextField(Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor, _title, "Liberator", 40*Utils.divideFactor, _textColor);
         _textField.autoScale = true;
         _textField.vAlign = VAlign.CENTER;
-        _textField.hAlign = HAlign.CENTER;
+        _textField.hAlign = HAlign.LEFT;
+        _textField.x = 40*Utils.divideFactor;
 
         addChild(_background);
         _background.y = 80;
-//        _background.x = stage.width/2 - _background.width/2;
         addChild(_textField);
         _textField.y = _background.y;
         trace("[ChoiceButton] added.");

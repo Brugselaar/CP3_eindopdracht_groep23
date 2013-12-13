@@ -22,14 +22,27 @@ public class MenuView extends starling.display.Sprite{
     public function MenuView() {
         trace("[MenuView] started.");
 
-//        drawLogo();
+        drawLogo();
 
         drawMenu();
     }
 
     private function drawMenu():void{
         var conversions:ChoiceButton = new ChoiceButton("Conversions");
+        conversions.y = 320*Utils.divideFactor;
         addChild(conversions);
+
+        var history:ChoiceButton = new ChoiceButton("History");
+        history.y = conversions.y + history.height + 20*Utils.divideFactor;
+        addChild(history);
+
+        var profiles:ChoiceButton = new ChoiceButton("Profiles");
+        profiles.y = history.y + history.height + 20*Utils.divideFactor;
+        addChild(profiles);
+
+        var terminate:ChoiceButton = new ChoiceButton("Close");
+        terminate.y = profiles.y + history.height + 20*Utils.divideFactor;
+        addChild(terminate);
     }
 
     private function drawLogo():void{
@@ -37,13 +50,16 @@ public class MenuView extends starling.display.Sprite{
         var logo:Logo = new Logo();
 
         // Make Bitmapdata
-        _logoBitMapData = new BitmapData(logo.width*Utils.multiplicationFactor, logo.height*Utils.multiplicationFactor, true, 0xFF0000);
+        _logoBitMapData = new BitmapData(logo.width, logo.height, true, 0xFF0000);
         _logoBitMapData.draw(logo);
 
         _logo = Image.fromBitmap(new Bitmap(_logoBitMapData));
         _logoBitMapData.dispose();
-        _logo.x = 0;
-        _logo.y = 0;
+        trace(Utils.divideFactor);
+        _logo.scaleX = Utils.divideFactor;
+        _logo.scaleY = Utils.divideFactor;
+        _logo.x = Utils.screenWidth/2 - _logo.width/2;
+        _logo.y = 60*Utils.divideFactor;
         addChild(_logo);
     }
 }
