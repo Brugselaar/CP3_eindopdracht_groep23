@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.view {
+import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.utils.Utils;
 
 import flash.display.Bitmap;
@@ -21,7 +22,14 @@ public class MenuView extends starling.display.Sprite{
     public function MenuView() {
         trace("[MenuView] started.");
 
-        drawLogo();
+//        drawLogo();
+
+        drawMenu();
+    }
+
+    private function drawMenu():void{
+        var conversions:ChoiceButton = new ChoiceButton("Conversions");
+        addChild(conversions);
     }
 
     private function drawLogo():void{

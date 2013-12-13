@@ -15,7 +15,7 @@ import starling.text.TextField;
 import starling.utils.HAlign;
 import starling.utils.VAlign;
 
-public class ChoiceButton extends Sprite{
+public class OldChoiceButton extends Sprite{
 
     private var _title:String;
     private var _textField:starling.text.TextField;
@@ -25,24 +25,22 @@ public class ChoiceButton extends Sprite{
     private var _textColor:uint;
     private var _menuVO:MenuVO;
 
-    public function ChoiceButton(title:String, backgroundColor:uint = 0x000000, textColor:uint = 0xf9cb14) {
+    public function OldChoiceButton(menuVO:MenuVO) {
         trace("[ChoiceButton] instance.");
 
-        _title = title;
-        _backgroundColor = backgroundColor;
-        _textColor = textColor;
-        _background = new Quad(440*Utils.multiplicationFactor, 70*Utils.multiplicationFactor, _backgroundColor);
-        _textField = new starling.text.TextField(440*Utils.multiplicationFactor, 70*Utils.multiplicationFactor, _title, "Liberator", 24*Utils.multiplicationFactor, _textColor);
+        this._menuVO = menuVO;
+
+        _title = this._menuVO.title;
+        _backgroundColor = this._menuVO.backgroundColor;
+        _textColor = this._menuVO.textColor;
+        _background = new Quad(1, 120*Utils.multiplicationFactor, _backgroundColor);
+        _textField = new starling.text.TextField(300*Utils.multiplicationFactor, 120*Utils.multiplicationFactor, _title, "Liberator", 60*Utils.multiplicationFactor, _textColor);
         _textField.autoScale = true;
         _textField.vAlign = VAlign.CENTER;
         _textField.hAlign = HAlign.CENTER;
 
         addChild(_background);
-        _background.y = 80;
-//        _background.x = stage.width/2 - _background.width/2;
         addChild(_textField);
-        _textField.y = _background.y;
-        trace("[ChoiceButton] added.");
     }
 
     public function destruct():void{
