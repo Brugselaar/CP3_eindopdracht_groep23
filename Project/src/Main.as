@@ -32,6 +32,7 @@ public class Main extends Sprite {
         stage.addEventListener(Event.RESIZE, resizeHandler);
 
         // Retina recognition & adaption
+<<<<<<< HEAD
             // iPhone with retina
             //Capabilities.screenResolutionX == 640 || Capabilities.screenResolutionY == 960
             if(stage.stageWidth == 640){
@@ -47,6 +48,23 @@ public class Main extends Sprite {
                 Utils.device = Utils.NONRETINA;
                 Utils.divideFactor = 0.5;
             }
+=======
+        // iPhone with retina
+        //Capabilities.screenResolutionX == 640 || Capabilities.screenResolutionY == 960
+        if(stage.stageWidth == 640){
+            trace("[Main] retina.");
+            Utils.device = Utils.RETINA;
+            Utils.divideFactor = 1;
+        }
+
+        // iPhone without retina
+        //Capabilities.screenResolutionY == 320 || 
+        if(stage.stageWidth == 320){
+            trace("[Main] non-retina.");
+            Utils.device = Utils.NONRETINA;
+            Utils.divideFactor = 0.5;
+        }
+>>>>>>> Made Screennavigator & made sure it all worked fine! :D
     }
 
     public function init():void{
