@@ -101,7 +101,6 @@ public class Conversion extends Sprite{
     private function resizeHandler(event:ResizeEvent):void {
         this.h = stage.stageHeight;
         this.w = stage.stageWidth;
-        trace("WATMAAAAN!");
         var huidigScreen:ICanBeViewed = _screenNavigator.activeScreen as ICanBeViewed;
         huidigScreen.resize(w, h);
     }
