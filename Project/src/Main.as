@@ -87,8 +87,8 @@ public class Main extends Sprite {
 
         // Resize root class
         if(Starling.current.stage.numChildren !== 0){
-            var p:Conversion = Starling.current.stage.getChildAt(0) as Conversion;
-            p.resize(stage.stageWidth, stage.stageHeight);
+            //var p:Conversion = Starling.current.stage.getChildAt(0) as Conversion;
+            //p.resize(stage.stageWidth, stage.stageHeight);
         }
     }
 }
