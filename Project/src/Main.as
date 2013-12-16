@@ -11,6 +11,7 @@ import flash.geom.Rectangle;
 import flash.system.Capabilities;
 
 import starling.core.Starling;
+import starling.events.ResizeEvent;
 
 [SWF(frameRate="30", backgroundColor="0xf9cb14")]
 public class Main extends Sprite {
@@ -90,6 +91,7 @@ public class Main extends Sprite {
             //var p:Conversion = Starling.current.stage.getChildAt(0) as Conversion;
             //p.resize(stage.stageWidth, stage.stageHeight);
         }
+
     }
 }
 }

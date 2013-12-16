@@ -39,11 +39,36 @@ public class MenuView extends starling.display.Sprite implements ICanBeViewed{
         _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
 
         _history = new ChoiceButton("History");
+        _history.addEventListener(TouchEvent.TOUCH, historyHandler);
 
         _profiles = new ChoiceButton("Profiles");
+        _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
 
         _terminate = new ChoiceButton("Close");
+    }
 
+    private function profilesHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        if (touch)
+        {
+            _appModel.currentScreen = "ProfileView";
+        }
+    }
+
+    private function historyHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        if (touch)
+        {
+            _appModel.currentScreen = "HistoryView";
+        }
+    }
+
+    private function conversionsHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        if (touch)
+        {
+            _appModel.currentScreen = "ConversionsView";
+        }
     }
 
     private function drawMenu():void{
@@ -59,14 +84,6 @@ public class MenuView extends starling.display.Sprite implements ICanBeViewed{
 
         _terminate.y = _profiles.y + _history.height + 20*Utils.divideFactor;
         addChild(_terminate);
-    }
-
-    private function conversionsHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if (touch)
-        {
-            _appModel.currentScreen = "ConversionsView";
-        }
     }
 
     private function drawLogo():void{
@@ -88,7 +105,6 @@ public class MenuView extends starling.display.Sprite implements ICanBeViewed{
     }
 
     public function resize(w:Number, h:Number):void{
-        trace (w + " x " + h);
         drawLogo();
         drawMenu();
     }

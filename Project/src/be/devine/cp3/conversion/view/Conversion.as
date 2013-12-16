@@ -25,16 +25,13 @@ public class Conversion extends Sprite{
     private var _appModel:Appmodel;
     private var _screenNavigator:ScreenNavigator;
 
-    private var w:Number;
-    private var h:Number;
+    private var w:Number = 0;
+    private var h:Number = 0;
 
     public function Conversion() {
         trace("[Conversion] started.");
 
         this.addEventListener(starling.events.Event.ADDED_TO_STAGE, init);
-
-
-
     }
 
     private function startJSON():void {
@@ -61,17 +58,12 @@ public class Conversion extends Sprite{
         //addChild(_menuView);
     }
 
-    private function currentScreenChangedHandler(event:flash.events.Event):void {
+    private function currentScreenChangedHandler(event:flash.events.Event = null):void {
         _screenNavigator.showScreen(_appModel.currentScreen);
         var activeScreen:ICanBeViewed = _screenNavigator.activeScreen as ICanBeViewed;
-        activeScreen.resize(w,h);
-    }
-
-    public function resize(w:Number, h:Number):void {
-        this.h = h;
-        this.w = w;
-
-//        _menuView.resize(w, h);
+        if(!w || !h){
+            activeScreen.resize(w,h);
+        }
     }
 
     private function init(event:starling.events.Event):void {
@@ -97,7 +89,8 @@ public class Conversion extends Sprite{
         startJSON();
 
         this.removeEventListener(starling.events.Event.ADDED_TO_STAGE, init);
-        this.addEventListener(ResizeEvent.RESIZE, resizeHandler);
+        stage.addEventListener(ResizeEvent.RESIZE, resizeHandler);
+
         _appModel.addEventListener(Appmodel.CURRENTSCREEN_CHANGED_EVENT, currentScreenChangedHandler);
 
 
@@ -106,8 +99,11 @@ public class Conversion extends Sprite{
     }
 
     private function resizeHandler(event:ResizeEvent):void {
+        this.h = stage.stageHeight;
+        this.w = stage.stageWidth;
+        trace("WATMAAAAN!");
         var huidigScreen:ICanBeViewed = _screenNavigator.activeScreen as ICanBeViewed;
-        huidigScreen.resize(stage.stageWidth, stage.stageHeight);
+        huidigScreen.resize(w, h);
     }
 }
 }

@@ -47,7 +47,7 @@ public class Appmodel extends EventDispatcher{
 
 // close app
     public function destroy():void{
-
+         //Ik weet niet hoe ik deze moet schrijven, kan jij die doen? :)
     }
 }
 }
