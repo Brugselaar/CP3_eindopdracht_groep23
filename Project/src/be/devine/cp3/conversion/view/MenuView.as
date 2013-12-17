@@ -32,16 +32,18 @@ public class MenuView extends starling.display.Sprite{
         conversions.y = 320*Utils.divideFactor;
         addChild(conversions);
 
+        var yPos:uint = conversions.height + 5;
+
         var history:ChoiceButton = new ChoiceButton("History");
-        history.y = conversions.y + history.height + 20*Utils.divideFactor;
+        history.y = conversions.y + yPos;
         addChild(history);
 
         var profiles:ChoiceButton = new ChoiceButton("Profiles");
-        profiles.y = history.y + history.height + 20*Utils.divideFactor;
+        profiles.y = history.y + yPos;
         addChild(profiles);
 
         var terminate:ChoiceButton = new ChoiceButton("Close");
-        terminate.y = profiles.y + history.height + 20*Utils.divideFactor;
+        terminate.y = profiles.y + yPos;
         addChild(terminate);
     }
 
