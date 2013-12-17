@@ -5,3 +5,4 @@ Project/.DS_Store
 .DS_Store
 .idea
 *.iml
+Project/src/be/devine/cp3/conversion/vo/ConversionVO.as

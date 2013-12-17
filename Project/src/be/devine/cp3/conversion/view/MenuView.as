@@ -7,31 +7,76 @@
  */
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
+import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
+import flash.geom.Point;
 
 import starling.display.Image;
 import starling.display.Sprite;
+import starling.events.Event;
+import starling.events.Touch;
+import starling.events.TouchEvent;
+import starling.events.TouchPhase;
 
-public class MenuView extends starling.display.Sprite{
+public class MenuView extends starling.display.Sprite implements ICanBeViewed{
     private var _logoBitMapData:BitmapData;
     private var _logo:Image;
+    private var _appModel:Appmodel;
+    private var _conversions:ChoiceButton;
+    private var _history:ChoiceButton;
+    private var _profiles:ChoiceButton;
+    private var _terminate:ChoiceButton;
+
+
 
     public function MenuView() {
         trace("[MenuView] started.");
+        _appModel = Appmodel.getInstance();
+        _conversions = new ChoiceButton("Conversions");
+        _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
 
-        drawLogo();
+        _history = new ChoiceButton("History");
+        _history.addEventListener(TouchEvent.TOUCH, historyHandler);
 
-        drawMenu();
+        _profiles = new ChoiceButton("Profiles");
+        _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
+
+        _terminate = new ChoiceButton("Close");
+    }
+
+    private function profilesHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        if (touch)
+        {
+            _appModel.currentScreen = "ProfileView";
+        }
+    }
+
+    private function historyHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        if (touch)
+        {
+            _appModel.currentScreen = "HistoryView";
+        }
+    }
+
+    private function conversionsHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        if (touch)
+        {
+            _appModel.currentScreen = "ConversionsView";
+        }
     }
 
     private function drawMenu():void{
-        var conversions:ChoiceButton = new ChoiceButton("Conversions");
-        conversions.y = 320*Utils.divideFactor;
-        addChild(conversions);
+        _conversions.y = 320*Utils.divideFactor;
+        addChild(_conversions);
 
+
+<<<<<<< HEAD
         var yPos:uint = conversions.height + 5;
 
         var history:ChoiceButton = new ChoiceButton("History");
@@ -45,6 +90,16 @@ public class MenuView extends starling.display.Sprite{
         var terminate:ChoiceButton = new ChoiceButton("Close");
         terminate.y = profiles.y + yPos;
         addChild(terminate);
+=======
+        _history.y = _conversions.y + _history.height + 20*Utils.divideFactor;
+        addChild(_history);
+
+        _profiles.y = _history.y + _history.height + 20*Utils.divideFactor;
+        addChild(_profiles);
+
+        _terminate.y = _profiles.y + _history.height + 20*Utils.divideFactor;
+        addChild(_terminate);
+>>>>>>> 375ef1c263412c6db5348f0ef30981d5cbef3d83
     }
 
     private function drawLogo():void{
@@ -63,6 +118,11 @@ public class MenuView extends starling.display.Sprite{
         _logo.x = Utils.screenWidth/2 - _logo.width/2;
         _logo.y = 60*Utils.divideFactor;
         addChild(_logo);
+    }
+
+    public function resize(w:Number, h:Number):void{
+        drawLogo();
+        drawMenu();
     }
 }
 }

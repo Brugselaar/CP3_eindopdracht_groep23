@@ -8,17 +8,102 @@
 package be.devine.cp3.conversion.model {
 import be.devine.cp3.conversion.view.MenuView;
 
-public class Appmodel{
-    public var formuleItems:Array = [];
-    public var historyItems:Array = [];
+import flash.events.Event;
 
-    public function Appmodel() {
+import flash.events.EventDispatcher;
+
+public class Appmodel extends EventDispatcher{
+    private var _currentScreen:String;
+    private var _conversionVOs:Array = [];
+    private var _historyVOs:Array = [];
+    private var _profileVOs:Array = [];
+    private var _currentProfile:uint;
+
+    public static const CURRENTSCREEN_CHANGED_EVENT:String = "currentScreenChanged";
+    public static const CONVERSIONVOS_CHANGED_EVENT:String = "conversionVOsChanged";
+    public static const HISTORYVOS_CHANGED_EVENT:String = "historyVOsChanged";
+    public static const PROFILEVOS_CHANGED_EVENT:String = "profileVOsChanged";
+    public static const CURRENTPROFILE_CHANGED_EVENT:String = "currentProfileChanged";
+
+    static private var instance:Appmodel;
+    static public function getInstance():Appmodel{
+        if(instance == null){
+            instance = new Appmodel(new Enforcer());
+        }
+        return instance;
+    }
+
+
+    [Bindable(event="currentProfileChanged")]
+    public function get currentProfile():uint {
+        return _currentProfile;
+    }
+
+    public function set currentProfile(value:uint):void {
+        if (_currentProfile == value) return;
+        _currentProfile = value;
+        dispatchEvent(new Event(CURRENTPROFILE_CHANGED_EVENT));
+    }
+
+    [Bindable(event="profileVOsChanged")]
+    public function get profileVOs():Array {
+        return _profileVOs;
+    }
+
+    public function set profileVOs(value:Array):void {
+        if (_profileVOs == value) return;
+        _profileVOs = value;
+        dispatchEvent(new Event(PROFILEVOS_CHANGED_EVENT));
+    }
+
+    [Bindable(event="historyVOsChanged")]
+    public function get historyVOs():Array {
+        return _historyVOs;
+    }
+
+    public function set historyVOs(value:Array):void {
+        if (_historyVOs == value) return;
+        _historyVOs = value;
+        dispatchEvent(new Event(HISTORYVOS_CHANGED_EVENT));
+    }
+
+    [Bindable(event="conversionVOsChanged")]
+    public function get conversionVOs():Array {
+        return _conversionVOs;
+    }
+
+    public function set conversionVOs(value:Array):void {
+        if (_conversionVOs == value) return;
+        _conversionVOs = value;
+        dispatchEvent(new Event(CONVERSIONVOS_CHANGED_EVENT));
+    }
+
+    public function Appmodel(e:Enforcer) {
         trace("[AppModel] started.");
+        if(e == null){
+            throw new Error("Appmodel is a singleton!");
+        }
+
+
     }
 
-    // close app
+
+    [Bindable(event="currentScreenChanged")]
+    public function get currentScreen():String {
+        return _currentScreen;
+    }
+
+    public function set currentScreen(value:String):void {
+        if (_currentScreen == value) return;
+        _currentScreen = value;
+        dispatchEvent(new Event(CURRENTSCREEN_CHANGED_EVENT));
+    }
+
+// close app
     public function destroy():void{
-
+         //Ik weet niet hoe ik deze moet schrijven, kan jij die doen? :)
     }
 }
 }
+
+internal class Enforcer{}
