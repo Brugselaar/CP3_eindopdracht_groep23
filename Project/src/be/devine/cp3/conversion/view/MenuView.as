@@ -75,12 +75,10 @@ public class MenuView extends starling.display.Sprite implements ICanBeViewed{
         _conversions.y = 320*Utils.divideFactor;
         addChild(_conversions);
 
-
-<<<<<<< HEAD
-        var yPos:uint = conversions.height + 5;
+        var yPos:uint = _conversions.height + 5;
 
         var history:ChoiceButton = new ChoiceButton("History");
-        history.y = conversions.y + yPos;
+        history.y = _conversions.y + yPos;
         addChild(history);
 
         var profiles:ChoiceButton = new ChoiceButton("Profiles");
@@ -90,7 +88,6 @@ public class MenuView extends starling.display.Sprite implements ICanBeViewed{
         var terminate:ChoiceButton = new ChoiceButton("Close");
         terminate.y = profiles.y + yPos;
         addChild(terminate);
-=======
         _history.y = _conversions.y + _history.height + 20*Utils.divideFactor;
         addChild(_history);
 
@@ -99,7 +96,6 @@ public class MenuView extends starling.display.Sprite implements ICanBeViewed{
 
         _terminate.y = _profiles.y + _history.height + 20*Utils.divideFactor;
         addChild(_terminate);
->>>>>>> 375ef1c263412c6db5348f0ef30981d5cbef3d83
     }
 
     private function drawLogo():void{

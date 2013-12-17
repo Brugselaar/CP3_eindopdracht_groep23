@@ -33,8 +33,8 @@ public class OldChoiceButton extends Sprite{
         _title = this._menuVO.title;
         _backgroundColor = this._menuVO.backgroundColor;
         _textColor = this._menuVO.textColor;
-        _background = new Quad(1, 120*Utils.multiplicationFactor, _backgroundColor);
-        _textField = new starling.text.TextField(300*Utils.multiplicationFactor, 120*Utils.multiplicationFactor, _title, "Liberator", 60*Utils.multiplicationFactor, _textColor);
+        _background = new Quad(1, 120*Utils.divideFactor, _backgroundColor);
+        _textField = new starling.text.TextField(300*Utils.divideFactor, 120*Utils.divideFactor, _title, "Liberator", 60*Utils.divideFactor, _textColor);
         _textField.autoScale = true;
         _textField.vAlign = VAlign.CENTER;
         _textField.hAlign = HAlign.CENTER;
