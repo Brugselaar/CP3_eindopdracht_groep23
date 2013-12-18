@@ -1,4 +1,5 @@
 package be.devine.cp3.conversion.view {
+import be.devine.cp3.conversion.services.ConversionService;
 import be.devine.cp3.conversion.services.JSONService;
 
 import be.devine.cp3.conversion.model.Appmodel;
@@ -24,6 +25,7 @@ public class Conversion extends Sprite{
 
     private var _appModel:Appmodel;
     private var _screenNavigator:ScreenNavigator;
+    private var _conversionService:ConversionService;
 
     private var w:Number = 0;
     private var h:Number = 0;
@@ -35,7 +37,7 @@ public class Conversion extends Sprite{
     }
 
     private function startJSON():void {
-        _service = new JSONService();
+/*        _service = new JSONService();
 
         // write preset JSON to files
         var menu:File = File.applicationStorageDirectory.resolvePath("FTC_menu.json");
@@ -55,7 +57,9 @@ public class Conversion extends Sprite{
         _service.changeSelectedProfile(selectedProfile, _idSelected);
 
         //_menuView = new MenuView();
-        //addChild(_menuView);
+        //addChild(_menuView);  */
+        _conversionService = new ConversionService();
+        _conversionService.load();
     }
 
     private function currentScreenChangedHandler(event:flash.events.Event = null):void {
@@ -85,9 +89,6 @@ public class Conversion extends Sprite{
 
         addChild(_screenNavigator);
 
-        //JSONHANDLER
-        startJSON();
-
         this.removeEventListener(starling.events.Event.ADDED_TO_STAGE, init);
         stage.addEventListener(ResizeEvent.RESIZE, resizeHandler);
 
@@ -96,6 +97,8 @@ public class Conversion extends Sprite{
 
         _appModel.currentScreen = "MenuView";
 
+        //JSONHANDLER
+        startJSON();
     }
 
     private function resizeHandler(event:ResizeEvent):void {
