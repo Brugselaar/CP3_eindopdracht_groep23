@@ -7,16 +7,80 @@
  */
 package be.devine.cp3.conversion.vo {
 public class HistoryVO {
-    public var id:uint;
-    public var idFormule:uint;
-    public var input:int;
-    public var output:int;
-    public var leftFromInput:String;
-    public var rightFromInput:String;
-    public var leftFromOutput:String;
-    public var rightFromOutput:String;
+    private var _id:uint;
+    private var _nameFormula:String;
+    private var _input:int;
+    private var _output:int;
+    private var _leftFromInput:String;
+    private var _rightFromInput:String;
+    private var _leftFromOutput:String;
+    private var _rightFromOutput:String;
 
     public function HistoryVO() {
+    }
+
+    public function get id():uint {
+        return _id;
+    }
+
+    public function set id(value:uint):void {
+        _id = value;
+    }
+
+    public function get input():int {
+        return _input;
+    }
+
+    public function get output():int {
+        return _output;
+    }
+
+    public function get leftFromInput():String {
+        return _leftFromInput;
+    }
+
+    public function set leftFromInput(value:String):void {
+        _leftFromInput = value;
+    }
+
+    public function get rightFromInput():String {
+        return _rightFromInput;
+    }
+
+    public function set rightFromInput(value:String):void {
+        _rightFromInput = value;
+    }
+
+    public function get leftFromOutput():String {
+        return _leftFromOutput;
+    }
+
+    public function set leftFromOutput(value:String):void {
+        _leftFromOutput = value;
+    }
+
+    public function get rightFromOutput():String {
+        return _rightFromOutput;
+    }
+
+    public function set rightFromOutput(value:String):void {
+        _rightFromOutput = value;
+    }
+
+    public function get nameFormula():String {
+        return _nameFormula;
+    }
+
+    public function set nameFormula(value:String):void {
+        _nameFormula = value;
+    }
+
+    public function set input(value:int):void {
+        _input = value;
+    }
+
+    public function set output(value:int):void {
+        _output = value;
     }
 }
 }

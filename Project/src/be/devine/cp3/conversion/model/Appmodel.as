@@ -83,8 +83,6 @@ public class Appmodel extends EventDispatcher{
         if(e == null){
             throw new Error("Appmodel is a singleton!");
         }
-
-
     }
 
 
