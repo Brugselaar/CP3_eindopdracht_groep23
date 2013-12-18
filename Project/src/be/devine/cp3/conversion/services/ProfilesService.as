@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.services {
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.vo.HistoryVO;
+import be.devine.cp3.conversion.vo.ProfileVO;
 
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
@@ -17,13 +18,13 @@ import starling.events.Event;
 
 import starling.events.EventDispatcher;
 
-public class HistoryService extends EventDispatcher
+public class ProfilesService extends EventDispatcher
 {
     private var _appModel:Appmodel;
     private var _json:File;
-    public var historyArray:Array;
+    public var profilesArray:Array = [];
 
-    public function HistoryService(){
+    public function ProfilesService(){
         _appModel = Appmodel.getInstance();
         trace("[service] construct");
         _json = File.applicationStorageDirectory.resolvePath("ftc_history.json");
@@ -40,21 +41,17 @@ public class HistoryService extends EventDispatcher
         var parsedJSON:Array = JSON.parse(str) as Array;
         readStream.close();
 
-        var historyArray:Array = [];
-        for each(var history:Object in parsedJSON) {
-            var historyVO:HistoryVO = new HistoryVO();
-            historyVO.id = history.id;
-            historyVO.nameFormula = history.nameFormula;
-            historyVO.leftFromInput = history.leftFromInput;
-            historyVO.rightFromInput = history.rightFromInput;
-            historyVO.input = history.input;
-            historyVO.output = history.output;
-            historyVO.rightFromOutput = history.rightFromOutput;
-            historyVO.leftFromOutput = history.leftFromOutput;
-            historyArray.push(historyVO);
+        var profilesArray:Array = [];
+        for each(var profile:Object in parsedJSON) {
+            var profileVO:ProfileVO = new ProfileVO();
+            profileVO.id = profile.id;
+            profileVO.name = profile.name;
+            profileVO.consumption = profile.consumption;
+            profilesArray.push(profileVO);
         }
-        this.historyArray = historyArray;
-        _appModel.historyVOs = historyArray;
+
+        this.profilesArray = profilesArray;
+        _appModel.profileVOs = profilesArray;
         dispatchEvent(new Event(Event.COMPLETE));
     }
 
@@ -63,20 +60,17 @@ public class HistoryService extends EventDispatcher
         writeStream.open(_json, FileMode.WRITE);
         writeStream.writeUTFBytes(JSON.stringify(array));
         writeStream.close();
-        trace(historyArray);
+        trace(profilesArray);
     }
 
-    public function saveNew(nameFormula:String, leftFromInput:String, rightFromInput:String, input:Number, output:Number, rightFromOutput:String, leftFromOutput:String):void{
+    public function saveNew(name:String, consumption:Number):void{
         var writeStream:FileStream = new FileStream();
         writeStream.open(_json, FileMode.WRITE);
         load();
-        var newSave:Object = {id: (historyArray.length+1), nameFormula: nameFormula, input:input, output:output, leftFromInput: leftFromInput,
-            rightFromInput: rightFromInput, leftFromOutput:leftFromOutput, rightFromOutput: rightFromOutput};
-        historyArray.push(newSave);
-        writeStream.writeUTFBytes(JSON.stringify(historyArray));
+        var newSave:Object = {id: (profilesArray.length+1), name: name, consumption: consumption};
+        profilesArray.push(newSave);
+        writeStream.writeUTFBytes(JSON.stringify(profilesArray));
         writeStream.close();
-
-        trace(historyArray);
     }
 }
 }

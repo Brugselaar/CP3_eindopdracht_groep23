@@ -17,13 +17,12 @@ public class Appmodel extends EventDispatcher{
     private var _conversionVOs:Array = [];
     private var _historyVOs:Array = [];
     private var _profileVOs:Array = [];
-    private var _currentProfile:uint;
+    private var _currentProfile:Object;
 
     public static const CURRENTSCREEN_CHANGED_EVENT:String = "currentScreenChanged";
     public static const CONVERSIONVOS_CHANGED_EVENT:String = "conversionVOsChanged";
     public static const HISTORYVOS_CHANGED_EVENT:String = "historyVOsChanged";
     public static const PROFILEVOS_CHANGED_EVENT:String = "profileVOsChanged";
-    public static const CURRENTPROFILE_CHANGED_EVENT:String = "currentProfileChanged";
 
     static private var instance:Appmodel;
     static public function getInstance():Appmodel{
@@ -31,18 +30,6 @@ public class Appmodel extends EventDispatcher{
             instance = new Appmodel(new Enforcer());
         }
         return instance;
-    }
-
-
-    [Bindable(event="currentProfileChanged")]
-    public function get currentProfile():uint {
-        return _currentProfile;
-    }
-
-    public function set currentProfile(value:uint):void {
-        if (_currentProfile == value) return;
-        _currentProfile = value;
-        dispatchEvent(new Event(CURRENTPROFILE_CHANGED_EVENT));
     }
 
     [Bindable(event="profileVOsChanged")]
@@ -100,6 +87,14 @@ public class Appmodel extends EventDispatcher{
 // close app
     public function destroy():void{
          //Ik weet niet hoe ik deze moet schrijven, kan jij die doen? :)
+    }
+
+    public function get currentProfile():Object {
+        return _currentProfile;
+    }
+
+    public function set currentProfile(value:Object):void {
+        _currentProfile = value;
     }
 }
 }
