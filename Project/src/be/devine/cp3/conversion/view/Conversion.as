@@ -1,9 +1,10 @@
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.services.ConversionService;
-import be.devine.cp3.conversion.services.JSONService;
+import be.devine.cp3.conversion.services.HistoryService;
 
 import be.devine.cp3.conversion.model.Appmodel;
-import be.devine.cp3.conversion.services.JSONService;
+import be.devine.cp3.conversion.services.ProfilesService;
+import be.devine.cp3.conversion.vo.HistoryVO;
 
 import feathers.controls.ScreenNavigator;
 import feathers.controls.ScreenNavigatorItem;
@@ -19,13 +20,15 @@ import starling.events.Event;
 import starling.events.ResizeEvent;
 
 public class Conversion extends Sprite{
-    private var _service:JSONService;
+    private var _historyService:HistoryService;
+    private var _profilesService:ProfilesService;
+    private var _conversionService:ConversionService;
+
     private var _menuView:MenuView;
     private var _idSelected:uint = 1;
 
     private var _appModel:Appmodel;
     private var _screenNavigator:ScreenNavigator;
-    private var _conversionService:ConversionService;
 
     private var w:Number = 0;
     private var h:Number = 0;
@@ -37,29 +40,14 @@ public class Conversion extends Sprite{
     }
 
     private function startJSON():void {
-/*        _service = new JSONService();
-
-        // write preset JSON to files
-        var menu:File = File.applicationStorageDirectory.resolvePath("FTC_menu.json");
-        _service.writeMenuJSON(menu);
-
-        var conversions:File = File.applicationStorageDirectory.resolvePath("FTC_conversions.json");
-        _service.changeSelectedProfile(conversions, 1);
-
-        var profiles:File = File.applicationStorageDirectory.resolvePath("FTC_profiles.json");
-        _service.changeSelectedProfile(conversions, 1);
-        var profiles:File = File.applicationStorageDirectory.resolvePath("FTC_profiles.json");
-        _service.writeProfileJSON(profiles, "Arno", 0.1);
-        _service.changeSelectedProfile(conversions, 1);
-
-        // Change current profile in JSON --- used in AppModel
-        var selectedProfile:File = File.applicationStorageDirectory.resolvePath("FTC_selectedProfile.json");
-        _service.changeSelectedProfile(selectedProfile, _idSelected);
-
-        //_menuView = new MenuView();
-        //addChild(_menuView);  */
         _conversionService = new ConversionService();
         _conversionService.load();
+
+        _historyService = new HistoryService();
+        _historyService.load();
+
+        _profilesService = new ProfilesService();
+        _profilesService.load();
     }
 
     private function currentScreenChangedHandler(event:flash.events.Event = null):void {
@@ -74,6 +62,9 @@ public class Conversion extends Sprite{
 
 
         _appModel = Appmodel.getInstance();
+
+        _appModel.addEventListener(Appmodel.HISTORYVOS_CHANGED_EVENT, historyChangedHandler);
+
         _screenNavigator = new ScreenNavigator();
 
         _screenNavigator.addScreen("AddProfileView", new ScreenNavigatorItem(AddProfileView));
@@ -94,11 +85,13 @@ public class Conversion extends Sprite{
 
         _appModel.addEventListener(Appmodel.CURRENTSCREEN_CHANGED_EVENT, currentScreenChangedHandler);
 
-
         _appModel.currentScreen = "MenuView";
 
-        //JSONHANDLER
         startJSON();
+    }
+
+    private function historyChangedHandler(event:flash.events.Event):void {
+        _historyService.save(_appModel.historyVOs);
     }
 
     private function resizeHandler(event:ResizeEvent):void {

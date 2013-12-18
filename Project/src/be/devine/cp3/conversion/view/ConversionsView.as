@@ -23,7 +23,7 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
     public function ConversionsView() {
         _appModel = Appmodel.getInstance();
 
-        //TODO ELEMENTEN MAKEN
+        //TODO: ELEMENTEN MAKEN
 
         _backButton = new Quad(100, 100, 0xff0000);
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);

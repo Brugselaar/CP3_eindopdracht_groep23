@@ -59,6 +59,7 @@ public class HistoryService extends EventDispatcher
     }
 
     public function save(array:Array):void{
+        trace("Save!");
         var writeStream:FileStream = new FileStream();
         writeStream.open(_json, FileMode.WRITE);
         writeStream.writeUTFBytes(JSON.stringify(array));
