@@ -6,9 +6,19 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.view {
-public class DoConversionView {
+import starling.display.Sprite;
+
+public class DoConversionView extends Sprite implements ICanBeViewed{
     public function DoConversionView() {
-        trace("[DoConversionView] started.");
+
+    }
+
+    public function doConversion(Conversion:Object, input:Number):void{
+        Conversion.nameFormula
+    }
+
+    public function resize(w:Number, h:Number):void{
+
     }
 }
 }
