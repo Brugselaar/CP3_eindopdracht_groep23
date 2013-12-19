@@ -35,8 +35,6 @@ public class InputField extends Sprite{
     private var _maxChars:uint;
     private var _inputBoxBorder:MovieClip;
     private var _inputBox:MovieClip;
-    private var _inputBitMapData:BitmapData;
-    private var _input:Image;
 
     public function InputField(maxChars:uint = 3, isText:Boolean = false) {
         _maxChars = maxChars;

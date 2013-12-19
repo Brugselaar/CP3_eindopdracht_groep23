@@ -7,6 +7,7 @@
  */
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
+import be.devine.cp3.conversion.elements.TitleField;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
@@ -75,6 +76,9 @@ public class MenuView extends Sprite implements ICanBeViewed{
 //        var reverseButton:ChoiceButton = new ChoiceButton("Reverse");
 //        addChild(reverseButton);
 
+//        var title:TitleField = new TitleField("Dit is een title");
+//        addChild(title);
+//
         _conversions = new ChoiceButton("Conversions", false);
         _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
         _conversions.y = 480*Utils.divideFactor;
