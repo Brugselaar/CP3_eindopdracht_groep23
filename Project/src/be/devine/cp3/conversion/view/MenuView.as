@@ -72,8 +72,8 @@ public class MenuView extends Sprite implements ICanBeViewed{
 //        var submit:ChoiceButton = new ChoiceButton("Submit");
 //        addChild(submit);
 
-//        var reverseButton:ChoiceButton = new ChoiceButton("Reverse");
-//        addChild(reverseButton);
+        var reverseButton:ChoiceButton = new ChoiceButton("Reverse");
+        addChild(reverseButton);
 
         _conversions = new ChoiceButton("Conversions", false);
         _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);

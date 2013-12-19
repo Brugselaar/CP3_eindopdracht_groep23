@@ -36,6 +36,7 @@ public class ChoiceButton extends Sprite{
     private var _arrowBitMapData:BitmapData;
     private var _arrow:ArrowRight;
     private var _button:ButtonRight;
+    private var _convert:Convert;
 
     public function ChoiceButton(title:String, isArrow:Boolean = true, backgroundColor:uint = 0x000000, textColor:uint = 0xf9cb14) {
         _title = title;
@@ -64,6 +65,17 @@ public class ChoiceButton extends Sprite{
             _arrowBitMapData.draw(_button);
         }
 
+        if(_title == "Reverse"){
+            // Make Reverse
+            _convert = new Convert();
+            _convert.gotoAndStop(2);
+            _arrowBitMapData = new BitmapData(_convert.width, _convert.height, true, 0xFF0000);
+            _arrowBitMapData.draw(_convert);
+
+            _textField.hAlign = HAlign.CENTER;
+            _textField.x = 20*Utils.divideFactor;
+        }
+
         _arrowRight = Image.fromBitmap(new Bitmap(_arrowBitMapData));
         _arrowBitMapData.dispose();
         _arrowRight.scaleX = Utils.divideFactor;
@@ -79,6 +91,12 @@ public class ChoiceButton extends Sprite{
         addChild(_textField);
         _arrowRight.x = _background.width - _arrowRight.width - 10*Utils.divideFactor;
         _arrowRight.y = _background.height/2 - _arrowRight.height/2;
+
+
+        if(_title == "Reverse"){
+            _textField.x = 40*Utils.divideFactor;
+            _arrowRight.x = _background.width/2 - 100*Utils.divideFactor;
+        }
         addChild(_arrowRight);
 
         if(_title == "Close"){
@@ -92,14 +110,6 @@ public class ChoiceButton extends Sprite{
         }
 
         if(_title == "Submit"){
-            _textField.hAlign = HAlign.CENTER;
-            _textField.x = 20*Utils.divideFactor;
-            removeChild(_arrowRight);
-            _arrowRight.dispose();
-            _arrowRight = null;
-        }
-
-        if(_title == "Reverse"){
             _textField.hAlign = HAlign.CENTER;
             _textField.x = 20*Utils.divideFactor;
             removeChild(_arrowRight);
