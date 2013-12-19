@@ -28,7 +28,7 @@ public class HistoryView extends Sprite implements ICanBeViewed{
     }
 
     private function testHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if (touch){
             var testVO:HistoryVO = new HistoryVO();
             testVO.id = 0;

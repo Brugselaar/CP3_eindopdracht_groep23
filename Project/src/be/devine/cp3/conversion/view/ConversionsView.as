@@ -23,9 +23,8 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
     }
 
     private function backHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if (touch)
-        {
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if (touch) {
             _appModel.currentScreen = "MenuView";
         }
     }

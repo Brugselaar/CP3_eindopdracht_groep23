@@ -17,8 +17,7 @@ import starling.events.Event;
 
 import starling.events.EventDispatcher;
 
-public class HistoryService extends EventDispatcher
-{
+public class HistoryService extends EventDispatcher{
     private var _appModel:Appmodel;
     private var _json:File;
     public var historyArray:Array;

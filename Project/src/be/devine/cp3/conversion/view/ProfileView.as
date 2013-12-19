@@ -25,7 +25,7 @@ public class ProfileView extends Sprite implements ICanBeViewed{
     }
 
     private function backHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if (touch)
         {
             _appModel.currentScreen = "MenuView";

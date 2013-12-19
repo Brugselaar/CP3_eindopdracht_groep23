@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.elements {
 public class InputField {
     public function InputField() {
+
     }
 }
 }
