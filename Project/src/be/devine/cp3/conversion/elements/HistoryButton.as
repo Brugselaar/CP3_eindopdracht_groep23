@@ -125,7 +125,7 @@ public class HistoryButton extends Sprite{
         _background.y = 80;
         addChild(_background);
 
-        var yPos:int = _background.y + _background.height/2;
+        var yPos:int = _background.y + _background.height/2 + 4*Utils.divideFactor;
 
         _rightFromOutputTextField.y = yPos - _rightFromOutputTextField.height/2;
         _rightFromOutputTextField.x = _background.width - _rightFromOutputTextField.width;

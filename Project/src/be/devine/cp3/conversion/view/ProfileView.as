@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.view {
+import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.model.Appmodel;
 
 import starling.display.Quad;
@@ -16,16 +17,11 @@ import starling.events.TouchPhase;
 
 public class ProfileView extends Sprite implements ICanBeViewed{
     private var _appModel:Appmodel;
-    private var _backButton:Quad;
+    private var _backButton:MenuButton;
 
     public function ProfileView() {
         trace("[ProfileView] started.");
         _appModel = Appmodel.getInstance();
-
-        //TODO ELEMENTEN MAKEN
-
-        _backButton = new Quad(100, 100, 0xff0000);
-        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
     }
 
     private function backHandler(event:TouchEvent):void {
@@ -41,8 +37,8 @@ public class ProfileView extends Sprite implements ICanBeViewed{
     }
 
     private function drawMenu():void {
-        _backButton.y = 0;
-        _backButton.x = 0;
+        _backButton = new MenuButton();
+        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
     }
 }

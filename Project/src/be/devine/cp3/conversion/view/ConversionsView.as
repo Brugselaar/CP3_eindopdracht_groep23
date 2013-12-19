@@ -6,28 +6,20 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.view {
+import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.model.Appmodel;
-import be.devine.cp3.conversion.utils.Utils;
-
-import starling.display.DisplayObject;
-import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
 public class ConversionsView extends starling.display.Sprite implements ICanBeViewed{
-    private var _backButton:Quad;
+    private var _backButton:MenuButton;
     private var _appModel:Appmodel;
 
     public function ConversionsView() {
         trace("[ConversionsView] started.");
         _appModel = Appmodel.getInstance();
-
-        //TODO: ELEMENTEN MAKEN
-
-        _backButton = new Quad(100, 100, 0xff0000);
-        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
     }
 
     private function backHandler(event:TouchEvent):void {
@@ -43,8 +35,8 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
     }
 
     private function drawMenu():void {
-        _backButton.y = 0;
-        _backButton.x = 0;
+        _backButton = new MenuButton();
+        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
     }
 }

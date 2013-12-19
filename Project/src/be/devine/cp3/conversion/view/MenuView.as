@@ -7,17 +7,14 @@
  */
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
-import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
-import flash.geom.Point;
 
 import starling.display.Image;
 import starling.display.Sprite;
-import starling.events.Event;
 import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
@@ -69,23 +66,24 @@ public class MenuView extends Sprite implements ICanBeViewed{
         // Draw the menu, please use a seperate method instead of doing sth similar in the constructor.
         _conversions = new ChoiceButton("Conversions");
         _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
-        _conversions.y = 320*Utils.divideFactor;
+        _conversions.y = 480*Utils.divideFactor;
         addChild(_conversions);
 
-        var yPos:uint = _conversions.height + 5;
+//        var yPos:uint = 480*Utils.divideFactor + _conversions.height/2;
 
         _history = new ChoiceButton("History");
         _history.addEventListener(TouchEvent.TOUCH, historyHandler);
-        _history.y = _conversions.y + yPos;
+        _history.y = _conversions.y + _history.height/2;
         addChild(_history);
 
         _profiles = new ChoiceButton("Profiles");
         _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
-        _profiles.y = _history.y + yPos;
+        _profiles.y = _history.y + _profiles.height/2;
         addChild(_profiles);
+
         _terminate = new ChoiceButton("Close");
         _terminate.addEventListener(TouchEvent.TOUCH, terminateHandler);
-        _terminate.y = _profiles.y + yPos;
+        _terminate.y = _profiles.y + _terminate.height + 10*Utils.divideFactor;
         addChild(_terminate);
     }
 

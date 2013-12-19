@@ -68,13 +68,20 @@ public class ChoiceButton extends Sprite{
         _textField.addEventListener(TouchEvent.TOUCH, onTap);
         _background.addEventListener(TouchEvent.TOUCH, onTap);
 
-        _background.y = 80;
         addChild(_background);
         _textField.y = _background.y;
         addChild(_textField);
         _arrowRight.x = _background.width - _arrowRight.width - 10*Utils.divideFactor;
         _arrowRight.y = 186*Utils.divideFactor;
         addChild(_arrowRight);
+
+        if(_title == "Close"){
+            _background.width = 320*Utils.divideFactor;
+            _background.x = Utils.screenWidth/2 - _background.width/2;
+            _textField.hAlign = HAlign.CENTER;
+            _textField.x = 20*Utils.divideFactor;
+            removeChild(_arrowRight);
+        }
 
         trace("[ChoiceButton] added.");
     }
