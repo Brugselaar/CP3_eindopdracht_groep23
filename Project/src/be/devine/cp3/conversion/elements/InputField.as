@@ -31,12 +31,12 @@ import starling.events.Event;
 import starling.textures.Texture;
 
 public class InputField extends Sprite{
-    private var inputfield:TextInput;
+    private var _inputfield:TextInput;
     private var _maxChars:uint;
     private var _inputBoxBorder:MovieClip;
     private var _inputBox:MovieClip;
 
-    public function InputField(maxChars:uint = 3) {
+    public function InputField(maxChars:uint = 3, isText:Boolean = false) {
         _maxChars = maxChars;
 
         _inputBoxBorder = new MovieClip();
@@ -63,19 +63,6 @@ public class InputField extends Sprite{
         nativeTextfieldImage.y = 100;
         nativeTextfieldImage.x = 20*Utils.divideFactor;
 
-<<<<<<< HEAD
-        inputfield = new TextInput();
-        inputfield.text = "Digits only";
-        inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
-        inputfield.addEventListener( FeathersEventType.FOCUS_OUT, focusOutHandler);
-        inputfield.maxChars = _maxChars;
-        inputfield.restrict = "0-9";
-        inputfield.textEditorProperties.textAlign = "center";
-        inputfield.width = _inputBox.width - 40*Utils.divideFactor;
-        inputfield.height = 100*Utils.divideFactor;
-
-        inputfield.textEditorFactory = function():ITextEditor {
-=======
         _inputfield = new TextInput();
         _inputfield.text = "Digits only";
         _inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
@@ -89,25 +76,28 @@ public class InputField extends Sprite{
         _inputfield.height = 100*Utils.divideFactor;
 
         _inputfield.textEditorFactory = function():ITextEditor {
->>>>>>> 6c98b784d4ecc5f343216f791f65f1121646e0df
             var editor:StageTextTextEditor = new StageTextTextEditor();
             editor.fontFamily = "Liberator";
             editor.fontSize = 40*Utils.divideFactor;
             editor.color = 0x333333;
             return editor;
         }
-        inputfield.x = nativeTextfieldImage.x + 20*Utils.divideFactor;
-        inputfield.y = nativeTextfieldImage.y + 30*Utils.divideFactor;
+        _inputfield.x = nativeTextfieldImage.x + 20*Utils.divideFactor;
+        _inputfield.y = nativeTextfieldImage.y + 30*Utils.divideFactor;
         addChild(nativeTextfieldImage);
-        addChild(inputfield);
+        addChild(_inputfield);
     }
 
     private function focusInHandler(event:starling.events.Event):void {
-        inputfield.text = "";
+        _inputfield.text = "";
     }
 
     private function focusOutHandler(event:starling.events.Event):void {
 
+    }
+
+    public function get inputfield():TextInput {
+        return _inputfield;
     }
 }
 }
