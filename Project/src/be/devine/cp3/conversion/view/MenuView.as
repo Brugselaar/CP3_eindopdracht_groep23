@@ -30,37 +30,35 @@ public class MenuView extends Sprite implements ICanBeViewed{
     private var _profiles:ChoiceButton;
     private var _terminate:ChoiceButton;
 
-
-
     public function MenuView() {
         trace("[MenuView] started.");
         _appModel = Appmodel.getInstance();
     }
 
     private function profilesHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if(touch.phase == TouchPhase.ENDED){
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if(touch){
             _appModel.currentScreen = "ProfileView";
         }
     }
 
     private function historyHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if(touch.phase == TouchPhase.ENDED){
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if(touch){
             _appModel.currentScreen = "HistoryView";
         }
     }
 
     private function conversionsHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if(touch.phase == TouchPhase.ENDED){
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if(touch){
             _appModel.currentScreen = "ConversionsView";
         }
     }
 
     private function terminateHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if(touch.phase == TouchPhase.ENDED){
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if(touch){
             // Terminate the app
 
         }
@@ -69,19 +67,19 @@ public class MenuView extends Sprite implements ICanBeViewed{
     private function drawMenu():void{
         // Draw the menu, please use a seperate method instead of doing sth similar in the constructor.
         _conversions = new ChoiceButton("Conversions");
-//        _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
+        _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
         _conversions.y = 320*Utils.divideFactor;
         addChild(_conversions);
 
         var yPos:uint = _conversions.height + 5;
 
         _history = new ChoiceButton("History");
-//        _history.addEventListener(TouchEvent.TOUCH, historyHandler);
+        _history.addEventListener(TouchEvent.TOUCH, historyHandler);
         _history.y = _conversions.y + yPos;
         addChild(_history);
 
         _profiles = new ChoiceButton("Profiles");
-//        _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
+        _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
         _profiles.y = _history.y + yPos;
         addChild(_profiles);
 
@@ -89,7 +87,6 @@ public class MenuView extends Sprite implements ICanBeViewed{
         _terminate.addEventListener(TouchEvent.TOUCH, terminateHandler);
         _terminate.y = _profiles.y + yPos;
         addChild(_terminate);
-
     }
 
     private function drawLogo():void{
@@ -102,7 +99,6 @@ public class MenuView extends Sprite implements ICanBeViewed{
 
         _logo = Image.fromBitmap(new Bitmap(_logoBitMapData));
         _logoBitMapData.dispose();
-        trace(Utils.divideFactor);
         _logo.scaleX = Utils.divideFactor;
         _logo.scaleY = Utils.divideFactor;
         _logo.x = Utils.screenWidth/2 - _logo.width/2;

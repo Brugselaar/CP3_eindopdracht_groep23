@@ -59,7 +59,6 @@ public class ChoiceButton extends Sprite{
 
         _arrowRight = Image.fromBitmap(new Bitmap(_arrowBitMapData));
         _arrowBitMapData.dispose();
-        trace(Utils.divideFactor);
         _arrowRight.scaleX = Utils.divideFactor;
         _arrowRight.scaleY = Utils.divideFactor;
         _arrowRight.x = Utils.screenWidth/2 - _arrowRight.width/2;
@@ -112,7 +111,6 @@ public class ChoiceButton extends Sprite{
             if(t.phase == TouchPhase.ENDED){
                 // Touch released
                 trace('// Touch released');
-                trace(_arrow);
                 _arrow.gotoAndStop(1);
             }
             else{
