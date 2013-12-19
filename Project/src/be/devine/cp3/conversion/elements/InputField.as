@@ -41,45 +41,49 @@ public class InputField extends Sprite{
     public function InputField(maxChars:uint = 3) {
         _maxChars = maxChars;
 
-//        _inputBoxBorder.graphics.beginFill(0x000000)
-//        _inputBoxBorder.graphics.drawRect(0, 0, Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor);
-//        _inputBoxBorder.graphics.endFill();
-//
-//        _inputBox.graphics.beginFill(0xf9cb14)
-//        _inputBox.graphics.drawRect(0, 0, Utils.screenWidth-34*Utils.divideFactor, 94*Utils.divideFactor);
-//        _inputBox.graphics.endFill();
+        _inputBoxBorder = new MovieClip();
 
-//        _inputBoxBorder.addChild(_inputBox);
+        _inputBoxBorder.graphics.beginFill(0x000000)
+        _inputBoxBorder.graphics.drawRect(0, 0, Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor);
+        _inputBoxBorder.graphics.endFill();
 
-//        _inputBitMapData = new BitmapData(_inputBoxBorder.width, _inputBoxBorder.height, true, 0xFF0000);
-//        _inputBitMapData.draw(_inputBoxBorder);
-//        _input = Image.fromBitmap(new Bitmap(_inputBitMapData));
-//        _inputBitMapData.dispose();
+        _inputBox = new MovieClip();
 
-        //flash textfield
-        var nativeTextField:flash.text.TextField = new flash.text.TextField();
-        nativeTextField.defaultTextFormat = new TextFormat("Ubuntu", 20, 0x0000ff);
-        nativeTextField.embedFonts = true;
-        nativeTextField.multiline = nativeTextField.wordWrap = false;
-        nativeTextField.autoSize = TextFieldAutoSize.LEFT;
-        nativeTextField.text = "Flash Textfield";
+        _inputBox.graphics.beginFill(0xf9cb14)
+        _inputBox.graphics.drawRect(0, 0, Utils.screenWidth-48*Utils.divideFactor, 92*Utils.divideFactor);
+        _inputBox.graphics.endFill();
 
-//        inputfield = new TextInput();
-//        inputfield.text = "test";
-//        inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
-//        inputfield.addEventListener( FeathersEventType.FOCUS_OUT, focusOutHandler);
-//        inputfield.maxChars = _maxChars;
-//        inputfield.restrict = "0-9";
-//        inputfield.width = 400*Utils.divideFactor;
-//        inputfield.height = 100*Utils.divideFactor;
-//        inputfield.textEditorFactory = function():ITextEditor {
-//            var editor:StageTextTextEditor = new StageTextTextEditor();
-//            editor.fontFamily = "Liberator";
-//            editor.fontSize = 40*Utils.divideFactor;
-//            editor.color = 0x333333;
-//            return editor;
-//        }
-//        addChild(inputfield);
+        _inputBox.x = 4*Utils.divideFactor;
+        _inputBox.y = 4*Utils.divideFactor;
+
+        _inputBoxBorder.addChild(_inputBox);
+
+        var bmpData:BitmapData = new BitmapData(_inputBoxBorder.width, _inputBoxBorder.height, true, 0);
+        bmpData.draw(_inputBoxBorder);
+
+        var nativeTextfieldImage:Image = new Image(starling.textures.Texture.fromBitmapData(bmpData));
+        nativeTextfieldImage.y = 100;
+        nativeTextfieldImage.x = 20*Utils.divideFactor;
+
+        inputfield = new TextInput();
+        inputfield.text = "test";
+        inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
+        inputfield.addEventListener( FeathersEventType.FOCUS_OUT, focusOutHandler);
+        inputfield.maxChars = _maxChars;
+        inputfield.restrict = "0-9";
+        inputfield.width = 400*Utils.divideFactor;
+        inputfield.height = 100*Utils.divideFactor;
+        inputfield.textEditorFactory = function():ITextEditor {
+            var editor:StageTextTextEditor = new StageTextTextEditor();
+            editor.fontFamily = "Liberator";
+            editor.fontSize = 40*Utils.divideFactor;
+            editor.color = 0x333333;
+            return editor;
+        }
+        inputfield.x = nativeTextfieldImage.x + 20*Utils.divideFactor;
+        inputfield.y = nativeTextfieldImage.y + 30*Utils.divideFactor;
+        addChild(nativeTextfieldImage);
+        addChild(inputfield);
     }
 
     private function focusInHandler(event:starling.events.Event):void {

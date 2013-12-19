@@ -134,5 +134,9 @@ public class ChoiceButton extends Sprite{
             }
         }
     }
+
+    public function get title():String {
+        return _title;
+    }
 }
 }
