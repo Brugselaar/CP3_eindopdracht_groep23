@@ -62,7 +62,6 @@ public class HistoryButton extends Sprite{
         _background = new Quad(Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor, _backgroundColor);
         _background.x = Utils.screenWidth/2 - _background.width/2;
 
-
         // Build Text LOTSA CODE
         _nameTextField = new TextField(Utils.screenWidth-40*Utils.divideFactor, 110*Utils.divideFactor, _nameFormula, "Liberator", 36*Utils.divideFactor, _textColor);
         _nameTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
@@ -120,7 +119,6 @@ public class HistoryButton extends Sprite{
         _convertRight.x = Utils.screenWidth/2 - _convertRight.width/2;
         _convertRight.y = 60*Utils.divideFactor;
 
-
         // Adding all the shizzle
         _background.y = 80;
         addChild(_background);
@@ -157,8 +155,6 @@ public class HistoryButton extends Sprite{
 
         _nameTextField.y = yPos - _nameTextField.height/2;
         addChild(_nameTextField);
-
-
 
         trace("[ChoiceButton] added.");
     }
