@@ -43,7 +43,7 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
 
-        _fuelButton = new ChoiceButton("Price to Fuel", false);
+        _fuelButton = new ChoiceButton("Price / Fuel", false);
         _fuelButton.addEventListener(TouchEvent.TOUCH, fuelHandler);
         _fuelButton.y = 40*Utils.divideFactor;
         addChild(_fuelButton);
