@@ -10,6 +10,8 @@ import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
+import flash.desktop.NativeApplication;
+
 import flash.display.Bitmap;
 import flash.display.BitmapData;
 
@@ -57,31 +59,30 @@ public class MenuView extends Sprite implements ICanBeViewed{
     private function terminateHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if(touch){
-            // Terminate the app
-
+            NativeApplication.nativeApplication.exit();
         }
     }
 
     private function drawMenu():void{
         // Draw the menu, please use a seperate method instead of doing sth similar in the constructor.
-        _conversions = new ChoiceButton("Conversions");
+        _conversions = new ChoiceButton("Conversions", false);
         _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
         _conversions.y = 480*Utils.divideFactor;
         addChild(_conversions);
 
 //        var yPos:uint = 480*Utils.divideFactor + _conversions.height/2;
 
-        _history = new ChoiceButton("History");
+        _history = new ChoiceButton("History", false);
         _history.addEventListener(TouchEvent.TOUCH, historyHandler);
-        _history.y = _conversions.y + _history.height/2;
+        _history.y = _conversions.y + _history.height + 10*Utils.divideFactor;
         addChild(_history);
 
-        _profiles = new ChoiceButton("Profiles");
+        _profiles = new ChoiceButton("Profiles", false);
         _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
-        _profiles.y = _history.y + _profiles.height/2;
+        _profiles.y = _history.y + _profiles.height + 10*Utils.divideFactor;
         addChild(_profiles);
 
-        _terminate = new ChoiceButton("Close");
+        _terminate = new ChoiceButton("Close", false);
         _terminate.addEventListener(TouchEvent.TOUCH, terminateHandler);
         _terminate.y = _profiles.y + _terminate.height + 10*Utils.divideFactor;
         addChild(_terminate);

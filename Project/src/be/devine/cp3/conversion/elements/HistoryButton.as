@@ -164,14 +164,23 @@ public class HistoryButton extends Sprite{
     }
 
     public function destruct():void{
-        removeChild(_background);
-        _background.dispose();
-        _background = null;
+        var destructItems:Array = new Array(
+                _background,
+                _nameTextField,
+                _convertRight,
+                _outputTextField,
+                _inputTextField,
+                _leftFromInputTextField,
+                _rightFromInputTextField,
+                _leftFromOutputTextField,
+                _rightFromOutputTextField
+        );
 
-        removeChild(_nameTextField);
-        _nameTextField.dispose();
-        _nameTextField = null;
-
+        for each(var i:Sprite in destructItems){
+            removeChild(i);
+            i.dispose();
+            i = null;
+        }
         this._menuVO = null;
     }
 

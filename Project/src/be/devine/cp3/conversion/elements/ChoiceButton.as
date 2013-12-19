@@ -27,6 +27,7 @@ import starling.utils.VAlign;
 public class ChoiceButton extends Sprite{
 
     private var _title:String;
+    private var _isArrow:Boolean;
     private var _textField:TextField;
     private var _background:Quad;
     private var _big:Boolean;
@@ -36,9 +37,11 @@ public class ChoiceButton extends Sprite{
     private var _arrowRight:Image;
     private var _arrowBitMapData:BitmapData;
     private var _arrow:ArrowRight;
+    private var _button:ButtonRight;
 
-    public function ChoiceButton(title:String, backgroundColor:uint = 0x000000, textColor:uint = 0xf9cb14) {
+    public function ChoiceButton(title:String, isArrow:Boolean = true, backgroundColor:uint = 0x000000, textColor:uint = 0xf9cb14) {
         _title = title;
+        _isArrow = isArrow;
         _backgroundColor = backgroundColor;
         _textColor = textColor;
         _background = new Quad(Utils.screenWidth-40*Utils.divideFactor, 100*Utils.divideFactor, _backgroundColor);
@@ -49,20 +52,25 @@ public class ChoiceButton extends Sprite{
         _textField.hAlign = HAlign.LEFT;
         _textField.x = 40*Utils.divideFactor;
 
-        // Make arrow
-        _arrow = new ArrowRight();
-        _arrow.gotoAndStop(2);
-
-        // Make Bitmapdata
-        _arrowBitMapData = new BitmapData(_arrow.width, _arrow.height, true, 0xFF0000);
-        _arrowBitMapData.draw(_arrow);
+        if(_isArrow){
+            // Make arrow
+            _arrow = new ArrowRight();
+            _arrow.gotoAndStop(2);
+            _arrowBitMapData = new BitmapData(_arrow.width, _arrow.height, true, 0xFF0000);
+            _arrowBitMapData.draw(_arrow);
+        }else{
+            // Make button
+            _button = new ButtonRight();
+            _button.gotoAndStop(2);
+            _arrowBitMapData = new BitmapData(_button.width, _button.height, true, 0xFF0000);
+            _arrowBitMapData.draw(_button);
+        }
 
         _arrowRight = Image.fromBitmap(new Bitmap(_arrowBitMapData));
         _arrowBitMapData.dispose();
         _arrowRight.scaleX = Utils.divideFactor;
         _arrowRight.scaleY = Utils.divideFactor;
         _arrowRight.x = Utils.screenWidth/2 - _arrowRight.width/2;
-        _arrowRight.y = 60*Utils.divideFactor;
 
         _arrowRight.addEventListener(TouchEvent.TOUCH, onTap);
         _textField.addEventListener(TouchEvent.TOUCH, onTap);
@@ -72,7 +80,7 @@ public class ChoiceButton extends Sprite{
         _textField.y = _background.y;
         addChild(_textField);
         _arrowRight.x = _background.width - _arrowRight.width - 10*Utils.divideFactor;
-        _arrowRight.y = 186*Utils.divideFactor;
+        _arrowRight.y = _background.height/2 - _arrowRight.height/2;
         addChild(_arrowRight);
 
         if(_title == "Close"){
@@ -81,6 +89,8 @@ public class ChoiceButton extends Sprite{
             _textField.hAlign = HAlign.CENTER;
             _textField.x = 20*Utils.divideFactor;
             removeChild(_arrowRight);
+            _arrowRight.dispose();
+            _arrowRight = null;
         }
 
         trace("[ChoiceButton] added.");
@@ -115,12 +125,12 @@ public class ChoiceButton extends Sprite{
             if(t.phase == TouchPhase.ENDED){
                 // Touch released
                 trace('[ChoiceButton] released');
-                _arrow.gotoAndStop(1);
+//                _arrow.gotoAndStop(1);
             }
             else{
                 // Touching
                 trace('[ChoiceButton] Touching');
-                _arrow.gotoAndStop(2);
+//                _arrow.gotoAndStop(2);
             }
         }
     }
