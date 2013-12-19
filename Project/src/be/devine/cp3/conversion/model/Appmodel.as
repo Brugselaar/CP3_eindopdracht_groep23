@@ -18,7 +18,7 @@ public class Appmodel extends EventDispatcher{
     private var _historyVOs:Array = [];
     private var _profileVOs:Array = [];
     private var _currentProfile:Object;
-    private var _selectedFormulaId:uint;
+    private var _selectedFormula:String;
 
     public static const CURRENTSCREEN_CHANGED_EVENT:String = "currentScreenChanged";
     public static const CONVERSIONVOS_CHANGED_EVENT:String = "conversionVOsChanged";
@@ -27,6 +27,7 @@ public class Appmodel extends EventDispatcher{
 
     static private var instance:Appmodel;
     public static const SELECTEDFORMULAID_CHANGED_EVENT:String = "selectedFormulaIdChanged";
+    public static const SELECTEDFORMULA_CHANGED_EVENT:String = "selectedFormulaChanged";
     static public function getInstance():Appmodel{
         if(instance == null){
             instance = new Appmodel(new Enforcer());
@@ -35,15 +36,15 @@ public class Appmodel extends EventDispatcher{
     }
 
 
-    [Bindable(event="selectedFormulaIdChanged")]
-    public function get selectedFormulaId():uint {
-        return _selectedFormulaId;
+    [Bindable(event="selectedFormulaChanged")]
+    public function get selectedFormula():String {
+        return _selectedFormula;
     }
 
-    public function set selectedFormulaId(value:uint):void {
-        if (_selectedFormulaId == value) return;
-        _selectedFormulaId = value;
-        dispatchEvent(new Event(SELECTEDFORMULAID_CHANGED_EVENT));
+    public function set selectedFormula(value:String):void {
+        if (_selectedFormula == value) return;
+        _selectedFormula = value;
+        dispatchEvent(new Event(SELECTEDFORMULA_CHANGED_EVENT));
     }
 
     [Bindable(event="profileVOsChanged")]

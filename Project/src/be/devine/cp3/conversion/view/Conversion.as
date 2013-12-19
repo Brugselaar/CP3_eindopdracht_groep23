@@ -71,7 +71,7 @@ public class Conversion extends Sprite{
         _screenNavigator.addScreen("Conversion", new ScreenNavigatorItem(Conversion));
         _screenNavigator.addScreen("ConversionResultView", new ScreenNavigatorItem(ConversionResultView));
         _screenNavigator.addScreen("ConversionsView", new ScreenNavigatorItem(ConversionsView));
-        _screenNavigator.addScreen("DoConversionsView", new ScreenNavigatorItem(DoConversionView));
+        _screenNavigator.addScreen("DoConversionView", new ScreenNavigatorItem(DoConversionView));
         _screenNavigator.addScreen("HistoryDetailView", new ScreenNavigatorItem(HistoryDetailView));
         _screenNavigator.addScreen("HistoryView", new ScreenNavigatorItem(HistoryView));
         _screenNavigator.addScreen("MenuView", new ScreenNavigatorItem(MenuView));

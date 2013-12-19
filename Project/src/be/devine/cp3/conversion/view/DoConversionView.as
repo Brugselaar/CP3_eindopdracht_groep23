@@ -23,12 +23,17 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
 
 
     public function DoConversionView() {
-        _conversion = _appModel.conversionVOs[_appModel.selectedFormulaId];
-        _title = _conversion.title;
-        _formula = _conversion.formula;
-        _reverseTitle = _conversion.reverseTitle;
-        _reverseFormula = _conversion.reverseFormula;
-        _custom = _conversion.custom;
+        for each(var conversion:ConversionVO in _appModel.conversionVOs){
+            if(conversion.title == _appModel.selectedFormula){
+                _conversion = conversion;
+                _title = _conversion.title;
+                _formula = _conversion.formula;
+                _reverseTitle = _conversion.reverseTitle;
+                _reverseFormula = _conversion.reverseFormula;
+                _custom = _conversion.custom;
+                trace ("Got: " + _title);
+            }
+        }
     }
 
     public function doConversion(Conversion:Object, input:Number):void{

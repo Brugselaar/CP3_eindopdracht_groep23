@@ -9,6 +9,8 @@ package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.utils.Utils;
+
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -17,7 +19,7 @@ import starling.events.TouchPhase;
 public class ConversionsView extends starling.display.Sprite implements ICanBeViewed{
     private var _backButton:MenuButton;
     private var _appModel:Appmodel;
-    private var _choiceButtons:Array;
+    private var _choiceButtons:Array = [];
 
     public function ConversionsView() {
         trace("[ConversionsView] started.");
@@ -43,7 +45,7 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
         for(var i:uint = 0; i < _appModel.conversionVOs.length; i++){
             var choiceButton:ChoiceButton = new ChoiceButton(_appModel.conversionVOs[i].title, false);
             choiceButton.addEventListener(TouchEvent.TOUCH, touchHandler);
-            choiceButton.y = i * (choiceButton.height + 10);
+            choiceButton.y = 40*Utils.divideFactor + i * (choiceButton.height + 10*Utils.divideFactor);
             addChild(choiceButton);
             _choiceButtons.push(choiceButton);
         }
@@ -52,10 +54,11 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
     private function touchHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if (touch) {
-            for (var i:uint = 0; i < _choiceButtons.length; i++){
-//                if(_choiceButtons.title == event.currentTarget.title){
-//                    trace("You clicked on " + i);
-//                }
+            for each(var _choiceButton:ChoiceButton in _choiceButtons){
+                if(event.currentTarget == _choiceButton){
+                    _appModel.selectedFormula = _choiceButton.title;
+                    _appModel.currentScreen = "DoConversionView";
+                }
             }
         }
     }
