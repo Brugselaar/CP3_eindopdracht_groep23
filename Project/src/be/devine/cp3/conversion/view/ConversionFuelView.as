@@ -16,13 +16,12 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
-public class ConversionsView extends starling.display.Sprite implements ICanBeViewed{
+public class ConversionFuelView extends starling.display.Sprite implements ICanBeViewed{
     private var _backButton:MenuButton;
     private var _appModel:Appmodel;
     private var _choiceButtons:Array = [];
-    private var _fuelButton:ChoiceButton;
 
-    public function ConversionsView() {
+    public function ConversionFuelView() {
         trace("[ConversionsView] started.");
         _appModel = Appmodel.getInstance();
     }
@@ -43,26 +42,14 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
 
-        _fuelButton = new ChoiceButton("Price to Fuel", false);
-        _fuelButton.addEventListener(TouchEvent.TOUCH, fuelHandler);
-        _fuelButton.y = 40*Utils.divideFactor;
-        addChild(_fuelButton);
-
         for(var i:uint = 0; i < _appModel.conversionVOs.length; i++){
-            if(i > 3){
+            if(i < 4){
                 var choiceButton:ChoiceButton = new ChoiceButton(_appModel.conversionVOs[i].title, false);
                 choiceButton.addEventListener(TouchEvent.TOUCH, touchHandler);
-                choiceButton.y = 40*Utils.divideFactor + (i-3) * (choiceButton.height + 10*Utils.divideFactor);
+                choiceButton.y = 40*Utils.divideFactor + (i) * (choiceButton.height + 10*Utils.divideFactor);
                 addChild(choiceButton);
                 _choiceButtons.push(choiceButton);
             }
-        }
-    }
-
-    private function fuelHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
-        if (touch) {
-            _appModel.currentScreen = "ConversionFuelView";
         }
     }
 

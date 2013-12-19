@@ -50,7 +50,7 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
                 _leftFromInput = conversion.leftFromInput;
                 _leftFromOutput = conversion.leftFromOutput;
                 trace ("Got: " + _title);
-                doConversion(2);
+                doConversion(2.6);
             }
         }
     }
