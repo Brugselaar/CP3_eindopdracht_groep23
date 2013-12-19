@@ -29,14 +29,6 @@ public class HistoryVO {
         _id = value;
     }
 
-    public function get input():int {
-        return _input;
-    }
-
-    public function get output():int {
-        return _output;
-    }
-
     public function get leftFromInput():String {
         return _leftFromInput;
     }
@@ -77,14 +69,6 @@ public class HistoryVO {
         _nameFormula = value;
     }
 
-    public function set input(value:int):void {
-        _input = value;
-    }
-
-    public function set output(value:int):void {
-        _output = value;
-    }
-
     public function get formulaId():uint {
         return _formulaId;
     }
@@ -99,6 +83,22 @@ public class HistoryVO {
 
     public function set custom(value:Boolean):void {
         _custom = value;
+    }
+
+    public function get input():Number {
+        return _input;
+    }
+
+    public function set input(value:Number):void {
+        _input = value;
+    }
+
+    public function get output():Number {
+        return _output;
+    }
+
+    public function set output(value:Number):void {
+        _output = value;
     }
 }
 }
