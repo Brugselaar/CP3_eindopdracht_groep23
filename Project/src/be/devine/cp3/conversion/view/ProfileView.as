@@ -50,11 +50,11 @@ public class ProfileView extends Sprite implements ICanBeViewed{
         addChild(_addProfileButton);
 
         for(var i:uint = 0; i < _appModel.profileVOs.length; i++){
-                var choiceButton:ChoiceButton = new ChoiceButton(_appModel.profileVOs[i].car, false);
-                choiceButton.addEventListener(TouchEvent.TOUCH, touchHandler);
-                choiceButton.y = 40*Utils.divideFactor + (i+1) * (choiceButton.height + 10*Utils.divideFactor);
-                addChild(choiceButton);
-                _choiceButtons.push(choiceButton);
+            var choiceButton:ChoiceButton = new ChoiceButton(_appModel.profileVOs[i].car, false);
+            choiceButton.addEventListener(TouchEvent.TOUCH, touchHandler);
+            choiceButton.y = 40*Utils.divideFactor + (i+1) * (choiceButton.height + 10*Utils.divideFactor);
+            addChild(choiceButton);
+            _choiceButtons.push(choiceButton);
         }
     }
 
