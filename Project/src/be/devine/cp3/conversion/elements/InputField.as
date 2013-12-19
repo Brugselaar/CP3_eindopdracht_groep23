@@ -66,13 +66,15 @@ public class InputField extends Sprite{
         nativeTextfieldImage.x = 20*Utils.divideFactor;
 
         inputfield = new TextInput();
-        inputfield.text = "test";
+        inputfield.text = "Digits only";
         inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
         inputfield.addEventListener( FeathersEventType.FOCUS_OUT, focusOutHandler);
         inputfield.maxChars = _maxChars;
         inputfield.restrict = "0-9";
-        inputfield.width = 400*Utils.divideFactor;
+        inputfield.textEditorProperties.textAlign = "center";
+        inputfield.width = _inputBox.width - 40*Utils.divideFactor;
         inputfield.height = 100*Utils.divideFactor;
+
         inputfield.textEditorFactory = function():ITextEditor {
             var editor:StageTextTextEditor = new StageTextTextEditor();
             editor.fontFamily = "Liberator";
@@ -87,7 +89,7 @@ public class InputField extends Sprite{
     }
 
     private function focusInHandler(event:starling.events.Event):void {
-
+        inputfield.text = "";
     }
 
     private function focusOutHandler(event:starling.events.Event):void {
