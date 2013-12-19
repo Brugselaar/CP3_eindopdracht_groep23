@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.MenuButton;
+import be.devine.cp3.conversion.elements.ProfileButton;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
@@ -20,7 +21,7 @@ import starling.events.TouchPhase;
 public class ProfileView extends Sprite implements ICanBeViewed{
     private var _appModel:Appmodel;
     private var _backButton:MenuButton;
-    private var _choiceButtons:Array = [];
+    private var _profileButtons:Array = [];
     private var _addProfileButton:ChoiceButton;
 
     public function ProfileView() {
@@ -50,11 +51,11 @@ public class ProfileView extends Sprite implements ICanBeViewed{
         addChild(_addProfileButton);
 
         for(var i:uint = 0; i < _appModel.profileVOs.length; i++){
-            var choiceButton:ChoiceButton = new ChoiceButton(_appModel.profileVOs[i].car, false);
-            choiceButton.addEventListener(TouchEvent.TOUCH, touchHandler);
-            choiceButton.y = 40*Utils.divideFactor + (i+1) * (choiceButton.height + 10*Utils.divideFactor);
-            addChild(choiceButton);
-            _choiceButtons.push(choiceButton);
+            var profileButton:ProfileButton = new ProfileButton(_appModel.profileVOs[i].car, _appModel.profileVOs[i].id);
+            profileButton.addEventListener(TouchEvent.TOUCH, touchHandler);
+            profileButton.y = 40*Utils.divideFactor + (i+1) * (profileButton.height + 10*Utils.divideFactor);
+            addChild(profileButton);
+            _profileButtons.push(profileButton);
         }
     }
 
@@ -71,8 +72,8 @@ public class ProfileView extends Sprite implements ICanBeViewed{
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if (touch)
         {
-            for(var i:uint = 0; i < _choiceButtons.length; i++){
-                if(_choiceButtons[i] == event.currentTarget){
+            for(var i:uint = 0; i < _profileButtons.length; i++){
+                if(_profileButtons[i] == event.currentTarget){
                     _appModel.currentProfile = _appModel.profileVOs[i];
                     trace("[Profileview] Profile changed to index: " + i);
                 }
