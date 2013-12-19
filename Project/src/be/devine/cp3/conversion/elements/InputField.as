@@ -60,7 +60,6 @@ public class InputField extends Sprite{
         bmpData.draw(_inputBoxBorder);
 
         var nativeTextfieldImage:Image = new Image(starling.textures.Texture.fromBitmapData(bmpData));
-        nativeTextfieldImage.y = 100;
         nativeTextfieldImage.x = 20*Utils.divideFactor;
 
         _inputfield = new TextInput();
@@ -79,7 +78,7 @@ public class InputField extends Sprite{
             var editor:StageTextTextEditor = new StageTextTextEditor();
             editor.fontFamily = "Liberator";
             editor.fontSize = 40*Utils.divideFactor;
-            editor.color = 0x333333;
+            editor.color = 0x000000;
             return editor;
         }
         _inputfield.x = nativeTextfieldImage.x + 20*Utils.divideFactor;

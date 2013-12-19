@@ -37,7 +37,7 @@ public class TitleField extends Sprite{
             var editor:StageTextTextEditor = new StageTextTextEditor();
             editor.fontFamily = "Font";
             editor.fontSize = 50*Utils.divideFactor;
-            editor.color = 0x333333;
+            editor.color = 0x000000;
             return editor;
         }
         _inputfield.x = Utils.screenWidth/2 - _inputfield.width/2;

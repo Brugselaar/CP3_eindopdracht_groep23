@@ -6,8 +6,12 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.view {
+import be.devine.cp3.conversion.elements.ChoiceButton;
+import be.devine.cp3.conversion.elements.InputField;
 import be.devine.cp3.conversion.elements.MenuButton;
+import be.devine.cp3.conversion.elements.TitleField;
 import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.utils.Utils;
 import be.devine.cp3.conversion.vo.ConversionVO;
 import be.devine.cp3.conversion.vo.HistoryVO;
 
@@ -31,10 +35,11 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     private var _rightFromOutput:String;
     private var _leftFromInput:String;
     private var _leftFromOutput:String;
-
     private var _backButton:MenuButton;
-
-
+    private var _titleField:TitleField;
+    private var _input:InputField;
+    private var _submit:ChoiceButton;
+    private var _reverseButton:ChoiceButton;
 
     public function DoConversionView() {
         for each(var conversion:ConversionVO in _appModel.conversionVOs){
@@ -74,6 +79,28 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     }
 
     public function resize(w:Number, h:Number):void{
+        buildView();
+    }
+
+    private function buildView():void{
+        _titleField = new TitleField(_title);
+        _titleField.y = 80*Utils.divideFactor;
+        addChild(_titleField);
+
+        _input = new InputField();
+        _input.y = _titleField.y + _input.height;
+        addChild(_input);
+
+        _submit = new ChoiceButton("Submit");
+        _submit.addEventListener(TouchEvent.TOUCH, submitHandler);
+        _submit.y = _input.y + _submit.height + 10*Utils.divideFactor;;
+        addChild(_submit);
+
+        _reverseButton = new ChoiceButton("Reverse");
+        _reverseButton.addEventListener(TouchEvent.TOUCH, reverseHandler);
+        _reverseButton.y = _submit.y + _reverseButton.height + 20*Utils.divideFactor;
+        addChild(_reverseButton);
+
         _backButton = new MenuButton();
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
@@ -84,6 +111,14 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
         if (touch) {
             _appModel.currentScreen = "MenuView";
         }
+    }
+
+    private function submitHandler(event:TouchEvent):void {
+
+    }
+
+    private function reverseHandler(event:TouchEvent):void {
+
     }
 }
 }
