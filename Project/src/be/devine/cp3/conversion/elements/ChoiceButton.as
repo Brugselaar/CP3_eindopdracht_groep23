@@ -7,7 +7,6 @@
  */
 package be.devine.cp3.conversion.elements {
 import be.devine.cp3.conversion.utils.Utils;
-import be.devine.cp3.conversion.vo.MenuVO;
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
@@ -33,7 +32,6 @@ public class ChoiceButton extends Sprite{
     private var _big:Boolean;
     private var _backgroundColor:uint;
     private var _textColor:uint;
-    private var _menuVO:MenuVO;
     private var _arrowRight:Image;
     private var _arrowBitMapData:BitmapData;
     private var _arrow:ArrowRight;
@@ -124,8 +122,6 @@ public class ChoiceButton extends Sprite{
         removeChild(_textField);
         _textField.dispose();
         _textField = null;
-
-        this._menuVO = null;
     }
 
     // Resize function
