@@ -31,10 +31,15 @@ public class ConversionService extends EventDispatcher
 
     public function load():void{
         if(!_json.exists) {
+            trace("?");
             save(
             [{
                 id: 1,
                 title: "Price to Diesel",
+                rightFromInput: "",
+                leftFromInput: "€",
+                rightFromOutput: "L",
+                leftFromOutput: "",
                 formula: 1/1.465,
                 reverseTitle: "Fuel to price",
                 reverseFormula: 1.465,
@@ -43,6 +48,10 @@ public class ConversionService extends EventDispatcher
                 {
                     id: 2,
                     title: "Price to Super 95",
+                    rightFromInput: "",
+                    leftFromInput: "€",
+                    rightFromOutput: "L",
+                    leftFromOutput: "",
                     formula: 1/1.610,
                     reverseTitle: "Fuel to price",
                     reverseFormula: 1.610,
@@ -51,6 +60,10 @@ public class ConversionService extends EventDispatcher
                 {
                     id: 3,
                     title: "Price to Super 98",
+                    rightFromInput: "",
+                    leftFromInput: "€",
+                    rightFromOutput: "L",
+                    leftFromOutput: "",
                     formula: 1/1.668,
                     reverseTitle: "Fuel to price",
                     reverseFormula: 1.668,
@@ -59,6 +72,10 @@ public class ConversionService extends EventDispatcher
                 {
                     id: 4,
                     title: "Price to LPG",
+                    rightFromInput: "",
+                    leftFromInput: "€",
+                    rightFromOutput: "L",
+                    leftFromOutput: "",
                     formula: 1/0.726,
                     reverseTitle: "Fuel to price",
                     reverseFormula: 0.726,
@@ -68,6 +85,10 @@ public class ConversionService extends EventDispatcher
                     //GAAT NIET OMDAT HET VAN GEBRUIK AFHANGT
                     id: 5,
                     title: "Distance to fuel",
+                    rightFromInput: "km",
+                    leftFromInput: "",
+                    rightFromOutput: "L",
+                    leftFromOutput: "",
                     formula: 1/2,
                     reverseTitle: "Fuel to distance",
                     reverseFormula: 2/1,
@@ -76,6 +97,10 @@ public class ConversionService extends EventDispatcher
                 {
                     id: 6,
                     title: "Oil for Two-stroke fuel",
+                    rightFromInput: "L",
+                    leftFromInput: "",
+                    rightFromOutput: "L",
+                    leftFromOutput: "",
                     formula: 2/100,
                     reverseTitle: "Oil in Two-stroke fuel",
                     reverseFormula: 100/2,
@@ -84,6 +109,10 @@ public class ConversionService extends EventDispatcher
                 {
                     id: 7,
                     title: "Kilometers to miles",
+                    rightFromInput: "km",
+                    leftFromInput: "",
+                    rightFromOutput: "Mi",
+                    leftFromOutput: "",
                     formula: 1/1.60934,
                     reverseTitle: "Miles to kilometers",
                     reverseFormula: 1.60934,
@@ -92,6 +121,10 @@ public class ConversionService extends EventDispatcher
                 {
                     id: 8,
                     title: "Liters to gallons",
+                    rightFromInput: "L",
+                    leftFromInput: "",
+                    rightFromOutput: "gal",
+                    leftFromOutput: "",
                     formula: 1/3.78541,
                     reverseTitle: "Gallons to liters",
                     reverseFormula: 3.78541,
@@ -115,6 +148,10 @@ public class ConversionService extends EventDispatcher
             conversionVO.title = conversion.title;
             conversionVO.custom = conversion.custom;
             conversionVO.reverseTitle = conversion.reverseTitle;
+            conversionVO.rightFromInput = conversion.rightFromInput;
+            conversionVO.rightFromOutput = conversion.rightFromOutput;
+            conversionVO.leftFromInput = conversion.leftFromInput;
+            conversionVO.leftFromOutput = conversion.leftFromOutput;
             conversionArray.push(conversionVO);
         }
         this.conversionArray = conversionArray;

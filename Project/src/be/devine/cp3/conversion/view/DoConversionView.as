@@ -26,6 +26,10 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     private var _reverseFormula:Number;
     private var _reverseTitle:String;
     private var _custom:Boolean;
+    private var _rightFromInput:String;
+    private var _rightFromOutput:String;
+    private var _leftFromInput:String;
+    private var _leftFromOutput:String;
 
     private var _backButton:MenuButton;
 
@@ -40,13 +44,19 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
                 _reverseTitle = _conversion.reverseTitle;
                 _reverseFormula = _conversion.reverseFormula;
                 _custom = _conversion.custom;
+                _rightFromOutput = conversion.rightFromOutput;
+                _rightFromInput = conversion.rightFromInput;
+                _leftFromInput = conversion.leftFromInput;
+                _leftFromOutput = conversion.leftFromOutput;
                 trace ("Got: " + _title);
+                doConversion(2);
             }
         }
     }
 
-    public function doConversion(Conversion:Object, input:Number):void{
-
+    public function doConversion(input:Number):void{
+        var output:Number = input * _formula;
+        trace (_leftFromInput + input + _rightFromInput + " = " + _leftFromOutput + output + _rightFromOutput);
     }
 
     public function resize(w:Number, h:Number):void{
