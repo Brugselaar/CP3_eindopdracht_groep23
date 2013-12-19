@@ -35,8 +35,6 @@ public class InputField extends Sprite{
     private var _maxChars:uint;
     private var _inputBoxBorder:MovieClip;
     private var _inputBox:MovieClip;
-    private var _inputBitMapData:BitmapData;
-    private var _input:Image;
 
     public function InputField(maxChars:uint = 3) {
         _maxChars = maxChars;
@@ -65,6 +63,7 @@ public class InputField extends Sprite{
         nativeTextfieldImage.y = 100;
         nativeTextfieldImage.x = 20*Utils.divideFactor;
 
+<<<<<<< HEAD
         inputfield = new TextInput();
         inputfield.text = "Digits only";
         inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
@@ -76,6 +75,21 @@ public class InputField extends Sprite{
         inputfield.height = 100*Utils.divideFactor;
 
         inputfield.textEditorFactory = function():ITextEditor {
+=======
+        _inputfield = new TextInput();
+        _inputfield.text = "Digits only";
+        _inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
+        _inputfield.addEventListener( FeathersEventType.FOCUS_OUT, focusOutHandler);
+        _inputfield.maxChars = _maxChars;
+        if(!isText){
+            _inputfield.restrict = "0-9.";
+        }
+        _inputfield.textEditorProperties.textAlign = "center";
+        _inputfield.width = _inputBox.width - 40*Utils.divideFactor;
+        _inputfield.height = 100*Utils.divideFactor;
+
+        _inputfield.textEditorFactory = function():ITextEditor {
+>>>>>>> 6c98b784d4ecc5f343216f791f65f1121646e0df
             var editor:StageTextTextEditor = new StageTextTextEditor();
             editor.fontFamily = "Liberator";
             editor.fontSize = 40*Utils.divideFactor;
