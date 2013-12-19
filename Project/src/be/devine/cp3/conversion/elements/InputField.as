@@ -69,7 +69,7 @@ public class InputField extends Sprite{
         _inputfield.addEventListener( FeathersEventType.FOCUS_OUT, focusOutHandler);
         _inputfield.maxChars = _maxChars;
         if(!isText){
-            _inputfield.restrict = "0-9";
+            _inputfield.restrict = "0-9.";
         }
         _inputfield.textEditorProperties.textAlign = "center";
         _inputfield.width = _inputBox.width - 40*Utils.divideFactor;
