@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.vo {
 public class HistoryVO {
     private var _id:uint;
+    private var _formulaId:uint;
     private var _nameFormula:String;
     private var _input:int;
     private var _output:int;
@@ -81,6 +82,14 @@ public class HistoryVO {
 
     public function set output(value:int):void {
         _output = value;
+    }
+
+    public function get formulaId():uint {
+        return _formulaId;
+    }
+
+    public function set formulaId(value:uint):void {
+        _formulaId = value;
     }
 }
 }

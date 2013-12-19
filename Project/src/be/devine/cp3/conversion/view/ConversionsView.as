@@ -21,6 +21,7 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
     private var _appModel:Appmodel;
 
     public function ConversionsView() {
+        trace("[ConversionsView] started.");
         _appModel = Appmodel.getInstance();
 
         //TODO: ELEMENTEN MAKEN

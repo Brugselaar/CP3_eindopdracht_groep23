@@ -7,6 +7,7 @@
  */
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
+import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
@@ -82,7 +83,6 @@ public class MenuView extends Sprite implements ICanBeViewed{
         _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
         _profiles.y = _history.y + yPos;
         addChild(_profiles);
-
         _terminate = new ChoiceButton("Close");
         _terminate.addEventListener(TouchEvent.TOUCH, terminateHandler);
         _terminate.y = _profiles.y + yPos;

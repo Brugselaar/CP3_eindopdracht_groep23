@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.view {
 public class HistoryDetailView {
     public function HistoryDetailView() {
+        trace("[HistoryDetailView] started.");
     }
 }
 }

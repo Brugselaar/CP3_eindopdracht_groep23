@@ -19,6 +19,7 @@ public class ProfileView extends Sprite implements ICanBeViewed{
     private var _backButton:Quad;
 
     public function ProfileView() {
+        trace("[ProfileView] started.");
         _appModel = Appmodel.getInstance();
 
         //TODO ELEMENTEN MAKEN

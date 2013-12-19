@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.view {
 public class Transition {
     public function Transition() {
+        trace("[Transition] initialised.");
     }
 }
 }

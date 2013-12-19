@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.view {
 public class DoConversionView {
     public function DoConversionView() {
+        trace("[DoConversionView] started.");
     }
 }
 }
