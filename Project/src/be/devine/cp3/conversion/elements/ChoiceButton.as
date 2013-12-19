@@ -6,8 +6,12 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.elements {
+<<<<<<< HEAD
 import Utils;
 import be.devine.cp3.conversion.vo.MenuVO;
+=======
+import be.devine.cp3.conversion.utils.Utils;
+>>>>>>> 4335f61d49dee403fa8305f0adfef8bd33c29b4f
 
 import flash.display.Bitmap;
 import flash.display.BitmapData;
@@ -33,7 +37,6 @@ public class ChoiceButton extends Sprite{
     private var _big:Boolean;
     private var _backgroundColor:uint;
     private var _textColor:uint;
-    private var _menuVO:MenuVO;
     private var _arrowRight:Image;
     private var _arrowBitMapData:BitmapData;
     private var _arrow:ArrowRight;
@@ -124,8 +127,6 @@ public class ChoiceButton extends Sprite{
         removeChild(_textField);
         _textField.dispose();
         _textField = null;
-
-        this._menuVO = null;
     }
 
     // Resize function
