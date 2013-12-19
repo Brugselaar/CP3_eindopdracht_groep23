@@ -93,6 +93,26 @@ public class ChoiceButton extends Sprite{
             _arrowRight = null;
         }
 
+        if(_title == "Submit"){
+            _background.width = 320*Utils.divideFactor;
+            _background.x = Utils.screenWidth/2 - _background.width/2;
+            _textField.hAlign = HAlign.CENTER;
+            _textField.x = 20*Utils.divideFactor;
+            removeChild(_arrowRight);
+            _arrowRight.dispose();
+            _arrowRight = null;
+        }
+
+        if(_title == "Reverse"){
+            _background.width = 320*Utils.divideFactor;
+            _background.x = Utils.screenWidth/2 - _background.width/2;
+            _textField.hAlign = HAlign.CENTER;
+            _textField.x = 20*Utils.divideFactor;
+            removeChild(_arrowRight);
+            _arrowRight.dispose();
+            _arrowRight = null;
+        }
+
         trace("[ChoiceButton] added.");
     }
 
