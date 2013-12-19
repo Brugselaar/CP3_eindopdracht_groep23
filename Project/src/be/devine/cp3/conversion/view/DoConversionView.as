@@ -9,6 +9,7 @@ package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.vo.ConversionVO;
+import be.devine.cp3.conversion.vo.HistoryVO;
 
 import starling.events.Touch;
 
@@ -57,6 +58,19 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     public function doConversion(input:Number):void{
         var output:Number = input * _formula;
         trace (_leftFromInput + input + _rightFromInput + " = " + _leftFromOutput + output + _rightFromOutput);
+        var historyVOs:Array = _appModel.historyVOs.concat();
+        var historyVO:HistoryVO = new HistoryVO();
+        historyVO.id = historyVOs.length;
+        historyVO.rightFromInput = _rightFromInput;
+        historyVO.leftFromInput = _leftFromInput;
+        historyVO.leftFromOutput = _leftFromOutput;
+        historyVO.rightFromOutput = _rightFromOutput;
+        historyVO.nameFormula = _title;
+        historyVO.output = output;
+        historyVO.input = input;
+        historyVO.custom = _custom;
+        historyVOs.push(historyVO);
+        _appModel.historyVOs = historyVOs;
     }
 
     public function resize(w:Number, h:Number):void{

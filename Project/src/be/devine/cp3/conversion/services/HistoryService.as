@@ -50,6 +50,7 @@ public class HistoryService extends EventDispatcher{
             historyVO.output = history.output;
             historyVO.rightFromOutput = history.rightFromOutput;
             historyVO.leftFromOutput = history.leftFromOutput;
+            historyVO.custom = history.custom;
             historyArray.push(historyVO);
         }
         this.historyArray = historyArray;

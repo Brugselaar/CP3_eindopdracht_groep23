@@ -16,6 +16,7 @@ public class HistoryVO {
     private var _rightFromInput:String;
     private var _leftFromOutput:String;
     private var _rightFromOutput:String;
+    private var _custom:Boolean;
 
     public function HistoryVO() {
     }
@@ -90,6 +91,14 @@ public class HistoryVO {
 
     public function set formulaId(value:uint):void {
         _formulaId = value;
+    }
+
+    public function get custom():Boolean {
+        return _custom;
+    }
+
+    public function set custom(value:Boolean):void {
+        _custom = value;
     }
 }
 }
