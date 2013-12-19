@@ -10,8 +10,8 @@ public class HistoryVO {
     private var _id:uint;
     private var _formulaId:uint;
     private var _nameFormula:String;
-    private var _input:int;
-    private var _output:int;
+    private var _input:Number;
+    private var _output:Number;
     private var _leftFromInput:String;
     private var _rightFromInput:String;
     private var _leftFromOutput:String;
