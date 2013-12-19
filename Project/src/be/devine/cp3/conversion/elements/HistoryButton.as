@@ -50,8 +50,8 @@ public class HistoryButton extends Sprite{
     public function HistoryButton(history:HistoryVO, backgroundColor:uint = 0x000000, textColor:uint = 0xf9cb14) {
         // Variables
         _nameFormula = history.nameFormula;
-        _input = String(history.input.toPrecision(2));
-        _output = String(history.output.toPrecision(2));
+        _input = String(history.input.toPrecision(3));
+        _output = String(history.output.toPrecision(3));
         _leftFromInput = history.leftFromInput;
         _rightFromInput = history.rightFromInput;
         _leftFromOutput = history.leftFromOutput;
