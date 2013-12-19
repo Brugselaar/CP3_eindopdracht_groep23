@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.elements {
-import be.devine.cp3.conversion.utils.Utils;
+import Utils;
 import be.devine.cp3.conversion.vo.HistoryVO;
 import be.devine.cp3.conversion.vo.MenuVO;
 

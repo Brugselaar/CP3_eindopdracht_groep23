@@ -7,7 +7,6 @@
  */
 package be.devine.cp3.conversion.model {
 import be.devine.cp3.conversion.view.*;
-import be.devine.cp3.conversion.view.MenuView;
 
 import flash.events.Event;
 

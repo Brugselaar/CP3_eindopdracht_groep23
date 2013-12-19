@@ -1,7 +1,7 @@
 package {
 import be.devine.cp3.conversion.model.Appmodel;
-import be.devine.cp3.conversion.utils.Utils;
-import be.devine.cp3.conversion.view.Conversion;
+import Utils;
+import Conversion;
 
 import flash.display.Sprite;
 import flash.display.StageAlign;
