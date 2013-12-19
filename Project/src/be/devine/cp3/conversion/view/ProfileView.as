@@ -30,8 +30,7 @@ public class ProfileView extends Sprite implements ICanBeViewed{
 
     private function backHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
-        if (touch)
-        {
+        if (touch){
             _appModel.currentScreen = "MenuView";
         }
     }
@@ -54,6 +53,9 @@ public class ProfileView extends Sprite implements ICanBeViewed{
             var profileButton:ProfileButton = new ProfileButton(_appModel.profileVOs[i].car, _appModel.profileVOs[i].id);
             profileButton.addEventListener(TouchEvent.TOUCH, touchHandler);
             profileButton.y = 40*Utils.divideFactor + (i+1) * (profileButton.height + 10*Utils.divideFactor);
+            if (_appModel.currentProfile == _appModel.profileVOs[i].id){
+                profileButton.isChecked == "checked";
+            }
             addChild(profileButton);
             _profileButtons.push(profileButton);
         }
@@ -61,8 +63,7 @@ public class ProfileView extends Sprite implements ICanBeViewed{
 
     private function addProfileHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
-        if (touch)
-        {
+        if (touch){
             _appModel.currentScreen = "AddProfileView";
         }
 
@@ -70,10 +71,13 @@ public class ProfileView extends Sprite implements ICanBeViewed{
 
     private function touchHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
-        if (touch)
-        {
+        if (touch) {
             for(var i:uint = 0; i < _profileButtons.length; i++){
+                if (_profileButtons[i].isChecked == true){
+                    _profileButtons[i].isChecked = "not checked";
+                }
                 if(_profileButtons[i] == event.currentTarget){
+                    _profileButtons[i].isChecked = "checked";
                     _appModel.currentProfile = _appModel.profileVOs[i];
                     trace("[Profileview] Profile changed to index: " + i);
                 }
