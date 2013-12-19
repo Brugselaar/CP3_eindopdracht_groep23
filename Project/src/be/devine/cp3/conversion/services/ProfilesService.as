@@ -45,7 +45,7 @@ public class ProfilesService extends EventDispatcher
         for each(var profile:Object in parsedJSON) {
             var profileVO:ProfileVO = new ProfileVO();
             profileVO.id = profile.id;
-            profileVO.name = profile.name;
+            profileVO.car = profile.car;
             profileVO.consumption = profile.consumption;
             profilesArray.push(profileVO);
         }
@@ -56,11 +56,11 @@ public class ProfilesService extends EventDispatcher
     }
 
     public function save(array:Array):void{
+        trace("[ProfilesService] Save!");
         var writeStream:FileStream = new FileStream();
         writeStream.open(_json, FileMode.WRITE);
         writeStream.writeUTFBytes(JSON.stringify(array));
         writeStream.close();
-        trace(profilesArray);
     }
 
     public function saveNew(name:String, consumption:Number):void{

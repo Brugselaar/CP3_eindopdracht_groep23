@@ -64,11 +64,11 @@ public class Conversion extends Sprite{
         _appModel = Appmodel.getInstance();
 
         _appModel.addEventListener(Appmodel.HISTORYVOS_CHANGED_EVENT, historyChangedHandler);
+        _appModel.addEventListener(Appmodel.PROFILEVOS_CHANGED_EVENT, profileChangeHandler);
 
         _screenNavigator = new ScreenNavigator();
 
         _screenNavigator.addScreen("AddProfileView", new ScreenNavigatorItem(AddProfileView));
-        _screenNavigator.addScreen("Conversion", new ScreenNavigatorItem(Conversion));
         _screenNavigator.addScreen("ConversionFuelView", new ScreenNavigatorItem(ConversionFuelView));
         _screenNavigator.addScreen("ConversionResultView", new ScreenNavigatorItem(ConversionResultView));
         _screenNavigator.addScreen("ConversionsView", new ScreenNavigatorItem(ConversionsView));
@@ -89,6 +89,10 @@ public class Conversion extends Sprite{
         _appModel.currentScreen = "MenuView";
 
         startJSON();
+    }
+
+    private function profileChangeHandler(event:flash.events.Event):void {
+        _profilesService.save(_appModel.profileVOs);
     }
 
     private function historyChangedHandler(event:flash.events.Event):void {
