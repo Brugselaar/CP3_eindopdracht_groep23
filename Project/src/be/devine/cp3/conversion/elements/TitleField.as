@@ -29,7 +29,7 @@ public class TitleField extends Sprite{
         _inputfield = new TextInput();
         _inputfield.text = _title;
         _inputfield.textEditorProperties.textAlign = "center";
-        _inputfield.width = 500*Utils.divideFactor;
+        _inputfield.width = 540*Utils.divideFactor;
         _inputfield.height = 100*Utils.divideFactor;
         _inputfield.isEditable = false;
 

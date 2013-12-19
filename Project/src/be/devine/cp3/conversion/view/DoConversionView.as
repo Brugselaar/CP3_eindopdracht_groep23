@@ -54,8 +54,6 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
                 _rightFromInput = conversion.rightFromInput;
                 _leftFromInput = conversion.leftFromInput;
                 _leftFromOutput = conversion.leftFromOutput;
-                trace ("Got: " + _title);
-                doConversion(2.6);
             }
         }
     }
@@ -114,7 +112,10 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     }
 
     private function submitHandler(event:TouchEvent):void {
-
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if(touch){
+            doConversion(int(_input.inputfield.text));
+        }
     }
 
     private function reverseHandler(event:TouchEvent):void {

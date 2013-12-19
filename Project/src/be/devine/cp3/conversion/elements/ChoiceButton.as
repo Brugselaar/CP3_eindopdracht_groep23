@@ -29,7 +29,6 @@ public class ChoiceButton extends Sprite{
     private var _isArrow:Boolean;
     private var _textField:TextField;
     private var _background:Quad;
-    private var _big:Boolean;
     private var _backgroundColor:uint;
     private var _textColor:uint;
     private var _arrowRight:Image;
@@ -132,10 +131,6 @@ public class ChoiceButton extends Sprite{
 
     // Resize function
     public function resize(w:Number, h:Number):void{
-        if(_big){
-            _background.y = (h>>1) - (_textField.height>>1);
-            _textField.y = (h>>1) - (_textField.height>>1);
-        }
         _textField.width = w;
         _textField.x = (w>>1) - (_textField.width>>1);
         _background.width = w;
@@ -145,12 +140,10 @@ public class ChoiceButton extends Sprite{
         var t:Touch = event.getTouch(stage);
         if(event.getTouch(_arrowRight, TouchPhase.BEGAN) || event.getTouch(_arrowRight, TouchPhase.ENDED)){
             if(t.phase == TouchPhase.ENDED){
-                // Touch released
                 trace('[ChoiceButton] released');
 //                _arrow.gotoAndStop(1);
             }
             else{
-                // Touching
                 trace('[ChoiceButton] Touching');
 //                _arrow.gotoAndStop(2);
             }
