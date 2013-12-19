@@ -21,7 +21,7 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
-public class MenuView extends starling.display.Sprite implements ICanBeViewed{
+public class MenuView extends Sprite implements ICanBeViewed{
     private var _logoBitMapData:BitmapData;
     private var _logo:Image;
     private var _appModel:Appmodel;
@@ -35,67 +35,61 @@ public class MenuView extends starling.display.Sprite implements ICanBeViewed{
     public function MenuView() {
         trace("[MenuView] started.");
         _appModel = Appmodel.getInstance();
-        _conversions = new ChoiceButton("Conversions");
-        _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
-
-        _history = new ChoiceButton("History");
-        _history.addEventListener(TouchEvent.TOUCH, historyHandler);
-
-        _profiles = new ChoiceButton("Profiles");
-        _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
-
-        _terminate = new ChoiceButton("Close");
     }
 
     private function profilesHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if (touch)
-        {
+        if(touch.phase == TouchPhase.ENDED){
             _appModel.currentScreen = "ProfileView";
         }
     }
 
     private function historyHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if (touch)
-        {
+        if(touch.phase == TouchPhase.ENDED){
             _appModel.currentScreen = "HistoryView";
         }
     }
 
     private function conversionsHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
-        if (touch)
-        {
+        if(touch.phase == TouchPhase.ENDED){
             _appModel.currentScreen = "ConversionsView";
         }
     }
 
+    private function terminateHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.BEGAN);
+        if(touch.phase == TouchPhase.ENDED){
+            // Terminate the app
+
+        }
+    }
+
     private function drawMenu():void{
+        // Draw the menu, please use a seperate method instead of doing sth similar in the constructor.
+        _conversions = new ChoiceButton("Conversions");
+//        _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
         _conversions.y = 320*Utils.divideFactor;
         addChild(_conversions);
 
         var yPos:uint = _conversions.height + 5;
 
-        var history:ChoiceButton = new ChoiceButton("History");
-        history.y = _conversions.y + yPos;
-        addChild(history);
-
-        var profiles:ChoiceButton = new ChoiceButton("Profiles");
-        profiles.y = history.y + yPos;
-        addChild(profiles);
-
-        var terminate:ChoiceButton = new ChoiceButton("Close");
-        terminate.y = profiles.y + yPos;
-        addChild(terminate);
-        _history.y = _conversions.y + _history.height + 20*Utils.divideFactor;
+        _history = new ChoiceButton("History");
+//        _history.addEventListener(TouchEvent.TOUCH, historyHandler);
+        _history.y = _conversions.y + yPos;
         addChild(_history);
 
-        _profiles.y = _history.y + _history.height + 20*Utils.divideFactor;
+        _profiles = new ChoiceButton("Profiles");
+//        _profiles.addEventListener(TouchEvent.TOUCH, profilesHandler);
+        _profiles.y = _history.y + yPos;
         addChild(_profiles);
 
-        _terminate.y = _profiles.y + _history.height + 20*Utils.divideFactor;
+        _terminate = new ChoiceButton("Close");
+        _terminate.addEventListener(TouchEvent.TOUCH, terminateHandler);
+        _terminate.y = _profiles.y + yPos;
         addChild(_terminate);
+
     }
 
     private function drawLogo():void{

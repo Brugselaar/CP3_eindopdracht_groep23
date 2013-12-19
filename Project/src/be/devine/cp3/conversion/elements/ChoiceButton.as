@@ -38,8 +38,6 @@ public class ChoiceButton extends Sprite{
     private var _arrow:ArrowRight;
 
     public function ChoiceButton(title:String, backgroundColor:uint = 0x000000, textColor:uint = 0xf9cb14) {
-        trace("[ChoiceButton] instance.");
-
         _title = title;
         _backgroundColor = backgroundColor;
         _textColor = textColor;
@@ -67,7 +65,7 @@ public class ChoiceButton extends Sprite{
         _arrowRight.x = Utils.screenWidth/2 - _arrowRight.width/2;
         _arrowRight.y = 60*Utils.divideFactor;
 
-        _arrowRight.addEventListener(TouchEvent.TOUCH, onTap);
+//        _arrowRight.addEventListener(TouchEvent.TOUCH, onTap);
 //        _textField.addEventListener(MouseEvent.MOUSE_DOWN, onTap);
 //        _background.addEventListener(MouseEvent.MOUSE_DOWN, onTap);
 //        _arrowRight.addEventListener(MouseEvent.MOUSE_UP, noTap);
