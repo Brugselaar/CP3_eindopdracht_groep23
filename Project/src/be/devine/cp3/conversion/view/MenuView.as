@@ -79,13 +79,11 @@ public class MenuView extends Sprite implements ICanBeViewed{
 
 //        var title:TitleField = new TitleField("Dit is een title");
 //        addChild(title);
-//
+
         _conversions = new ChoiceButton("Conversions", false);
         _conversions.addEventListener(TouchEvent.TOUCH, conversionsHandler);
         _conversions.y = 480*Utils.divideFactor;
         addChild(_conversions);
-
-//        var yPos:uint = 480*Utils.divideFactor + _conversions.height/2;
 
         _history = new ChoiceButton("History", false);
         _history.addEventListener(TouchEvent.TOUCH, historyHandler);
