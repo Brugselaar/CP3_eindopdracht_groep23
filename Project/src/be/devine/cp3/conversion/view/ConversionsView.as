@@ -53,9 +53,9 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if (touch) {
             for (var i:uint = 0; i < _choiceButtons.length; i++){
-                if(_choiceButtons.title == event.currentTarget.title){
-                    trace("You clicked on " + i);
-                }
+//                if(_choiceButtons.title == event.currentTarget.title){
+//                    trace("You clicked on " + i);
+//                }
             }
         }
     }
