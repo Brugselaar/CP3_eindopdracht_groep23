@@ -63,6 +63,8 @@ public class Conversion extends Sprite{
 
         _appModel = Appmodel.getInstance();
 
+        startJSON();
+
         _appModel.addEventListener(Appmodel.HISTORYVOS_CHANGED_EVENT, historyChangedHandler);
         _appModel.addEventListener(Appmodel.PROFILEVOS_CHANGED_EVENT, profileChangeHandler);
 
@@ -88,10 +90,11 @@ public class Conversion extends Sprite{
 
         _appModel.currentScreen = "MenuView";
 
-        startJSON();
+
     }
 
     private function profileChangeHandler(event:flash.events.Event):void {
+        trace('ProfileChangedHandler!');
         _profilesService.save(_appModel.profileVOs);
     }
 
