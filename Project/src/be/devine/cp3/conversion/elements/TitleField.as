@@ -39,7 +39,7 @@ public class TitleField extends Sprite{
 
         _inputfield.textEditorFactory = function():ITextEditor {
             var editor:StageTextTextEditor = new StageTextTextEditor();
-            editor.fontFamily = "Nike-Italic";
+            editor.fontFamily = "Nike";
             editor.fontSize = _textSize*Utils.divideFactor;
             editor.color = 0x000000;
             return editor;
