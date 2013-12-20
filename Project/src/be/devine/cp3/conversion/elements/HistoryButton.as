@@ -11,11 +11,9 @@ import be.devine.cp3.conversion.vo.HistoryVO;
 import be.devine.cp3.conversion.vo.MenuVO;
 
 import flash.display.Bitmap;
-
 import flash.display.BitmapData;
 
 import starling.display.Image;
-
 import starling.display.Quad;
 import starling.display.Sprite;
 import starling.text.TextField;
@@ -39,10 +37,8 @@ public class HistoryButton extends Sprite{
     private var _leftFromOutputTextField:TextField;
     private var _rightFromOutputTextField:TextField
     private var _background:Quad;
-    private var _big:Boolean;
     private var _backgroundColor:uint;
     private var _textColor:uint;
-    private var _menuVO:MenuVO;
     private var _convertRight:Image;
     private var _convertBitMapData:BitmapData;
     private var _convert:Convert;
@@ -177,15 +173,10 @@ public class HistoryButton extends Sprite{
             i.dispose();
             i = null;
         }
-        this._menuVO = null;
     }
 
     // Resize function
     public function resize(w:Number, h:Number):void{
-        if(_big){
-            _background.y = (h>>1) - (_nameTextField.height>>1);
-            _nameTextField.y = (h>>1) - (_nameTextField.height>>1);
-        }
         _nameTextField.width = w;
         _nameTextField.x = (w>>1) - (_nameTextField.width>>1);
         _background.width = w;
