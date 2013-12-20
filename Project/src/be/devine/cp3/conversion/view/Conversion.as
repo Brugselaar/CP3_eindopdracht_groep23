@@ -67,6 +67,7 @@ public class Conversion extends Sprite{
     private function init(event:starling.events.Event):void {
 
 
+
         _appModel = AppModel.getInstance();
 
         startJSON();

@@ -28,6 +28,7 @@ public class Main extends Sprite {
 
         // Resizehandler, case the user rotates his iPhone
         stage.addEventListener(Event.RESIZE, resizeHandler);
+
     }
 
     public function init():void{

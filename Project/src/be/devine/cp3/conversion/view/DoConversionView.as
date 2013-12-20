@@ -68,7 +68,7 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
             }
         } else {
             if(_isReverse){
-                var output:Number = input /_appModel.currentProfile.consumption * 100;
+                var output:Number =  input /_appModel.currentProfile.consumption * 100;
                 trace(output);
             }else{
                 var output:Number = input /100 * _appModel.currentProfile.consumption;
