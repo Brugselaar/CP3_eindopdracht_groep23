@@ -102,7 +102,7 @@ public class FirstAddProfileView extends Sprite implements ICanBeViewed{
     private function addProfileHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if (touch){
-            _appModel.currentScreen = "AddProfileView";
+            _appModel.currentScreen = "MenuView";
             addProfile(_name.inputfield.text, Number(_consumption.inputfield.text));
         }
 

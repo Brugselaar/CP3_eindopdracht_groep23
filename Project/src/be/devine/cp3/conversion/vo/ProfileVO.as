@@ -9,21 +9,13 @@ package be.devine.cp3.conversion.vo {
 public class ProfileVO {
     private var _id:uint;
     private var _car:String;
-    private var _consumption:int;
+    private var _consumption:Number;
 
     public function ProfileVO() {
     }
 
     public function get id():uint {
         return _id;
-    }
-
-    public function get consumption():int {
-        return _consumption;
-    }
-
-    public function set consumption(value:int):void {
-        _consumption = value;
     }
 
     public function set id(value:uint):void {
@@ -41,6 +33,14 @@ public class ProfileVO {
 
     public function toString():String {
         return "ProfileVO{_id=" + String(_id) + ",_car=" + String(_car) + ",_consumption=" + String(_consumption) + "}";
+    }
+
+    public function get consumption():Number {
+        return _consumption;
+    }
+
+    public function set consumption(value:Number):void {
+        _consumption = value;
     }
 }
 }
