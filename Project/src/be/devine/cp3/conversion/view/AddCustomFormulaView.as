@@ -12,7 +12,7 @@ import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.elements.TitleField;
 import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.utils.Utils;
-import be.devine.cp3.conversion.vo.ProfileVO;
+import be.devine.cp3.conversion.vo.ConversionVO;
 
 import starling.display.Sprite;
 import starling.events.Touch;
@@ -41,18 +41,17 @@ public class AddCustomFormulaView extends Sprite implements ICanBeViewed{
         drawMenu();
     }
 
-    public function addFormula(name:String, consumption:Number = 6.5):void{
-        var profileVO:ProfileVO = new ProfileVO();
-        profileVO.id = _appModel.profileVOs.length;
-        profileVO.car = name;
-        profileVO.consumption = consumption;
-        trace(profileVO.toString());
-        var profileVOs:Array = _appModel.profileVOs.concat();
-        profileVOs.push(profileVO);
-        _appModel.profileVOs = profileVOs;
-        _appModel.currentProfile = profileVO;
-        _appModel.currentProfileId = profileVO.id;
-        _appModel.currentScreen = "ProfileView";
+    public function addFormula(title:String, formula:Number):void{
+        var conversionVO:ConversionVO = new ConversionVO();
+        conversionVO.id = _appModel.conversionVOs.length;
+        conversionVO.title = title;
+        conversionVO.formula = formula;
+        conversionVO.custom = true;
+        trace("[AddCustomFormulaView]" + conversionVO.toString());
+        var conversionVOs:Array = _appModel.conversionVOs.concat();
+        conversionVOs.push(conversionVO);
+        _appModel.conversionVOs = conversionVOs;
+        _appModel.currentScreen = "ConversionsView";
     }
 
     private function drawMenu():void {
@@ -81,11 +80,9 @@ public class AddCustomFormulaView extends Sprite implements ICanBeViewed{
     private function addFormulaHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
         if (touch) {
-            _appModel.currentScreen = "addFormulaView";
             addFormula(_name.inputfield.text, Number(_formula.inputfield.text));
         }
 
     }
-
 }
 }

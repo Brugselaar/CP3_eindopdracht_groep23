@@ -72,6 +72,7 @@ public class Conversion extends Sprite{
         startJSON();
 
         _appModel.addEventListener(AppModel.HISTORYVOS_CHANGED_EVENT, historyChangedHandler);
+        _appModel.addEventListener(AppModel.CONVERSIONVOS_CHANGED_EVENT, conversionChangedHandler);
         _appModel.addEventListener(AppModel.PROFILEVOS_CHANGED_EVENT, profileChangeHandler);
         _appModel.addEventListener(AppModel.CURRENTPROFILE_CHANGED_EVENT, currentProfileChangeHandler);
 
@@ -118,6 +119,10 @@ public class Conversion extends Sprite{
 
     private function historyChangedHandler(event:flash.events.Event):void {
         _historyService.save(_appModel.historyVOs);
+    }
+
+    private function conversionChangedHandler(event:flash.events.Event):void {
+        _conversionService.save(_appModel.conversionVOs);
     }
 
     private function resizeHandler(event:ResizeEvent):void {

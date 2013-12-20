@@ -168,5 +168,17 @@ public class ConversionService extends EventDispatcher
 
         trace("saved");
     }
+
+    public function saveNew(title:String, formula:Number):void{
+        var writeStream:FileStream = new FileStream();
+        writeStream.open(_json, FileMode.WRITE);
+        load();
+        var newSave:Object = {id: (conversionArray.length+1),title: title, formula: formula};
+        conversionArray.push(newSave);
+        writeStream.writeUTFBytes(JSON.stringify(conversionArray));
+        writeStream.close();
+
+        trace("[ConversionService] Added:" + conversionArray);
+    }
 }
 }

@@ -23,6 +23,8 @@ public class ConversionsView extends Sprite implements ICanBeViewed{
     private var _choiceButtons:Array = [];
     private var _fuelButton:ChoiceButton;
     private var _addCustomFormula:ChoiceButton;
+    private var _isAddConversion:Boolean = true;
+    private var _numConversions:uint;
 
     public function ConversionsView() {
         trace("[ConversionsView] started.");
@@ -61,13 +63,22 @@ public class ConversionsView extends Sprite implements ICanBeViewed{
                 choiceButton.y = 140*Utils.divideFactor + (i-3) * (choiceButton.height + 10*Utils.divideFactor);
                 addChild(choiceButton);
                 _choiceButtons.push(choiceButton);
+                trace (_numConversions);
+                _numConversions++;
+
+                if(_numConversions == 6){
+                    _isAddConversion = false;
+                    break;
+                }
             }
         }
 
-        _addCustomFormula = new ChoiceButton("Add custom formula");
-        _addCustomFormula.y = 740*Utils.divideFactor;
-        _addCustomFormula.addEventListener(TouchEvent.TOUCH, addCustomFormulaHandler);
-        addChild(_addCustomFormula);
+        if(_isAddConversion){
+            _addCustomFormula = new ChoiceButton("Add custom formula");
+            _addCustomFormula.y = 740*Utils.divideFactor;
+            _addCustomFormula.addEventListener(TouchEvent.TOUCH, addCustomFormulaHandler);
+            addChild(_addCustomFormula);
+        }
     }
 
     private function fuelHandler(event:TouchEvent):void {
