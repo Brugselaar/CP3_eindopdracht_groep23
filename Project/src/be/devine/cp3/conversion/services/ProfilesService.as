@@ -27,7 +27,7 @@ public class ProfilesService extends EventDispatcher
     public function ProfilesService(){
         _appModel = Appmodel.getInstance();
         trace("[service] construct");
-        _json = File.applicationStorageDirectory.resolvePath("ftc_history.json");
+        _json = File.applicationStorageDirectory.resolvePath("ftc_profiles.json");
     }
 
     public function load():void{

@@ -51,9 +51,14 @@ public class AddProfileView extends Sprite implements ICanBeViewed{
         var profileVOs:Array = _appModel.profileVOs.concat();
         profileVOs.push(profileVO);
         _appModel.profileVOs = profileVOs;
+        if(_appModel.currentProfile == null){
+            _appModel.currentProfile = profileVO;
+            _appModel.currentProfileId = profileVO.id;
+        }
     }
 
     private function drawMenu():void {
+        addProfile("Arno");
         if(_appModel.currentProfile != null){
             _backButton = new MenuButton();
             _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
@@ -70,16 +75,5 @@ public class AddProfileView extends Sprite implements ICanBeViewed{
 
     }
 
-    private function touchHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
-        if (touch)
-        {
-            for(var i:uint = 0; i < _choiceButtons.length; i++){
-                if(_choiceButtons[i] == event.currentTarget){
-                    _appModel.currentProfile = _appModel.profileVOs[i];
-                }
-            }
-        }
-    }
 }
 }

@@ -28,7 +28,7 @@ public class CurrentProfileService extends EventDispatcher
     public function CurrentProfileService(){
         _appModel = Appmodel.getInstance();
         trace("[service] construct");
-        _json = File.applicationStorageDirectory.resolvePath("ftc_history.json");
+        _json = File.applicationStorageDirectory.resolvePath("ftc_currentProfile.json");
     }
 
     public function load():void{
@@ -45,6 +45,7 @@ public class CurrentProfileService extends EventDispatcher
         for each(var currentProfile:Object in parsedJSON) {
             _appModel.currentProfile = currentProfile;
             _appModel.currentProfileId = currentProfile.id;
+            trace(_appModel.currentProfileId);
         }
         _appModel.currentProfile = currentProfile;
         dispatchEvent(new Event(Event.COMPLETE));
