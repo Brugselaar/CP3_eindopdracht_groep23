@@ -15,12 +15,6 @@ public class Main extends Sprite {
 
     private var _starling:Starling;
 
-    [Embed(source="../fonts/Nike.ttf", embedAsCFF="false", fontName="Nike")]
-    private static const Nike:Class;
-
-    [Embed(source="../fonts/Liberator.otf", embedAsCFF="false", fontName="Liberator")]
-    private static const Liberator:Class;
-
     // Building the app
     public function Main() {
         trace("[Main] started.");
