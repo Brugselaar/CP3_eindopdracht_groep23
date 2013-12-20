@@ -51,10 +51,8 @@ public class AddProfileView extends Sprite implements ICanBeViewed{
         var profileVOs:Array = _appModel.profileVOs.concat();
         profileVOs.push(profileVO);
         _appModel.profileVOs = profileVOs;
-        if(_appModel.currentProfile == null){
-            _appModel.currentProfile = profileVO;
-            _appModel.currentProfileId = profileVO.id;
-        }
+        _appModel.currentProfile = profileVO;
+        _appModel.currentProfileId = profileVO.id;
     }
 
     private function drawMenu():void {
