@@ -26,6 +26,7 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     private var _appModel:Appmodel = Appmodel.getInstance();
     private var _conversion:ConversionVO;
 
+    private var _id:uint;
     private var _title:String;
     private var _formula:Number;
     private var _reverseFormula:Number;
@@ -44,6 +45,7 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     public function DoConversionView() {
         for each(var conversion:ConversionVO in _appModel.conversionVOs){
             if(conversion.title == _appModel.selectedFormula){
+                _id = conversion.id;
                 _conversion = conversion;
                 _title = _conversion.title;
                 _formula = _conversion.formula;
@@ -59,7 +61,12 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     }
 
     public function doConversion(input:Number):void{
-        var output:Number = input * _formula;
+        if(_id != 5){
+            var output:Number = input * _formula;
+        } else {
+            var output:Number = input /100 * _appModel.currentProfile.consumption;
+            trace(output);
+        }
         trace (_leftFromInput + input + _rightFromInput + " = " + _leftFromOutput + output + _rightFromOutput);
         var historyVOs:Array = _appModel.historyVOs.concat();
         var historyVO:HistoryVO = new HistoryVO();
