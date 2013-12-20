@@ -1,9 +1,9 @@
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.HistoryButton;
 import be.devine.cp3.conversion.elements.MenuButton;
+import be.devine.cp3.conversion.elements.TitleField;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
-import be.devine.cp3.conversion.vo.HistoryVO;
 
 import flash.events.Event;
 
@@ -37,9 +37,9 @@ public class HistoryView extends Sprite implements ICanBeViewed{
     }
 
     private function createHistoryItems():void {
-        if(_appModel.historyVOs.length >= 7){
+        if(_appModel.historyVOs.length >= 6){
             trace("Larger!");
-            for(var j:uint = 0; j < 7; j++ ){
+            for(var j:uint = 0; j < 6; j++ ){
                 var _historyButton:HistoryButton = new HistoryButton(_appModel.historyVOs[_appModel.historyVOs.length-1-j]);
                 _historyButtonArray.push(_historyButton);
             }
@@ -53,8 +53,7 @@ public class HistoryView extends Sprite implements ICanBeViewed{
         if(_historyButtonArray.length != 0){
 
             for(var i:uint = 0; i < _historyButtonArray.length; i++){
-                _historyButtonArray[i].y = i * (_historyButtonArray[i].height + 20*Utils.divideFactor);
-                trace(_historyButtonArray[i].y);
+                _historyButtonArray[i].y = i * (_historyButtonArray[i].height + 20*Utils.divideFactor) + 100*Utils.divideFactor;
                 addChild(_historyButtonArray[i]);
             }
         }
@@ -73,6 +72,10 @@ public class HistoryView extends Sprite implements ICanBeViewed{
     }
 
     private function drawMenu():void {
+        var title:TitleField = new TitleField("History");
+        title.y = 40*Utils.divideFactor;
+        addChild(title);
+
         _backButton = new MenuButton();
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);

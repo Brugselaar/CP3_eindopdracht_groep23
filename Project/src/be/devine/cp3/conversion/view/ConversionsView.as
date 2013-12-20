@@ -8,6 +8,7 @@
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.MenuButton;
+import be.devine.cp3.conversion.elements.TitleField;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
@@ -43,16 +44,21 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
 
+
+        var title:TitleField = new TitleField("Select a conversion", 40);
+        title.y = 40*Utils.divideFactor;
+        addChild(title);
+
         _fuelButton = new ChoiceButton("Price / Fuel", false);
         _fuelButton.addEventListener(TouchEvent.TOUCH, fuelHandler);
-        _fuelButton.y = 40*Utils.divideFactor;
+        _fuelButton.y = title.y + title.height;
         addChild(_fuelButton);
 
         for(var i:uint = 0; i < _appModel.conversionVOs.length; i++){
             if(i > 3){
                 var choiceButton:ChoiceButton = new ChoiceButton(_appModel.conversionVOs[i].title, false);
                 choiceButton.addEventListener(TouchEvent.TOUCH, touchHandler);
-                choiceButton.y = 40*Utils.divideFactor + (i-3) * (choiceButton.height + 10*Utils.divideFactor);
+                choiceButton.y = 140*Utils.divideFactor + (i-3) * (choiceButton.height + 10*Utils.divideFactor);
                 addChild(choiceButton);
                 _choiceButtons.push(choiceButton);
             }
