@@ -37,13 +37,22 @@ public class HistoryView extends Sprite implements ICanBeViewed{
     }
 
     private function createHistoryItems():void {
-        for each(var HistoryItem:HistoryVO in _historyVOs){
-            var _historyButton:HistoryButton = new HistoryButton(HistoryItem);
-            _historyButtonArray.push(_historyButton);
+        if(_appModel.historyVOs.length >= 7){
+            trace("Larger!");
+            for(var j:uint = 0; j < 7; j++ ){
+                var _historyButton:HistoryButton = new HistoryButton(_appModel.historyVOs[_appModel.historyVOs.length-1-j]);
+                _historyButtonArray.push(_historyButton);
+            }
+        } else {
+            for(var k:uint = 0; k < _appModel.historyVOs.length; k++ ){
+                var _historyButton:HistoryButton = new HistoryButton(_appModel.historyVOs[_appModel.historyVOs.length-1-k]);
+                _historyButtonArray.push(_historyButton);
+            }
         }
 
         if(_historyButtonArray.length != 0){
-            for(var i:uint = 7; i < _historyButtonArray.length; i++){
+
+            for(var i:uint = 0; i < _historyButtonArray.length; i++){
                 _historyButtonArray[i].y = i * (_historyButtonArray[i].height + 20*Utils.divideFactor);
                 trace(_historyButtonArray[i].y);
                 addChild(_historyButtonArray[i]);
