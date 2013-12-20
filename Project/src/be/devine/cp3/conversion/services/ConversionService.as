@@ -14,7 +14,6 @@ import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 
 import starling.events.Event;
-
 import starling.events.EventDispatcher;
 
 public class ConversionService extends EventDispatcher

@@ -55,6 +55,7 @@ public class ConversionsView extends Sprite implements ICanBeViewed{
         _fuelButton.addEventListener(TouchEvent.TOUCH, fuelHandler);
         _fuelButton.y = title.y + title.height;
         addChild(_fuelButton);
+        _numConversions++;
 
         for(var i:uint = 0; i < _appModel.conversionVOs.length; i++){
             if(i > 3){
@@ -63,10 +64,11 @@ public class ConversionsView extends Sprite implements ICanBeViewed{
                 choiceButton.y = 140*Utils.divideFactor + (i-3) * (choiceButton.height + 10*Utils.divideFactor);
                 addChild(choiceButton);
                 _choiceButtons.push(choiceButton);
-                trace (_numConversions);
                 _numConversions++;
+                trace (_numConversions);
 
                 if(_numConversions == 6){
+                    trace ('limit conversions reached');
                     _isAddConversion = false;
                     break;
                 }
