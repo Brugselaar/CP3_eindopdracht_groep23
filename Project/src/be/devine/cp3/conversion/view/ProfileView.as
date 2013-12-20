@@ -12,7 +12,6 @@ import be.devine.cp3.conversion.elements.ProfileButton;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
-import starling.display.Quad;
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;
@@ -23,6 +22,7 @@ public class ProfileView extends Sprite implements ICanBeViewed{
     private var _backButton:MenuButton;
     private var _profileButtons:Array = [];
     private var _addProfileButton:ChoiceButton;
+    private var _noAddProfile:Boolean = false;
 
     public function ProfileView() {
         _appModel = Appmodel.getInstance();
@@ -44,11 +44,6 @@ public class ProfileView extends Sprite implements ICanBeViewed{
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
 
-        _addProfileButton = new ChoiceButton("Add Profile", false);
-        _addProfileButton.addEventListener(TouchEvent.TOUCH, addProfileHandler);
-        _addProfileButton.y = 40*Utils.divideFactor;
-        addChild(_addProfileButton);
-
         for(var i:uint = 0; i < _appModel.profileVOs.length; i++){
             var profileButton:ProfileButton = new ProfileButton(_appModel.profileVOs[i].car, _appModel.profileVOs[i].id);
             profileButton.addEventListener(TouchEvent.TOUCH, touchHandler);
@@ -58,6 +53,17 @@ public class ProfileView extends Sprite implements ICanBeViewed{
             }
             addChild(profileButton);
             _profileButtons.push(profileButton);
+            if(i == 4){
+                _noAddProfile = true;
+                break;
+            }
+        }
+
+        if(!_noAddProfile){
+            _addProfileButton = new ChoiceButton("Add Profile", false);
+            _addProfileButton.addEventListener(TouchEvent.TOUCH, addProfileHandler);
+            _addProfileButton.y = 40*Utils.divideFactor;
+            addChild(_addProfileButton);
         }
     }
 
