@@ -81,6 +81,7 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
         historyVO.custom = _custom;
         historyVOs.push(historyVO);
         _appModel.historyVOs = historyVOs;
+        _appModel.currentScreen = "ConversionResultView";
     }
 
     public function resize(w:Number, h:Number):void{
