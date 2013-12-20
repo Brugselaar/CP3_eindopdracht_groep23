@@ -6,10 +6,17 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.elements {
+import feathers.controls.Button;
 import feathers.controls.Label;
 import feathers.controls.renderers.LayoutGroupListItemRenderer;
 import feathers.layout.AnchorLayout;
 import feathers.layout.AnchorLayoutData;
+
+import flash.display.BitmapData;
+
+import starling.display.Image;
+import starling.textures.Texture;
+import starling.textures.TextureAtlas;
 
 public class FeathersMenuButton extends LayoutGroupListItemRenderer{
     private var _title:Label;
@@ -22,8 +29,18 @@ public class FeathersMenuButton extends LayoutGroupListItemRenderer{
 //    private var _arrowBitMapData:BitmapData;
 //    private var _arrow:ArrowRight;
 //    private var _button:ButtonRight;
+    private var _atlas:TextureAtlas;
+    private var _previousButton:Button;
+
+
+    [Embed(source="/../assets/spritesheet.png")]
+    protected static const ATLAS_IMAGE:Class;
+
+    [Embed(source="/../assets/spritesheet.xml", mimeType="application/octet-stream")]
+    protected static const ATLAS_XML:Class;
 
     public function FeathersMenuButton() {
+
     }
 
     override protected function initialize():void {
@@ -38,6 +55,16 @@ public class FeathersMenuButton extends LayoutGroupListItemRenderer{
         this._title = new Label();
         this._title.layoutData = labelLayoutData;
         this.addChild(this._title);
+
+        const atlasBitmapData:BitmapData = (new ATLAS_IMAGE()).bitmapData;
+        _atlas = new TextureAtlas(Texture.fromBitmapData(atlasBitmapData, false), XML(new ATLAS_XML()));
+
+        _previousButton = new Button();
+        _previousButton.defaultIcon = new Image(_atlas.getTexture("Menu0001"));
+        _previousButton.setSize(48, 48);
+        addChild(_previousButton);
+
+        trace ("[FeathersMenuButton] added.")
     }
 
     override protected function commitData():void {

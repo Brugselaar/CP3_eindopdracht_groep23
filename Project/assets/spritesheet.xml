@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="spritesheet.png">
+	<!-- Created with Adobe Flash Professional version 13.1.0.217 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="Menu0000" x="0" y="0" width="45" height="45" pivotX="0" pivotY="0"/>
+	<SubTexture name="Menu0001" x="0" y="45" width="45" height="45"/>
+</TextureAtlas>
