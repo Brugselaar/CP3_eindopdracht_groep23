@@ -9,7 +9,7 @@ package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.elements.TitleField;
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import starling.display.Sprite;
@@ -17,15 +17,16 @@ import starling.events.Touch;
 import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
-public class ConversionsView extends starling.display.Sprite implements ICanBeViewed{
+public class ConversionsView extends Sprite implements ICanBeViewed{
     private var _backButton:MenuButton;
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _choiceButtons:Array = [];
     private var _fuelButton:ChoiceButton;
+    private var _addCustomFormula:ChoiceButton;
 
     public function ConversionsView() {
         trace("[ConversionsView] started.");
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
     }
 
     private function backHandler(event:TouchEvent):void {
@@ -43,7 +44,6 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
         _backButton = new MenuButton();
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
-
 
         var title:TitleField = new TitleField("Select a conversion", 40);
         title.y = 40*Utils.divideFactor;
@@ -63,6 +63,11 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
                 _choiceButtons.push(choiceButton);
             }
         }
+
+        _addCustomFormula = new ChoiceButton("Add custom formula");
+        _addCustomFormula.y = 740*Utils.divideFactor;
+        _addCustomFormula.addEventListener(TouchEvent.TOUCH, addCustomFormulaHandler);
+        addChild(_addCustomFormula);
     }
 
     private function fuelHandler(event:TouchEvent):void {
@@ -81,6 +86,13 @@ public class ConversionsView extends starling.display.Sprite implements ICanBeVi
                     _appModel.currentScreen = "DoConversionView";
                 }
             }
+        }
+    }
+
+    private function addCustomFormulaHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if (touch) {
+            _appModel.currentScreen = "AddCustomFormulaView";
         }
     }
 }

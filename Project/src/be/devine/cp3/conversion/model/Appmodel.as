@@ -12,7 +12,7 @@ import flash.events.Event;
 
 import flash.events.EventDispatcher;
 
-public class Appmodel extends EventDispatcher{
+public class AppModel extends EventDispatcher{
     private var _currentScreen:String;
     private var _conversionVOs:Array = [];
     private var _historyVOs:Array = [];
@@ -26,14 +26,14 @@ public class Appmodel extends EventDispatcher{
     public static const HISTORYVOS_CHANGED_EVENT:String = "historyVOsChanged";
     public static const PROFILEVOS_CHANGED_EVENT:String = "profileVOsChanged";
 
-    static private var instance:Appmodel;
+    static private var instance:AppModel;
     public static const SELECTEDFORMULAID_CHANGED_EVENT:String = "selectedFormulaIdChanged";
     public static const SELECTEDFORMULA_CHANGED_EVENT:String = "selectedFormulaChanged";
     public static const CURRENTPROFILEID_CHANGED_EVENT:String = "currentProfileIdChanged";
     public static const CURRENTPROFILE_CHANGED_EVENT:String = "currentProfileChanged";
-    static public function getInstance():Appmodel{
+    static public function getInstance():AppModel{
         if(instance == null){
-            instance = new Appmodel(new Enforcer());
+            instance = new AppModel(new Enforcer());
         }
         return instance;
     }
@@ -94,7 +94,7 @@ public class Appmodel extends EventDispatcher{
         dispatchEvent(new Event(CONVERSIONVOS_CHANGED_EVENT));
     }
 
-    public function Appmodel(e:Enforcer) {
+    public function AppModel(e:Enforcer) {
         trace("[AppModel] started.");
         if(e == null){
             throw new Error("Appmodel is a singleton!");
@@ -112,12 +112,6 @@ public class Appmodel extends EventDispatcher{
         _currentScreen = value;
         dispatchEvent(new Event(CURRENTSCREEN_CHANGED_EVENT));
     }
-
-// close app
-    public function destroy():void{
-         //Ik weet niet hoe ik deze moet schrijven, kan jij die doen? :)
-    }
-
 
     [Bindable(event="currentProfileChanged")]
     public function get currentProfile():Object {

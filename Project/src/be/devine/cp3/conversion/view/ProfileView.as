@@ -9,7 +9,7 @@ package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.elements.ProfileButton;
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import starling.display.Sprite;
@@ -18,14 +18,14 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
 public class ProfileView extends Sprite implements ICanBeViewed{
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _backButton:MenuButton;
     private var _profileButtons:Array = [];
     private var _addProfileButton:ChoiceButton;
     private var _noAddProfile:Boolean = false;
 
     public function ProfileView() {
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
     }
 
     private function backHandler(event:TouchEvent):void {

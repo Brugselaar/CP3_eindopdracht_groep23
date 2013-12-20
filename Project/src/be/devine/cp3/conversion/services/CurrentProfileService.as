@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.services {
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.vo.CurrentProfileVO;
 import be.devine.cp3.conversion.vo.HistoryVO;
 import be.devine.cp3.conversion.vo.ProfileVO;
@@ -21,12 +21,12 @@ import starling.events.EventDispatcher;
 
 public class CurrentProfileService extends EventDispatcher
 {
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _json:File;
     public var _currentProfile:ProfileVO;
 
     public function CurrentProfileService(){
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
         trace("[service] construct");
         _json = File.applicationStorageDirectory.resolvePath("ftc_currentProfile.json");
     }

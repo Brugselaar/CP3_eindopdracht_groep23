@@ -9,7 +9,7 @@ package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.elements.TitleField;
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import starling.display.Sprite;
@@ -19,12 +19,12 @@ import starling.events.TouchPhase;
 
 public class ConversionFuelView extends starling.display.Sprite implements ICanBeViewed{
     private var _backButton:MenuButton;
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _choiceButtons:Array = [];
 
     public function ConversionFuelView() {
         trace("[ConversionsView] started.");
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
     }
 
     private function backHandler(event:TouchEvent):void {

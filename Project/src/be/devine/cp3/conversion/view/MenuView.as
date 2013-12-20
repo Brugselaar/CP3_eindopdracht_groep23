@@ -8,7 +8,7 @@
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.ProfileButton;
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import flash.desktop.NativeApplication;
@@ -24,7 +24,7 @@ import starling.events.TouchPhase;
 public class MenuView extends Sprite implements ICanBeViewed{
     private var _logoBitMapData:BitmapData;
     private var _logo:Image;
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _conversions:ChoiceButton;
     private var _history:ChoiceButton;
     private var _profiles:ChoiceButton;
@@ -32,7 +32,7 @@ public class MenuView extends Sprite implements ICanBeViewed{
 
     public function MenuView() {
         trace("[MenuView] started.");
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
     }
 
     private function profilesHandler(event:TouchEvent):void {

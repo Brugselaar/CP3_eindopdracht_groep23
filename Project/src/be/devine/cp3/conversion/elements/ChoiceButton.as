@@ -126,6 +126,14 @@ public class ChoiceButton extends Sprite{
             _arrowRight = null;
         }
 
+        if(_title == "Add custom formula"){
+            _textField.hAlign = HAlign.CENTER;
+            _textField.x = 20*Utils.divideFactor;
+            removeChild(_arrowRight);
+            _arrowRight.dispose();
+            _arrowRight = null;
+        }
+
         trace("[ChoiceButton] added.");
     }
 

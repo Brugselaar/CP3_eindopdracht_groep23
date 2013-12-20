@@ -10,7 +10,7 @@ import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.InputField;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.elements.TitleField;
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.utils.Utils;
 import be.devine.cp3.conversion.vo.ConversionVO;
 import be.devine.cp3.conversion.vo.HistoryVO;
@@ -21,7 +21,7 @@ import starling.display.Sprite;
 import starling.events.TouchPhase;
 
 public class DoConversionView extends Sprite implements ICanBeViewed{
-    private var _appModel:Appmodel = Appmodel.getInstance();
+    private var _appModel:AppModel = AppModel.getInstance();
     private var _conversion:ConversionVO;
 
     private var _id:uint;

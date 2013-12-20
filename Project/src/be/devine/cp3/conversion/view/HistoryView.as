@@ -3,7 +3,7 @@ import be.devine.cp3.conversion.elements.FeathersMenuButton;
 import be.devine.cp3.conversion.elements.HistoryButton;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.elements.TitleField;
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import flash.events.Event;
@@ -14,16 +14,16 @@ import starling.events.TouchEvent;
 import starling.events.TouchPhase;
 
 public class HistoryView extends Sprite implements ICanBeViewed{
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _backButton:MenuButton;
     private var _historyVOs:Array;
     private var _historyButtonArray:Array = [];
 
     public function HistoryView() {
         trace("[HistoryView] started.");
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
         _historyVOs = _appModel.historyVOs;
-        _appModel.addEventListener(Appmodel.HISTORYVOS_CHANGED_EVENT, historyItemAddedHandler);
+        _appModel.addEventListener(AppModel.HISTORYVOS_CHANGED_EVENT, historyItemAddedHandler);
     }
 
     private function historyItemAddedHandler(event:Event):void {

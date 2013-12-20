@@ -3,7 +3,7 @@ import be.devine.cp3.conversion.services.ConversionService;
 import be.devine.cp3.conversion.services.CurrentProfileService;
 import be.devine.cp3.conversion.services.HistoryService;
 
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.services.ProfilesService;
 import be.devine.cp3.conversion.vo.HistoryVO;
 
@@ -30,7 +30,7 @@ public class Conversion extends Sprite{
     private var _menuView:MenuView;
     private var _idSelected:uint = 1;
 
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _screenNavigator:ScreenNavigator;
 
     private var w:Number = 0;
@@ -67,19 +67,20 @@ public class Conversion extends Sprite{
     private function init(event:starling.events.Event):void {
 
 
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
 
         startJSON();
 
-        _appModel.addEventListener(Appmodel.HISTORYVOS_CHANGED_EVENT, historyChangedHandler);
-        _appModel.addEventListener(Appmodel.PROFILEVOS_CHANGED_EVENT, profileChangeHandler);
-        _appModel.addEventListener(Appmodel.CURRENTPROFILE_CHANGED_EVENT, currentProfileChangeHandler);
+        _appModel.addEventListener(AppModel.HISTORYVOS_CHANGED_EVENT, historyChangedHandler);
+        _appModel.addEventListener(AppModel.PROFILEVOS_CHANGED_EVENT, profileChangeHandler);
+        _appModel.addEventListener(AppModel.CURRENTPROFILE_CHANGED_EVENT, currentProfileChangeHandler);
 
 
         _screenNavigator = new ScreenNavigator();
 
         _screenNavigator.addScreen("FirstAddProfileView", new ScreenNavigatorItem(FirstAddProfileView));
         _screenNavigator.addScreen("AddProfileView", new ScreenNavigatorItem(AddProfileView));
+        _screenNavigator.addScreen("AddCustomFormulaView", new ScreenNavigatorItem(AddCustomFormulaView));
         _screenNavigator.addScreen("ConversionFuelView", new ScreenNavigatorItem(ConversionFuelView));
         _screenNavigator.addScreen("ConversionResultView", new ScreenNavigatorItem(ConversionResultView));
         _screenNavigator.addScreen("ConversionsView", new ScreenNavigatorItem(ConversionsView));
@@ -95,7 +96,7 @@ public class Conversion extends Sprite{
         this.removeEventListener(starling.events.Event.ADDED_TO_STAGE, init);
         stage.addEventListener(ResizeEvent.RESIZE, resizeHandler);
 
-        _appModel.addEventListener(Appmodel.CURRENTSCREEN_CHANGED_EVENT, currentScreenChangedHandler);
+        _appModel.addEventListener(AppModel.CURRENTSCREEN_CHANGED_EVENT, currentScreenChangedHandler);
 
         if(_appModel.currentProfile != null){
             _appModel.currentScreen = "MenuView";

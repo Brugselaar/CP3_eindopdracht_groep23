@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 package be.devine.cp3.conversion.services {
-import be.devine.cp3.conversion.model.Appmodel;
+import be.devine.cp3.conversion.model.AppModel;
 import be.devine.cp3.conversion.vo.HistoryVO;
 
 import flash.filesystem.File;
@@ -18,12 +18,12 @@ import starling.events.Event;
 import starling.events.EventDispatcher;
 
 public class HistoryService extends EventDispatcher{
-    private var _appModel:Appmodel;
+    private var _appModel:AppModel;
     private var _json:File;
     public var historyArray:Array;
 
     public function HistoryService(){
-        _appModel = Appmodel.getInstance();
+        _appModel = AppModel.getInstance();
         trace("[service] construct");
         _json = File.applicationStorageDirectory.resolvePath("ftc_history.json");
     }
