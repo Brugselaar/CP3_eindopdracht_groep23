@@ -78,6 +78,7 @@ public class Conversion extends Sprite{
 
         _screenNavigator = new ScreenNavigator();
 
+        _screenNavigator.addScreen("FirstAddProfileView", new ScreenNavigatorItem(FirstAddProfileView));
         _screenNavigator.addScreen("AddProfileView", new ScreenNavigatorItem(AddProfileView));
         _screenNavigator.addScreen("ConversionFuelView", new ScreenNavigatorItem(ConversionFuelView));
         _screenNavigator.addScreen("ConversionResultView", new ScreenNavigatorItem(ConversionResultView));
@@ -96,9 +97,11 @@ public class Conversion extends Sprite{
 
         _appModel.addEventListener(Appmodel.CURRENTSCREEN_CHANGED_EVENT, currentScreenChangedHandler);
 
-        _appModel.currentScreen = "MenuView";
-
-
+        if(_appModel.currentProfile != null){
+            _appModel.currentScreen = "MenuView";
+        } else {
+            _appModel.currentScreen = "FirstAddProfileView";
+        }
     }
 
     private function currentProfileChangeHandler(event:flash.events.Event):void {

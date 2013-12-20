@@ -26,7 +26,7 @@ public class FirstAddProfileView extends Sprite implements ICanBeViewed{
     private var _choiceButtons:Array = [];
     private var _addProfileButton:ChoiceButton;
 
-    public function AddProfileView() {
+    public function FirstAddProfileView() {
         _appModel = Appmodel.getInstance();
     }
 
@@ -58,7 +58,6 @@ public class FirstAddProfileView extends Sprite implements ICanBeViewed{
     }
 
     private function drawMenu():void {
-        addProfile("Arno");
         if(_appModel.currentProfile != null){
             _backButton = new MenuButton();
             _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
