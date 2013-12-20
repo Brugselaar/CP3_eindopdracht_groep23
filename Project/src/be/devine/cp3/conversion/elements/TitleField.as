@@ -14,6 +14,7 @@ import feathers.core.ITextEditor;
 import feathers.events.FeathersEventType;
 
 import flash.display.MovieClip;
+import flash.text.Font;
 
 import starling.display.Sprite;
 
@@ -25,6 +26,7 @@ public class TitleField extends Sprite{
     private var _textSize:uint;
 
     public function TitleField(title:String, textSize:uint = 44) {
+
         _title = title;
         _textSize = textSize;
 
@@ -37,7 +39,7 @@ public class TitleField extends Sprite{
 
         _inputfield.textEditorFactory = function():ITextEditor {
             var editor:StageTextTextEditor = new StageTextTextEditor();
-            editor.fontFamily = "Font";
+            editor.fontFamily = "Nike-Italic";
             editor.fontSize = _textSize*Utils.divideFactor;
             editor.color = 0x000000;
             return editor;

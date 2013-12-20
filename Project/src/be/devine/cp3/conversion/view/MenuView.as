@@ -14,6 +14,7 @@ import be.devine.cp3.conversion.utils.Utils;
 import flash.desktop.NativeApplication;
 import flash.display.Bitmap;
 import flash.display.BitmapData;
+import flash.text.Font;
 
 import starling.display.Image;
 import starling.display.Sprite;
@@ -33,6 +34,18 @@ public class MenuView extends Sprite implements ICanBeViewed{
     public function MenuView() {
         trace("[MenuView] started.");
         _appModel = AppModel.getInstance();
+        showEmbeddedFonts();
+    }
+
+    //Methods - Functies
+    public static function showEmbeddedFonts():void {
+        trace("[FontUtil] Start with looping through embedded fonts");
+        trace("[FontUtil] Found " + Font.enumerateFonts().length + " embedded fonts...");
+        for each( var f:Font in Font.enumerateFonts() ){
+            trace("[FontUtil] Naam = " + f.fontName + " - Stijl = " + f.fontStyle + " - Type = " + f.fontType);
+        }
+
+        trace("[FontUtil] End!");
     }
 
     private function profilesHandler(event:TouchEvent):void {
