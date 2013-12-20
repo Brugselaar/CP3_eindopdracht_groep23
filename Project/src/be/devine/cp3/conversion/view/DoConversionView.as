@@ -39,6 +39,7 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     private var _input:InputField;
     private var _submit:ChoiceButton;
     private var _reverseButton:ChoiceButton;
+    private var _isReverse:Boolean = false;
 
     public function DoConversionView() {
         for each(var conversion:ConversionVO in _appModel.conversionVOs){
@@ -60,20 +61,37 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
 
     public function doConversion(input:Number):void{
         if(_id != 5){
-            var output:Number = input * _formula;
+            if(_isReverse){
+                var output:Number = input * _reverseFormula;
+            }else{
+                var output:Number = input * _formula;
+            }
         } else {
-            var output:Number = input /100 * _appModel.currentProfile.consumption;
-            trace(output);
+            if(_isReverse){
+                var output:Number = input /100 * _appModel.currentProfile.consumption;
+                trace(output);
+            }else{
+                var output:Number = input /_appModel.currentProfile.consumption * 100;
+                trace(output);
+            }
         }
         trace (_leftFromInput + input + _rightFromInput + " = " + _leftFromOutput + output + _rightFromOutput);
         var historyVOs:Array = _appModel.historyVOs.concat();
         var historyVO:HistoryVO = new HistoryVO();
         historyVO.id = historyVOs.length;
-        historyVO.rightFromInput = _rightFromInput;
-        historyVO.leftFromInput = _leftFromInput;
-        historyVO.leftFromOutput = _leftFromOutput;
-        historyVO.rightFromOutput = _rightFromOutput;
-        historyVO.nameFormula = _title;
+        if(_isReverse){
+            historyVO.nameFormula = _reverseTitle;
+            historyVO.rightFromInput = _rightFromOutput;
+            historyVO.leftFromInput = _leftFromOutput;
+            historyVO.leftFromOutput = _leftFromInput;
+            historyVO.rightFromOutput = _rightFromInput;
+        }else{
+            historyVO.nameFormula = _title;
+            historyVO.rightFromInput = _rightFromInput;
+            historyVO.leftFromInput = _leftFromInput;
+            historyVO.leftFromOutput = _leftFromOutput;
+            historyVO.rightFromOutput = _rightFromOutput;
+        }
         historyVO.output = output;
         historyVO.input = input;
         historyVO.custom = _custom;
@@ -87,7 +105,11 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     }
 
     private function buildView():void{
-        _titleField = new TitleField(_title);
+        if(_isReverse){
+            _titleField = new TitleField(_reverseTitle);
+        }else{
+            _titleField = new TitleField(_title);
+        }
         _titleField.y = 80*Utils.divideFactor;
         addChild(_titleField);
 
@@ -100,10 +122,12 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
         _submit.y = _input.y + _submit.height + 10*Utils.divideFactor;;
         addChild(_submit);
 
-        _reverseButton = new ChoiceButton("Reverse");
-        _reverseButton.addEventListener(TouchEvent.TOUCH, reverseHandler);
-        _reverseButton.y = _submit.y + _reverseButton.height + 20*Utils.divideFactor;
-        addChild(_reverseButton);
+        if(!_custom){
+            _reverseButton = new ChoiceButton("Reverse");
+            _reverseButton.addEventListener(TouchEvent.TOUCH, reverseHandler);
+            _reverseButton.y = _submit.y + _reverseButton.height + 20*Utils.divideFactor;
+            addChild(_reverseButton);
+        }
 
         _backButton = new MenuButton();
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
@@ -129,7 +153,38 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     }
 
     private function reverseHandler(event:TouchEvent):void {
+        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+        if (touch) {
+            isReverse = "reverse";
+        }
+    }
 
+    public function get isReverse():Boolean {
+        return _isReverse;
+    }
+
+    public function set isReverse(value:Boolean):void {
+        _isReverse = !_isReverse;
+        trace(_isReverse);
+        if(_isReverse){
+            removeChild(_titleField);
+            _titleField = new TitleField(_reverseTitle);
+            _titleField.y = 80*Utils.divideFactor;
+            addChild(_titleField);
+        }else{
+            removeChild(_titleField);
+            _titleField = new TitleField(_title);
+            _titleField.y = 80*Utils.divideFactor;
+            addChild(_titleField);
+        }
+    }
+
+    public function get titleField():TitleField {
+        return _titleField;
+    }
+
+    public function set titleField(value:TitleField):void {
+        _titleField = value;
     }
 }
 }

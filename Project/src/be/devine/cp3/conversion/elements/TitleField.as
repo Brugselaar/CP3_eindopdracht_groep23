@@ -24,7 +24,7 @@ public class TitleField extends Sprite{
     private var _title:String;
     private var _textSize:uint;
 
-    public function TitleField(title:String, textSize:uint = 50) {
+    public function TitleField(title:String, textSize:uint = 44) {
         _title = title;
         _textSize = textSize;
 
