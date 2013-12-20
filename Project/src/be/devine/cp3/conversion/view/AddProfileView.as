@@ -9,6 +9,7 @@ package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
 import be.devine.cp3.conversion.elements.InputField;
 import be.devine.cp3.conversion.elements.MenuButton;
+import be.devine.cp3.conversion.elements.TitleField;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 import be.devine.cp3.conversion.vo.ProfileVO;
@@ -69,8 +70,12 @@ public class AddProfileView extends Sprite implements ICanBeViewed{
         _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
         addChild(_backButton);
 
+        var title:TitleField = new TitleField("Add a profile");
+        title.y = 40*Utils.divideFactor;
+        addChild(title);
+
         _name = new InputField(20, true, "Car name");
-        _name.y = 20*Utils.divideFactor - 10*Utils.divideFactor;
+        _name.y = title.y + title.height;
         addChild(_name);
 
         _consumption = new InputField(10, false, "Car consumption in Liters");
