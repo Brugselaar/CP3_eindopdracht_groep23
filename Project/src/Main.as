@@ -1,7 +1,4 @@
 package {
-import be.devine.cp3.conversion.model.AppModel;
-import Utils;
-import Conversion;
 import be.devine.cp3.conversion.utils.Utils;
 import be.devine.cp3.conversion.view.Conversion;
 
@@ -10,10 +7,8 @@ import flash.display.StageAlign;
 import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.geom.Rectangle;
-import flash.system.Capabilities;
 
 import starling.core.Starling;
-import starling.events.ResizeEvent;
 
 [SWF(frameRate="30", backgroundColor="0xf9cb14")]
 public class Main extends Sprite {
