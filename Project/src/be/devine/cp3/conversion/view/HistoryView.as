@@ -69,20 +69,20 @@ public class HistoryView extends Sprite implements ICanBeViewed{
 
     public function resize(w:Number, h:Number):void{
         drawMenu();
-//        createHistoryItems();
+        createHistoryItems();
     }
 
     private function drawMenu():void {
-//        var title:TitleField = new TitleField("History");
-//        title.y = 40*Utils.divideFactor;
-//        addChild(title);
+        var title:TitleField = new TitleField("History");
+        title.y = 40*Utils.divideFactor;
+        addChild(title);
 
-//        _backButton = new MenuButton();
-//        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
-//        addChild(_backButton);
+        _backButton = new MenuButton();
+        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
+        addChild(_backButton);
 
-        var backButton:FeathersMenuButton = new FeathersMenuButton();
-        addChild(backButton);
+//        var backButton:FeathersMenuButton = new FeathersMenuButton();
+//        addChild(backButton);
     }
 }
 }
