@@ -54,10 +54,11 @@ public class AddProfileView extends Sprite implements ICanBeViewed{
     }
 
     private function drawMenu():void {
-        addProfile("Arno");
-        _backButton = new MenuButton();
-        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
-        addChild(_backButton);
+        if(_appModel.currentProfile != null){
+            _backButton = new MenuButton();
+            _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
+            addChild(_backButton);
+        }
     }
 
     private function addProfileHandler(event:TouchEvent):void {

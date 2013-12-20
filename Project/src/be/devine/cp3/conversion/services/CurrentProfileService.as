@@ -9,6 +9,7 @@ package be.devine.cp3.conversion.services {
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.vo.CurrentProfileVO;
 import be.devine.cp3.conversion.vo.HistoryVO;
+import be.devine.cp3.conversion.vo.ProfileVO;
 
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
@@ -22,7 +23,7 @@ public class CurrentProfileService extends EventDispatcher
 {
     private var _appModel:Appmodel;
     private var _json:File;
-    public var currentProfile:Object;
+    public var _currentProfile:ProfileVO;
 
     public function CurrentProfileService(){
         _appModel = Appmodel.getInstance();
@@ -41,10 +42,9 @@ public class CurrentProfileService extends EventDispatcher
         var parsedJSON:Array = JSON.parse(str) as Array;
         readStream.close();
 
-        for each(var history:Object in parsedJSON) {
-            var currentProfileVO:CurrentProfileVO = new CurrentProfileVO();
-            currentProfileVO.id = currentProfile.id;
-            currentProfile = currentProfileVO;
+        for each(var currentProfile:Object in parsedJSON) {
+            _appModel.currentProfile = currentProfile;
+            _appModel.currentProfileId = currentProfile.id;
         }
         _appModel.currentProfile = currentProfile;
         dispatchEvent(new Event(Event.COMPLETE));
@@ -54,15 +54,6 @@ public class CurrentProfileService extends EventDispatcher
         var writeStream:FileStream = new FileStream();
         writeStream.open(_json, FileMode.WRITE);
         writeStream.writeUTFBytes(JSON.stringify(array));
-        writeStream.close();
-    }
-
-    public function saveNew(id:uint):void{
-        var writeStream:FileStream = new FileStream();
-        writeStream.open(_json, FileMode.WRITE);
-        load();
-        var newSave:Array = [{id: id}];
-        writeStream.writeUTFBytes(JSON.stringify(newSave));
         writeStream.close();
     }
 }

@@ -1,5 +1,6 @@
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.services.ConversionService;
+import be.devine.cp3.conversion.services.CurrentProfileService;
 import be.devine.cp3.conversion.services.HistoryService;
 
 import be.devine.cp3.conversion.model.Appmodel;
@@ -23,6 +24,8 @@ public class Conversion extends Sprite{
     private var _historyService:HistoryService;
     private var _profilesService:ProfilesService;
     private var _conversionService:ConversionService;
+    private var _currentProfileService:CurrentProfileService;
+
 
     private var _menuView:MenuView;
     private var _idSelected:uint = 1;
@@ -48,6 +51,9 @@ public class Conversion extends Sprite{
 
         _profilesService = new ProfilesService();
         _profilesService.load();
+
+        _currentProfileService = new CurrentProfileService();
+        _currentProfileService.load();
     }
 
     private function currentScreenChangedHandler(event:flash.events.Event = null):void {
@@ -67,6 +73,8 @@ public class Conversion extends Sprite{
 
         _appModel.addEventListener(Appmodel.HISTORYVOS_CHANGED_EVENT, historyChangedHandler);
         _appModel.addEventListener(Appmodel.PROFILEVOS_CHANGED_EVENT, profileChangeHandler);
+        _appModel.addEventListener(Appmodel.CURRENTPROFILE_CHANGED_EVENT, currentProfileChangeHandler);
+
 
         _screenNavigator = new ScreenNavigator();
 
@@ -91,6 +99,12 @@ public class Conversion extends Sprite{
         _appModel.currentScreen = "MenuView";
 
 
+    }
+
+    private function currentProfileChangeHandler(event:flash.events.Event):void {
+        var array:Array = [];
+        array.push(_appModel.currentProfile);
+        _currentProfileService.save(array);
     }
 
     private function profileChangeHandler(event:flash.events.Event):void {

@@ -19,6 +19,7 @@ public class Appmodel extends EventDispatcher{
     private var _profileVOs:Array = [];
     private var _currentProfile:Object;
     private var _selectedFormula:String;
+    private var _currentProfileId:uint;
 
     public static const CURRENTSCREEN_CHANGED_EVENT:String = "currentScreenChanged";
     public static const CONVERSIONVOS_CHANGED_EVENT:String = "conversionVOsChanged";
@@ -28,6 +29,8 @@ public class Appmodel extends EventDispatcher{
     static private var instance:Appmodel;
     public static const SELECTEDFORMULAID_CHANGED_EVENT:String = "selectedFormulaIdChanged";
     public static const SELECTEDFORMULA_CHANGED_EVENT:String = "selectedFormulaChanged";
+    public static const CURRENTPROFILEID_CHANGED_EVENT:String = "currentProfileIdChanged";
+    public static const CURRENTPROFILE_CHANGED_EVENT:String = "currentProfileChanged";
     static public function getInstance():Appmodel{
         if(instance == null){
             instance = new Appmodel(new Enforcer());
@@ -35,6 +38,17 @@ public class Appmodel extends EventDispatcher{
         return instance;
     }
 
+
+    [Bindable(event="currentProfileIdChanged")]
+    public function get currentProfileId():uint {
+        return _currentProfileId;
+    }
+
+    public function set currentProfileId(value:uint):void {
+        if (_currentProfileId == value) return;
+        _currentProfileId = value;
+        dispatchEvent(new Event(CURRENTPROFILEID_CHANGED_EVENT));
+    }
 
     [Bindable(event="selectedFormulaChanged")]
     public function get selectedFormula():String {
@@ -104,12 +118,16 @@ public class Appmodel extends EventDispatcher{
          //Ik weet niet hoe ik deze moet schrijven, kan jij die doen? :)
     }
 
+
+    [Bindable(event="currentProfileChanged")]
     public function get currentProfile():Object {
         return _currentProfile;
     }
 
     public function set currentProfile(value:Object):void {
+        if (_currentProfile == value) return;
         _currentProfile = value;
+        dispatchEvent(new Event(CURRENTPROFILE_CHANGED_EVENT));
     }
 }
 }
