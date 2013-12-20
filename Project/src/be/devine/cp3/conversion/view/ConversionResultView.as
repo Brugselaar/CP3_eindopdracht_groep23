@@ -13,11 +13,9 @@ import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 
 import flash.display.Bitmap;
-
 import flash.display.BitmapData;
 
 import starling.display.Image;
-
 import starling.display.Sprite;
 import starling.events.Touch;
 import starling.events.TouchEvent;

@@ -16,9 +16,7 @@ import be.devine.cp3.conversion.vo.ConversionVO;
 import be.devine.cp3.conversion.vo.HistoryVO;
 
 import starling.events.Touch;
-
 import starling.events.TouchEvent;
-
 import starling.display.Sprite;
 import starling.events.TouchPhase;
 
@@ -120,9 +118,13 @@ public class DoConversionView extends Sprite implements ICanBeViewed{
     }
 
     private function submitHandler(event:TouchEvent):void {
-        var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
-        if(touch){
-            doConversion(int(_input.inputfield.text));
+        if (_input.inputfield.text == "" || _input.inputfield.text == "Digits only" ||  _input.inputfield.text == "." || _input.inputfield.text == ".." || _input.inputfield.text == "..."){
+
+        }else{
+            var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
+            if(touch){
+                doConversion(int(_input.inputfield.text));
+            }
         }
     }
 

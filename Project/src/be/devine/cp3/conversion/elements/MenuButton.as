@@ -10,16 +10,11 @@ import be.devine.cp3.conversion.utils.Utils;
 import be.devine.cp3.conversion.vo.MenuVO;
 
 import flash.display.Bitmap;
-
 import flash.display.BitmapData;
 
 import starling.display.Image;
-
 import starling.display.Quad;
 import starling.display.Sprite;
-import starling.events.Touch;
-import starling.events.TouchEvent;
-import starling.events.TouchPhase;
 import starling.text.TextField;
 import starling.utils.HAlign;
 import starling.utils.VAlign;
@@ -82,8 +77,6 @@ public class MenuButton extends Sprite{
         removeChild(_textField);
         _textField.dispose();
         _textField = null;
-
-        this._menuVO = null;
     }
 
     // Resize function

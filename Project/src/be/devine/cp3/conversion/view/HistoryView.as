@@ -1,4 +1,5 @@
 package be.devine.cp3.conversion.view {
+import be.devine.cp3.conversion.elements.FeathersMenuButton;
 import be.devine.cp3.conversion.elements.HistoryButton;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.elements.TitleField;
@@ -76,9 +77,13 @@ public class HistoryView extends Sprite implements ICanBeViewed{
         title.y = 40*Utils.divideFactor;
         addChild(title);
 
-        _backButton = new MenuButton();
-        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
-        addChild(_backButton);
+//        _backButton = new MenuButton();
+//        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
+//        addChild(_backButton);
+
+
+        var backButton:FeathersMenuButton = new FeathersMenuButton();
+        addChild(backButton);
     }
 }
 }
