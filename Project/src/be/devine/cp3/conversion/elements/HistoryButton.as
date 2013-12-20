@@ -63,45 +63,45 @@ public class HistoryButton extends Sprite{
         _background.x = Utils.screenWidth/2 - _background.width/2;
 
         // Build Text LOTSA CODE
-        _nameTextField = new TextField(Utils.screenWidth-40*Utils.divideFactor, 110*Utils.divideFactor, _nameFormula, "Liberator", 36*Utils.divideFactor, _textColor);
+        _nameTextField = new TextField(Utils.screenWidth-40*Utils.divideFactor, 110*Utils.divideFactor, _nameFormula, "Liberator", 30*Utils.divideFactor, _textColor);
         _nameTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
         _nameTextField.vAlign = VAlign.CENTER;
         _nameTextField.hAlign = HAlign.LEFT;
         _nameTextField.x = 40*Utils.divideFactor;
 
         // INPUT
-        _inputTextField = new TextField(60*Utils.divideFactor, 110*Utils.divideFactor, _input, "Liberator", 36*Utils.divideFactor, _textColor);
+        _inputTextField = new TextField(60*Utils.divideFactor, 110*Utils.divideFactor, _input, "Liberator", 34*Utils.divideFactor, _textColor);
         _inputTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
         _inputTextField.vAlign = VAlign.CENTER;
         _inputTextField.hAlign = HAlign.LEFT;
         _inputTextField.x = 40*Utils.divideFactor;
 
-        _leftFromInputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _leftFromInput, "Liberator", 36*Utils.divideFactor, _textColor);
+        _leftFromInputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _leftFromInput, "Liberator", 34*Utils.divideFactor, _textColor);
         _leftFromInputTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
         _leftFromInputTextField.vAlign = VAlign.CENTER;
         _leftFromInputTextField.hAlign = HAlign.LEFT;
         _leftFromInputTextField.x = 40*Utils.divideFactor;
 
-        _rightFromInputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _rightFromInput, "Liberator", 36*Utils.divideFactor, _textColor);
+        _rightFromInputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _rightFromInput, "Liberator", 34*Utils.divideFactor, _textColor);
         _rightFromInputTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
         _rightFromInputTextField.vAlign = VAlign.CENTER;
         _rightFromInputTextField.hAlign = HAlign.LEFT;
         _rightFromInputTextField.x = 40*Utils.divideFactor;
 
         // OUTPUT
-        _outputTextField = new TextField(60*Utils.divideFactor, 110*Utils.divideFactor, _output, "Liberator", 36*Utils.divideFactor, _textColor);
+        _outputTextField = new TextField(60*Utils.divideFactor, 110*Utils.divideFactor, _output, "Liberator", 34*Utils.divideFactor, _textColor);
         _outputTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
         _outputTextField.vAlign = VAlign.CENTER;
         _outputTextField.hAlign = HAlign.LEFT;
         _outputTextField.x = 40*Utils.divideFactor;
 
-        _leftFromOutputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _leftFromOutput, "Liberator", 36*Utils.divideFactor, _textColor);
+        _leftFromOutputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _leftFromOutput, "Liberator", 34*Utils.divideFactor, _textColor);
         _leftFromOutputTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
         _leftFromOutputTextField.vAlign = VAlign.CENTER;
         _leftFromOutputTextField.hAlign = HAlign.LEFT;
         _leftFromOutputTextField.x = 40*Utils.divideFactor;
 
-        _rightFromOutputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _rightFromOutput, "Liberator", 36*Utils.divideFactor, _textColor);
+        _rightFromOutputTextField = new TextField(40*Utils.divideFactor, 110*Utils.divideFactor, _rightFromOutput, "Liberator", 34*Utils.divideFactor, _textColor);
         _rightFromOutputTextField.autoSize = TextFieldAutoSize.BOTH_DIRECTIONS;
         _rightFromOutputTextField.vAlign = VAlign.CENTER;
         _rightFromOutputTextField.hAlign = HAlign.LEFT;
@@ -120,7 +120,7 @@ public class HistoryButton extends Sprite{
         _convertRight.y = 60*Utils.divideFactor;
 
         // Adding all the shizzle
-        _background.y = 80;
+        _background.y = 20*Utils.divideFactor;
         addChild(_background);
 
         var yPos:int = _background.y + _background.height/2 + 4*Utils.divideFactor;
@@ -130,23 +130,23 @@ public class HistoryButton extends Sprite{
         addChild(_rightFromOutputTextField);
 
         _outputTextField.y = yPos - _outputTextField.height/2;
-        _outputTextField.x = _rightFromOutputTextField.x - _rightFromOutputTextField.width - 14*Utils.divideFactor;
+        _outputTextField.x = _rightFromOutputTextField.x - _outputTextField.width + 10*Utils.divideFactor;
         addChild(_outputTextField);
 
         _leftFromOutputTextField.y = yPos - _leftFromOutputTextField.height/2;
         _leftFromOutputTextField.x = _background.width - 10*Utils.divideFactor;
         addChild(_leftFromOutputTextField);
 
-        _convertRight.y = yPos - _convertRight.height/2 + 4*Utils.divideFactor;
+        _convertRight.y = yPos - _convertRight.height/2 + 4*Utils.divideFactor + 2*Utils.divideFactor;
         _convertRight.x = _outputTextField.x - _convertRight.width + 6*Utils.divideFactor;
         addChild(_convertRight);
 
         _rightFromInputTextField.y = yPos - _rightFromInputTextField.height/2;
-        _rightFromInputTextField.x = _inputTextField.x - _rightFromInputTextField.width;
+        _rightFromInputTextField.x = _convertRight.x - _rightFromInputTextField.width;
         addChild(_rightFromInputTextField);
 
         _inputTextField.y = yPos - _inputTextField.height/2;
-        _inputTextField.x = _convertRight.x - _inputTextField.width;
+        _inputTextField.x = _rightFromInputTextField.x - _inputTextField.width + 10*Utils.divideFactor;
         addChild(_inputTextField);
 
         _leftFromInputTextField.y = yPos - _leftFromInputTextField.height/2;
