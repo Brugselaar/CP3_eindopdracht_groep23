@@ -32,12 +32,14 @@ import starling.textures.Texture;
 
 public class InputField extends Sprite{
     private var _inputfield:TextInput;
+    private var _text:String;
     private var _maxChars:uint;
     private var _inputBoxBorder:MovieClip;
     private var _inputBox:MovieClip;
 
-    public function InputField(maxChars:uint = 3, isText:Boolean = false) {
+    public function InputField(maxChars:uint = 3, isText:Boolean = false, text:String = "Digits only") {
         _maxChars = maxChars;
+        _text = text;
 
         _inputBoxBorder = new MovieClip();
 
@@ -63,7 +65,7 @@ public class InputField extends Sprite{
         nativeTextfieldImage.x = 20*Utils.divideFactor;
 
         _inputfield = new TextInput();
-        _inputfield.text = "Digits only";
+        _inputfield.text = _text;
         _inputfield.addEventListener( FeathersEventType.FOCUS_IN, focusInHandler);
         _inputfield.addEventListener( FeathersEventType.FOCUS_OUT, focusOutHandler);
         _inputfield.maxChars = _maxChars;

@@ -7,12 +7,17 @@
  */
 package be.devine.cp3.conversion.view {
 import be.devine.cp3.conversion.elements.ChoiceButton;
+import be.devine.cp3.conversion.elements.InputField;
 import be.devine.cp3.conversion.elements.MenuButton;
 import be.devine.cp3.conversion.model.Appmodel;
 import be.devine.cp3.conversion.utils.Utils;
 import be.devine.cp3.conversion.vo.ProfileVO;
 
+import flash.display.BitmapData;
+
 import flash.profiler.profile;
+
+import starling.display.Image;
 
 import starling.display.Quad;
 import starling.display.Sprite;
@@ -25,6 +30,11 @@ public class AddProfileView extends Sprite implements ICanBeViewed{
     private var _backButton:MenuButton;
     private var _choiceButtons:Array = [];
     private var _addProfileButton:ChoiceButton;
+    private var _logoBitMapData:BitmapData;
+    private var _logo:Image;
+    private var _name:InputField;
+    private var _consumption:InputField;
+    private var _submit:ChoiceButton;
 
     public function AddProfileView() {
         _appModel = Appmodel.getInstance();
@@ -56,19 +66,29 @@ public class AddProfileView extends Sprite implements ICanBeViewed{
     }
 
     private function drawMenu():void {
-        addProfile("Arno");
-        if(_appModel.currentProfile != null){
-            _backButton = new MenuButton();
-            _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
-            addChild(_backButton);
-        }
+        _backButton = new MenuButton();
+        _backButton.addEventListener(TouchEvent.TOUCH, backHandler);
+        addChild(_backButton);
+
+        _name = new InputField(20, true, "Car name");
+        _name.y = 20*Utils.divideFactor - 10*Utils.divideFactor;
+        addChild(_name);
+
+        _consumption = new InputField(10, false, "Car consumption in Liters");
+        _consumption.y = _name.y + _name.height - 10*Utils.divideFactor;
+        addChild(_consumption);
+
+        _submit = new ChoiceButton("Submit");
+        _submit.y = _consumption.y + _consumption.height - 10*Utils.divideFactor;
+        _submit.addEventListener(TouchEvent.TOUCH, addProfileHandler);
+        addChild(_submit);
     }
 
     private function addProfileHandler(event:TouchEvent):void {
         var touch:Touch = event.getTouch(this, TouchPhase.ENDED);
-        if (touch)
-        {
+        if (touch) {
             _appModel.currentScreen = "AddProfileView";
+            addProfile(_name.inputfield.text, Number(_consumption.inputfield.text));
         }
 
     }

@@ -22,9 +22,11 @@ import starling.events.Event;
 public class TitleField extends Sprite{
     private var _inputfield:TextInput;
     private var _title:String;
+    private var _textSize:uint;
 
-    public function TitleField(title:String) {
+    public function TitleField(title:String, textSize:uint = 50) {
         _title = title;
+        _textSize = textSize;
 
         _inputfield = new TextInput();
         _inputfield.text = _title;
@@ -36,7 +38,7 @@ public class TitleField extends Sprite{
         _inputfield.textEditorFactory = function():ITextEditor {
             var editor:StageTextTextEditor = new StageTextTextEditor();
             editor.fontFamily = "Font";
-            editor.fontSize = 50*Utils.divideFactor;
+            editor.fontSize = _textSize*Utils.divideFactor;
             editor.color = 0x000000;
             return editor;
         }
