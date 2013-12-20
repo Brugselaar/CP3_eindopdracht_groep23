@@ -43,7 +43,7 @@ public class HistoryView extends Sprite implements ICanBeViewed{
         }
 
         if(_historyButtonArray.length != 0){
-            for(var i:uint = 0; i < _historyButtonArray.length; i++){
+            for(var i:uint = 7; i < _historyButtonArray.length; i++){
                 _historyButtonArray[i].y = i * (_historyButtonArray[i].height + 20*Utils.divideFactor);
                 trace(_historyButtonArray[i].y);
                 addChild(_historyButtonArray[i]);
